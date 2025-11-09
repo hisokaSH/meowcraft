@@ -636,6 +636,10 @@ body {
 
 .title-icon {
     font-size: 3rem;
+    color: var(--secondary-color);
+}
+
+.title-icon i {
     filter: drop-shadow(0 0 20px var(--secondary-color));
 }
 
@@ -675,6 +679,10 @@ body {
 .stat-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.stat-icon i {
     filter: drop-shadow(0 0 10px var(--secondary-color));
 }
 
@@ -739,6 +747,10 @@ body {
 .card-icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.card-icon i {
     filter: drop-shadow(0 0 10px var(--secondary-color));
 }
 
@@ -916,8 +928,12 @@ body {
 .feature-icon {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    filter: drop-shadow(0 0 10px var(--secondary-color));
+    color: var(--secondary-color);
     transition: transform var(--transition-speed);
+}
+
+.feature-icon i {
+    filter: drop-shadow(0 0 10px var(--secondary-color));
 }
 
 .feature-card:hover .feature-icon {
@@ -1029,6 +1045,15 @@ body {
 
 .platform-icon {
     font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+.platform-icon i {
+    transition: transform var(--transition-speed);
+}
+
+.platform-btn:hover .platform-icon i {
+    transform: scale(1.1);
 }
 
 .platform-info {
@@ -1163,7 +1188,12 @@ body {
 .construction-icon {
     font-size: 6rem;
     margin-bottom: 2rem;
+    color: var(--secondary-color);
     animation: swing 2s ease-in-out infinite;
+}
+
+.construction-icon i {
+    filter: drop-shadow(0 0 20px var(--secondary-color));
 }
 
 @keyframes swing {
@@ -1244,6 +1274,10 @@ body {
 .wiki-icon {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.wiki-icon i {
     filter: drop-shadow(0 0 10px var(--secondary-color));
 }
 
@@ -1315,6 +1349,14 @@ body {
 .community-icon {
     font-size: 4rem;
     margin-bottom: 1.5rem;
+}
+
+.community-icon i {
+    transition: transform var(--transition-speed);
+}
+
+.community-card:hover .community-icon i {
+    transform: scale(1.2) rotate(5deg);
 }
 
 .community-card h3 {
