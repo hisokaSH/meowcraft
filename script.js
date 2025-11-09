@@ -463,7 +463,7 @@ function copyServerIP() {
 // ==================== DOWNLOAD LAUNCHER ====================
 function downloadLauncher(platform) {
     // Your GitHub Releases download URL
-    const downloadURL = 'https://github.com/hisokaSH/meowcraft_modpack/releases/download/v1/MeowCraft.Minecraft.Launcher-1.4.0-Portable.exe';
+    const downloadURL = 'https://github.com/hisokaSH/meowcraft_modpack/releases/download/v1.1.0/MeowCraft-Launcher-v1.4.0.zip';
     
     // Start download
     window.location.href = downloadURL;
