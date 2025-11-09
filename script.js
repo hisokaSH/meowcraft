@@ -462,15 +462,14 @@ function copyServerIP() {
 
 // ==================== DOWNLOAD LAUNCHER ====================
 function downloadLauncher(platform) {
-    showNotification(`Downloading MeowCraft Launcher for ${platform}...`, 'info');
+    // Your GitHub Releases download URL
+    const downloadURL = 'https://github.com/hisokaSH/meowcraft_modpack/releases/download/v1.1.0/MeowCraftLauncherSetup.1.1.0.zip';
     
-    // You would typically redirect to actual download links:
-    // const downloadUrls = {
-    //     windows: '/downloads/MeowCraft-Launcher-Windows.exe',
-    //     mac: '/downloads/MeowCraft-Launcher-Mac.dmg',
-    //     linux: '/downloads/MeowCraft-Launcher-Linux.AppImage'
-    // };
-    // window.location.href = downloadUrls[platform];
+    // Start download
+    window.location.href = downloadURL;
+    
+    // Show notification
+    showNotification('Downloading MeowCraft Launcher (888 MB)...', 'success');
 }
 
 // ==================== NOTIFICATION SYSTEM ====================
