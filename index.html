@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MeowCraft - The ultimate Cobblemon Minecraft server. Join our community for an epic Pokémon adventure!">
+    <meta name="keywords" content="Minecraft, Cobblemon, Pokemon, Server, Gaming">
+    <meta name="author" content="MeowCraft Team">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="MeowCraft - Cobblemon Server">
+    <meta property="og:description" content="Join the ultimate Cobblemon Minecraft experience!">
+    <meta property="og:image" content="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png">
+    <meta property="og:url" content="https://meowcraft.com">
+    
+    <title>MeowCraft - Premium Cobblemon Server</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Loading MeowCraft...</p>
+        </div>
+    </div>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo">
+                <span class="logo-text">MeowCraft</span>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#download" class="nav-link">Download</a></li>
+                    <li><a href="#shop" class="nav-link">Shop</a></li>
+                    <li><a href="#wiki" class="nav-link">Wiki</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="btn-nav-login" onclick="openAuthModal('login')">
+                    <span>Login</span>
+                    <i class="arrow">→</i>
+                </button>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <img src="https://i.ibb.co/5XkShDNx/image-2025-11-08-220243333.png" alt="MeowCraft Server" class="hero-bg-image">
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-logo-container" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft" class="hero-logo">
+                <div class="logo-glow"></div>
+            </div>
+            
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+                Welcome <span class="gradient-text">Trainer!</span>
+            </h1>
+            
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">
+                A Cobblemon Freebuild Server
+            </p>
+            
+            <p class="hero-description" data-aos="fade-up" data-aos-delay="400">
+                We are a chill and competitive friendly server. Whether you want to relax and hangout with your friends or grind and dominate in tournaments - everyone is welcomed! Very beginner friendly and we're open to suggestions and feedback.
+            </p>
+            
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+                <a href="#download" class="btn btn-primary btn-glow">
+                    <span>📥 Download Launcher</span>
+                </a>
+                <a href="#" class="btn btn-discord" onclick="window.open('https://discord.gg/meowcraft', '_blank')">
+                    <span>💬 Join Discord</span>
+                </a>
+            </div>
+            
+            <div class="server-status" data-aos="fade-up" data-aos-delay="800">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Server Online</span>
+                </div>
+                <div class="status-players">
+                    <span class="players-count" id="players-count">0</span>
+                    <span class="players-label">Players Online</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1000">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <p>Scroll to explore</p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="flip-left" data-aos-delay="0">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-number" data-count="260">0</div>
+                    <div class="stat-label">Total Mods</div>
+                </div>
+                <div class="stat-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Server Uptime</div>
+                </div>
+                <div class="stat-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" data-count="1000">0</div>
+                    <div class="stat-label">Active Players</div>
+                </div>
+                <div class="stat-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="stat-icon">🎮</div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Fun Guaranteed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Server Info Section -->
+    <section id="about" class="section-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-icon">🗺️</span>
+                    Server Information
+                </h2>
+                <p class="section-subtitle">Everything you need to know about MeowCraft</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card card-hover" data-aos="fade-up" data-aos-delay="0">
+                    <div class="card-icon">🌐</div>
+                    <h3>Server Address</h3>
+                    <div class="server-ip">
+                        <code id="server-ip">meowcraft.play-network.io</code>
+                        <button class="copy-btn" onclick="copyServerIP()">
+                            <span class="copy-text">Copy</span>
+                            <span class="copied-text">Copied!</span>
+                        </button>
+                    </div>
+                    <p>Connect directly through Minecraft or use our launcher!</p>
+                </div>
+                
+                <div class="info-card card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Server Version</h3>
+                    <div class="version-info">
+                        <div class="version-item">
+                            <span class="version-label">Minecraft:</span>
+                            <span class="version-value">1.21.1</span>
+                        </div>
+                        <div class="version-item">
+                            <span class="version-label">Fabric:</span>
+                            <span class="version-value">0.17.3</span>
+                        </div>
+                        <div class="version-item">
+                            <span class="version-label">Modpack:</span>
+                            <span class="version-value">Cobblemon</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">🌍</div>
+                    <h3>Languages & Community</h3>
+                    <div class="languages">
+                        <span class="language-badge">🇫🇷 French</span>
+                        <span class="language-badge">🇬🇧 English</span>
+                    </div>
+                    <p class="highlight">✨ Beginner Friendly</p>
+                    <p>Open to suggestions and feedback</p>
+                </div>
+                
+                <div class="info-card card-hover card-highlight" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon">💯</div>
+                    <h3>Fair Play Policy</h3>
+                    <div class="policy-badge">🚫 NO PAY TO WIN</div>
+                    <p>Everyone has equal opportunities!</p>
+                    <div class="play-styles">
+                        <span class="style-tag">🎮 Casual</span>
+                        <span class="style-tag">⚔️ Competitive</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-icon">🎮</span>
+                    Features We Offer
+                </h2>
+                <p class="section-subtitle">Discover what makes MeowCraft special</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-icon">📖</div>
+                    <h3>Story Mode</h3>
+                    <p>Embark on an epic adventure with custom quests and storylines</p>
+                    <div class="feature-badge">Popular</div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Legendary Spawning</h3>
+                    <p>Encounter and catch legendary Pokémon across the world</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">🏛️</div>
+                    <h3>Legendary Structures</h3>
+                    <p>Discover amazing custom structures housing rare Pokémon</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="feature-icon">🐎</div>
+                    <h3>Pokémon Riding</h3>
+                    <p>Ride your favorite Pokémon to travel faster across the world</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Poké Hunts</h3>
+                    <p>Participate in special hunting events for rare spawns</p>
+                    <div class="feature-badge new">New</div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="feature-icon">🎁</div>
+                    <h3>Dex Rewards</h3>
+                    <p>Get rewarded for completing your Pokédex</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Gyms & Elite Four</h3>
+                    <p>Challenge official gyms with level caps for fair gameplay</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="feature-icon">💫</div>
+                    <h3>Mega Evolution</h3>
+                    <p>Unleash the true power of your Pokémon with Mega Evolution</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">👥</div>
+                    <h3>Player Gyms</h3>
+                    <p>Create and manage your own gym for other players to challenge</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="feature-icon">🔄</div>
+                    <h3>GTS System</h3>
+                    <p>Trade Pokémon globally with other players</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Protected Claiming</h3>
+                    <p>Claim and protect your chunks from griefing</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="550">
+                    <div class="feature-icon">🗼</div>
+                    <h3>Battle Tower</h3>
+                    <p>Test your skills in the challenging Battle Tower</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">👹</div>
+                    <h3>Boss Battles</h3>
+                    <p>Fight powerful boss Pokémon for exclusive rewards</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="650">
+                    <div class="feature-icon">📚</div>
+                    <h3>TMs/TRs</h3>
+                    <p>Teach your Pokémon new moves with Technical Machines</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="feature-icon">🥚</div>
+                    <h3>Breeding System</h3>
+                    <p>Breed Pokémon to get perfect IVs and shiny variants</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="750">
+                    <div class="feature-icon">🚫</div>
+                    <h3>No Pay to Win</h3>
+                    <p>Fair gameplay - no advantages from real money purchases</p>
+                    <div class="feature-badge guaranteed">Guaranteed</div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="feature-icon">🏪</div>
+                    <h3>Player/Admin Shop</h3>
+                    <p>Buy and sell items in our economy system</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="850">
+                    <div class="feature-icon">⚔️</div>
+                    <h3>PvP & PvE Tournaments</h3>
+                    <p>Compete in regular tournaments for prizes and glory</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="section-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-icon">📥</span>
+                    Download Launcher
+                </h2>
+                <p class="section-subtitle">Get started in minutes with our custom launcher</p>
+            </div>
+            
+            <div class="download-container">
+                <div class="download-box" data-aos="zoom-in">
+                    <div class="download-header">
+                        <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="Launcher" class="download-icon">
+                        <h3>MeowCraft Launcher</h3>
+                        <p>Complete Cobblemon experience with automatic updates</p>
+                    </div>
+                    
+                    <div class="download-platforms">
+                        <button class="platform-btn" onclick="downloadLauncher('windows')">
+                            <div class="platform-icon">🪟</div>
+                            <div class="platform-info">
+                                <span class="platform-name">Windows</span>
+                                <span class="platform-size">~150 MB</span>
+                            </div>
+                        </button>
+                        
+                        <button class="platform-btn" onclick="downloadLauncher('mac')">
+                            <div class="platform-icon">🍎</div>
+                            <div class="platform-info">
+                                <span class="platform-name">macOS</span>
+                                <span class="platform-size">~150 MB</span>
+                            </div>
+                        </button>
+                        
+                        <button class="platform-btn" onclick="downloadLauncher('linux')">
+                            <div class="platform-icon">🐧</div>
+                            <div class="platform-info">
+                                <span class="platform-name">Linux</span>
+                                <span class="platform-size">~150 MB</span>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="download-info">
+                        <p><strong>Latest Version:</strong> 2.0.1</p>
+                        <p><strong>Release Date:</strong> November 2025</p>
+                    </div>
+                </div>
+                
+                <div class="installation-guide" data-aos="fade-up" data-aos-delay="200">
+                    <h3>📋 Quick Installation Guide</h3>
+                    <div class="guide-steps">
+                        <div class="guide-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Download Launcher</h4>
+                                <p>Select your operating system above</p>
+                            </div>
+                        </div>
+                        <div class="guide-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Run Installer</h4>
+                                <p>Execute the downloaded file</p>
+                            </div>
+                        </div>
+                        <div class="guide-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Login/Register</h4>
+                                <p>Create your account or sign in</p>
+                            </div>
+                        </div>
+                        <div class="guide-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Play!</h4>
+                                <p>Click "Begin Your Journey" and have fun!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="requirements-box" data-aos="fade-up" data-aos-delay="300">
+                    <div class="req-column">
+                        <h4>💻 Minimum Requirements</h4>
+                        <ul>
+                            <li>8GB RAM</li>
+                            <li>4GB Free Storage</li>
+                            <li>Java 17 or higher</li>
+                            <li>Stable Internet Connection</li>
+                        </ul>
+                    </div>
+                    <div class="req-column recommended">
+                        <h4>✨ Recommended</h4>
+                        <ul>
+                            <li>16GB RAM</li>
+                            <li>8GB Free Storage</li>
+                            <li>Java 21</li>
+                            <li>Dedicated GPU</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="section-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-icon">💎</span>
+                    Shop
+                </h2>
+                <p class="section-subtitle">Support development and get exclusive perks</p>
+            </div>
+            
+            <div class="coming-soon-box" data-aos="zoom-in">
+                <div class="construction-icon">🚧</div>
+                <h3>Coming Soon!</h3>
+                <p>We're working hard to bring you an amazing shop experience with exclusive items, Pokémon, and perks.</p>
+                <div class="countdown" id="shop-countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" onclick="window.open('https://discord.gg/meowcraft', '_blank')">
+                    Join Discord for Updates
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wiki Section -->
+    <section id="wiki" class="section-dark">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-icon">📚</span>
+                    Wiki & Guides
+                </h2>
+                <p class="section-subtitle">Everything you need to become a Pokémon master</p>
+            </div>
+            
+            <div class="wiki-grid">
+                <a href="#" class="wiki-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="wiki-icon">🎓</div>
+                    <h3>Getting Started</h3>
+                    <p>New to Cobblemon? Learn the basics of catching, training, and battling!</p>
+                    <span class="wiki-link">Read Guide →</span>
+                </a>
+                
+                <a href="#" class="wiki-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="wiki-icon">📖</div>
+                    <h3>Pokédex</h3>
+                    <p>Browse all available Pokémon, their locations, evolutions, and stats!</p>
+                    <span class="wiki-link">View Pokédex →</span>
+                </a>
+                
+                <a href="#" class="wiki-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="wiki-icon">⚔️</div>
+                    <h3>Battle Guide</h3>
+                    <p>Master battle strategies, type advantages, and competitive tactics!</p>
+                    <span class="wiki-link">Learn More →</span>
+                </a>
+                
+                <a href="#" class="wiki-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="wiki-icon">🏘️</div>
+                    <h3>Towns & Cities</h3>
+                    <p>Discover all locations, gyms, and points of interest on our server!</p>
+                    <span class="wiki-link">Explore Map →</span>
+                </a>
+                
+                <a href="#" class="wiki-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="wiki-icon">🔧</div>
+                    <h3>Server Commands</h3>
+                    <p>Complete list of commands and their functions for all players!</p>
+                    <span class="wiki-link">View Commands →</span>
+                </a>
+                
+                <a href="#" class="wiki-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="wiki-icon">❓</div>
+                    <h3>FAQ</h3>
+                    <p>Find answers to commonly asked questions about the server and gameplay!</p>
+                    <span class="wiki-link">Browse FAQ →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Community Section -->
+    <section id="contact" class="section-light">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-icon">💬</span>
+                    Join Our Community
+                </h2>
+                <p class="section-subtitle">Connect with fellow trainers</p>
+            </div>
+            
+            <div class="community-grid">
+                <a href="#" class="community-card discord" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="community-icon">💬</div>
+                    <h3>Discord</h3>
+                    <p>Join our active community</p>
+                    <span class="member-count">5,000+ Members</span>
+                </a>
+                
+                <a href="#" class="community-card twitter" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="community-icon">🐦</div>
+                    <h3>Twitter</h3>
+                    <p>Follow for updates</p>
+                    <span class="member-count">Follow Us</span>
+                </a>
+                
+                <a href="#" class="community-card youtube" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="community-icon">📺</div>
+                    <h3>YouTube</h3>
+                    <p>Watch tutorials & gameplay</p>
+                    <span class="member-count">Subscribe</span>
+                </a>
+                
+                <a href="#" class="community-card instagram" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="community-icon">📷</div>
+                    <h3>Instagram</h3>
+                    <p>Behind the scenes</p>
+                    <span class="member-count">Follow</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column" data-aos="fade-up">
+                    <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft" class="footer-logo">
+                    <h3>MeowCraft</h3>
+                    <p>The ultimate Cobblemon Minecraft experience. Join thousands of trainers today!</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Discord">💬</a>
+                        <a href="#" class="social-link" title="Twitter">🐦</a>
+                        <a href="#" class="social-link" title="YouTube">📺</a>
+                        <a href="#" class="social-link" title="Instagram">📷</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#wiki">Wiki</a></li>
+                        <li><a href="#">Rules</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column" data-aos="fade-up" data-aos-delay="300">
+                    <h4>Server Info</h4>
+                    <p><strong>IP:</strong> meowcraft.play-network.io</p>
+                    <p><strong>Version:</strong> 1.21.1</p>
+                    <p><strong>Modpack:</strong> Cobblemon</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 MeowCraft Server. All rights reserved.</p>
+                <p class="footer-disclaimer">Not affiliated with Mojang or The Pokémon Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <span>↑</span>
+    </button>
+
+    <!-- Authentication Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-overlay" onclick="closeAuthModal()"></div>
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            
+            <div class="modal-content" id="login-form">
+                <h2>Welcome Back!</h2>
+                <p class="modal-subtitle">Login to your MeowCraft account</p>
+                
+                <form class="auth-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" required placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+                
+                <p class="modal-switch">
+                    Don't have an account? 
+                    <a href="#" onclick="switchToRegister()">Register here</a>
+                </p>
+            </div>
+            
+            <div class="modal-content" id="register-form" style="display: none;">
+                <h2>Join MeowCraft!</h2>
+                <p class="modal-subtitle">Create your trainer account</p>
+                
+                <form class="auth-form" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" required placeholder="Choose a username">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required placeholder="Create a password">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" required placeholder="Confirm your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+                
+                <p class="modal-switch">
+                    Already have an account? 
+                    <a href="#" onclick="switchToLogin()">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
