@@ -2654,7 +2654,7 @@ const champion = {
     "name": "Blue",
     "title": "Champion",
     "type": "Champion",
-    "sprite": "https://img.nuzlocke.app/leaders/frlg-blue.webp",
+    "sprite": "https://img.nuzlocke.app//leaders/frlg-blue-3.webp",
     "levelCap": 85,
     "team": [
         {
