@@ -14,6 +14,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: start;
+    position: relative;
+    z-index: 1;
 }
 
 /* Auth Box */
@@ -244,8 +246,10 @@
 }
 
 .feature-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     flex-shrink: 0;
+    width: 60px;
+    text-align: center;
 }
 
 .feature-item h3 {
