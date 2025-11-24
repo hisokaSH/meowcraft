@@ -26,7 +26,7 @@ body {
     background: transparent;
 }
 
-/* Subtle overlay for text readability */
+/* No overlay - using text shadows instead */
 .hero::before,
 .download-hero::before,
 .shop-hero::before,
@@ -34,14 +34,7 @@ body {
 .community-hero::before,
 .pokedex-hero::before,
 .gym-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 0;
+    display: none;
 }
 
 /* Ensure content appears above overlay */
@@ -56,7 +49,7 @@ body {
     z-index: 1;
 }
 
-/* Better text contrast on images */
+/* Strong text shadows for readability on background */
 .hero .hero-title,
 .download-hero .section-title,
 .shop-hero .section-title,
@@ -64,13 +57,23 @@ body {
 .community-hero .section-title,
 .pokedex-hero .section-title,
 .gym-hero .section-title {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 4px 8px rgba(0, 0, 0, 0.7),
+        0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .hero .hero-subtitle,
 .hero .hero-description,
-.section-subtitle {
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+.section-subtitle,
+.hero p,
+.download-hero p,
+.shop-hero p,
+.wiki-hero p,
+.community-hero p {
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 /* Mobile optimization */
