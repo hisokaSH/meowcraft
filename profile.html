@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - MeowCraft</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="backgrounds.css">
+    <link rel="stylesheet" href="auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
+                <span class="brand-text">MeowCraft</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="gym-leaders.html" class="nav-link">Gym Leaders</a></li>
+                <li><a href="pokedex.html" class="nav-link">Pokédex</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="download.html" class="nav-link">Download</a></li>
+                <li><a href="#" class="nav-link login-btn" id="navProfileBtn">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="profile-main">
+        <div class="profile-container">
+            <!-- User Profile Card -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar-wrapper">
+                        <img id="profileAvatar" src="" alt="Profile Avatar" class="profile-avatar">
+                        <div class="avatar-badge"><i class="fab fa-discord"></i></div>
+                    </div>
+                    <div class="profile-info">
+                        <h1 id="profileUsername">Loading...</h1>
+                        <p class="discord-tag" id="profileDiscordId">Discord ID: Loading...</p>
+                        <p class="member-since" id="memberSince">Member since: Loading...</p>
+                    </div>
+                    <button class="logout-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+
+                <!-- Minecraft Username Section -->
+                <div class="profile-section minecraft-section">
+                    <h2><i class="fas fa-gamepad"></i> Minecraft Account</h2>
+                    <div class="minecraft-link-box">
+                        <div id="minecraftLinked" class="minecraft-status" style="display: none;">
+                            <div class="minecraft-info">
+                                <img id="minecraftHead" src="" alt="Minecraft Head" class="minecraft-head">
+                                <span id="minecraftUsername">Username</span>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" id="changeMinecraftBtn">
+                                <i class="fas fa-edit"></i> Change
+                            </button>
+                        </div>
+                        <div id="minecraftNotLinked" class="minecraft-status">
+                            <p>No Minecraft account linked yet</p>
+                            <div class="minecraft-input-group">
+                                <input type="text" id="minecraftInput" placeholder="Enter your Minecraft username" maxlength="16">
+                                <button class="btn btn-primary" id="linkMinecraftBtn">
+                                    <i class="fas fa-link"></i> Link Account
+                                </button>
+                            </div>
+                            <p class="input-note">This can be any username (cracked accounts supported)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Purchase Stats -->
+                <div class="profile-section stats-section">
+                    <h2><i class="fas fa-chart-bar"></i> Your Stats</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="totalSpent">$0.00</div>
+                            <div class="stat-label">Total Spent</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="totalPurchases">0</div>
+                            <div class="stat-label">Purchases</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="leaderboardRank">#--</div>
+                            <div class="stat-label">Leaderboard Rank</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Purchase History -->
+                <div class="profile-section history-section">
+                    <h2><i class="fas fa-history"></i> Purchase History</h2>
+                    <div class="purchase-history" id="purchaseHistory">
+                        <div class="no-purchases">
+                            <i class="fas fa-shopping-bag"></i>
+                            <p>No purchases yet</p>
+                            <a href="shop.html" class="btn btn-primary">Visit Shop</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discord Roles -->
+                <div class="profile-section roles-section">
+                    <h2><i class="fab fa-discord"></i> Your Discord Roles</h2>
+                    <div class="roles-list" id="discordRoles">
+                        <div class="no-roles">
+                            <p>Purchase items to unlock Discord roles!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Check authentication
+        document.addEventListener('DOMContentLoaded', async function() {
+            const token = localStorage.getItem('meowcraft_token');
+            const user = localStorage.getItem('meowcraft_user');
+            
+            if (!token || !user) {
+                window.location.href = '/login.html';
+                return;
+            }
+
+            const userData = JSON.parse(user);
+            displayUserProfile(userData);
+            await loadUserData(token);
+        });
+
+        function displayUserProfile(user) {
+            // Set avatar
+            const avatarUrl = user.avatar 
+                ? `https://cdn.discordapp.com/avatars/${user.discordId}/${user.avatar}.png?size=256`
+                : `https://cdn.discordapp.com/embed/avatars/${parseInt(user.discordId) % 5}.png`;
+            
+            document.getElementById('profileAvatar').src = avatarUrl;
+            document.getElementById('profileUsername').textContent = user.username;
+            document.getElementById('profileDiscordId').textContent = `Discord ID: ${user.discordId}`;
+            document.getElementById('memberSince').textContent = `Member since: ${new Date(user.createdAt).toLocaleDateString()}`;
+
+            // Minecraft section
+            if (user.minecraftUsername) {
+                document.getElementById('minecraftLinked').style.display = 'flex';
+                document.getElementById('minecraftNotLinked').style.display = 'none';
+                document.getElementById('minecraftUsername').textContent = user.minecraftUsername;
+                document.getElementById('minecraftHead').src = `https://mc-heads.net/avatar/${user.minecraftUsername}/64`;
+            }
+        }
+
+        async function loadUserData(token) {
+            try {
+                const response = await fetch('/api/user/profile', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    updateStats(data);
+                    updatePurchaseHistory(data.purchases);
+                    updateDiscordRoles(data.roles);
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        function updateStats(data) {
+            document.getElementById('totalSpent').textContent = `$${(data.totalSpent || 0).toFixed(2)}`;
+            document.getElementById('totalPurchases').textContent = data.purchases?.length || 0;
+            document.getElementById('leaderboardRank').textContent = data.leaderboardRank ? `#${data.leaderboardRank}` : '#--';
+        }
+
+        function updatePurchaseHistory(purchases) {
+            const container = document.getElementById('purchaseHistory');
+            
+            if (!purchases || purchases.length === 0) return;
+
+            container.innerHTML = purchases.map(purchase => `
+                <div class="purchase-item">
+                    <div class="purchase-info">
+                        <span class="purchase-name">${purchase.itemName}</span>
+                        <span class="purchase-date">${new Date(purchase.date).toLocaleDateString()}</span>
+                    </div>
+                    <span class="purchase-amount">$${purchase.amount.toFixed(2)}</span>
+                </div>
+            `).join('');
+        }
+
+        function updateDiscordRoles(roles) {
+            const container = document.getElementById('discordRoles');
+            
+            if (!roles || roles.length === 0) return;
+
+            container.innerHTML = roles.map(role => `
+                <div class="role-badge" style="background-color: ${role.color};">
+                    ${role.name}
+                </div>
+            `).join('');
+        }
+
+        // Link Minecraft Account
+        document.getElementById('linkMinecraftBtn').addEventListener('click', async function() {
+            const username = document.getElementById('minecraftInput').value.trim();
+            
+            if (!username) {
+                alert('Please enter a Minecraft username');
+                return;
+            }
+
+            if (!/^[a-zA-Z0-9_]{3,16}$/.test(username)) {
+                alert('Invalid Minecraft username format');
+                return;
+            }
+
+            try {
+                const token = localStorage.getItem('meowcraft_token');
+                const response = await fetch('/api/user/minecraft', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ minecraftUsername: username })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    // Update local storage
+                    const user = JSON.parse(localStorage.getItem('meowcraft_user'));
+                    user.minecraftUsername = username;
+                    localStorage.setItem('meowcraft_user', JSON.stringify(user));
+                    
+                    // Update UI
+                    document.getElementById('minecraftLinked').style.display = 'flex';
+                    document.getElementById('minecraftNotLinked').style.display = 'none';
+                    document.getElementById('minecraftUsername').textContent = username;
+                    document.getElementById('minecraftHead').src = `https://mc-heads.net/avatar/${username}/64`;
+                } else {
+                    alert('Failed to link account. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+
+        // Change Minecraft username
+        document.getElementById('changeMinecraftBtn').addEventListener('click', function() {
+            document.getElementById('minecraftLinked').style.display = 'none';
+            document.getElementById('minecraftNotLinked').style.display = 'block';
+            document.getElementById('minecraftInput').value = '';
+        });
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('meowcraft_token');
+            localStorage.removeItem('meowcraft_user');
+            window.location.href = '/login.html';
+        });
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
