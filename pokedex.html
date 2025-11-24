@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - MeowCraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pokedex.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="icons.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
+                <span class="brand-text">MeowCraft</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="gym-leaders.html" class="nav-link">Gym Leaders</a></li>
+                <li><a href="pokedex.html" class="nav-link active">Pokédex</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="download.html" class="nav-link">Download</a></li>
+                <li><a href="login.html" class="nav-link login-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pokedex-hero">
+            <div class="container">
+                <h1 class="section-title" data-aos="fade-up"><i class="fas fa-book"></i> Pokédex</h1>
+                <p class="section-subtitle" data-aos="fade-up">Discover all available Pokémon on the server</p>
+                
+                <!-- Search Bar -->
+                <div class="pokedex-search" data-aos="fade-up">
+                    <input type="text" id="pokedexSearch" placeholder="Search Pokémon...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pokédex Grid -->
+        <section class="pokedex-section">
+            <div class="container-wide">
+                <div id="pokedexContainer">
+                    <!-- Pokemon types will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MeowCraft</h3>
+                    <p>The ultimate Cobblemon Minecraft experience.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="wiki.html">Wiki</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="gym-leaders.html">Gym Leaders</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MeowCraft. Not affiliated with Mojang Studios or The Pokémon Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        // Hide loading screen immediately
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
+        });
+        
+        // Fallback - hide after 1 second regardless
+        setTimeout(function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
+        }, 1000);
+    </script>
+    <script src="script.js"></script>
+    <script>
+        // Make particles optional - don't block if it fails
+        if (typeof particlesJS === 'undefined') {
+            console.log('Particles.js not loaded, skipping particle effects');
+        }
+    </script>
+    <script src="pokedex-config.js"></script>
+    <script src="pokedex.js"></script>
+</body>
+</html>

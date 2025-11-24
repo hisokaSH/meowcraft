@@ -1,0 +1,14 @@
+====================================
+   ADD YOUR 5 IMAGES TO THIS FOLDER
+====================================
+
+Required Images:
+1. hero-bg.jpg
+2. download-bg.jpg  
+3. shop-bg.jpg
+4. wiki-bg.jpg
+5. community-bg.jpg
+
+See README.md in this folder or
+BACKGROUND_IMAGES_GUIDE.md in parent folder
+for complete instructions!

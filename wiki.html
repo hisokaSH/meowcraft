@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki - MeowCraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="wiki.css">
+    <link rel="stylesheet" href="backgrounds.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="icons.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
+                <span class="brand-text">MeowCraft</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="gym-leaders.html" class="nav-link">Gym Leaders</a></li>
+                <li><a href="pokedex.html" class="nav-link">Pokédex</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="download.html" class="nav-link">Download</a></li>
+                <li><a href="login.html" class="nav-link login-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="wiki-hero">
+            <div class="container">
+                <h1 class="section-title" data-aos="fade-up"><i class="fas fa-book"></i>  MeowCraft Wiki</h1>
+                <p class="section-subtitle" data-aos="fade-up">Your complete guide to mastering MeowCraft</p>
+                <div class="search-bar" data-aos="fade-up">
+                    <input type="text" id="wikiSearch" placeholder="Search for guides, tutorials, and more...">
+                    <button class="search-btn">🔍</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wiki Navigation -->
+        <section class="wiki-nav-section">
+            <div class="container">
+                <div class="wiki-categories" data-aos="fade-up">
+                    <button class="category-btn active" data-category="all">All Topics</button>
+                    <button class="category-btn" data-category="getting-started">Getting Started</button>
+                    <button class="category-btn" data-category="gameplay">Gameplay</button>
+                    <button class="category-btn" data-category="cobblemon">Cobblemon</button>
+                    <button class="category-btn" data-category="commands">Commands</button>
+                    <button class="category-btn" data-category="economy">Economy</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wiki Content -->
+        <section class="wiki-content">
+            <div class="container">
+                <div class="wiki-layout">
+                    <!-- Sidebar -->
+                    <aside class="wiki-sidebar" data-aos="fade-right">
+                        <div class="sidebar-section">
+                            <h3>🚀 Getting Started</h3>
+                            <ul class="wiki-links">
+                                <li><a href="#installation">Installation Guide</a></li>
+                                <li><a href="#first-steps">First Steps</a></li>
+                                <li><a href="#rules">Server Rules</a></li>
+                                <li><a href="#commands">Basic Commands</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-section">
+                            <h3>⚔️ Gameplay</h3>
+                            <ul class="wiki-links">
+                                <li><a href="#battling">PvP Battles</a></li>
+                                <li><a href="#claiming">Land Claiming</a></li>
+                                <li><a href="#economy">Economy System</a></li>
+                                <li><a href="#events">Events & Competitions</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-section">
+                            <h3>🎮 Cobblemon</h3>
+                            <ul class="wiki-links">
+                                <li><a href="#catching">Catching Pokémon</a></li>
+                                <li><a href="#training">Training Guide</a></li>
+                                <li><a href="#breeding">Breeding System</a></li>
+                                <li><a href="#shiny">Shiny Hunting</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <div class="wiki-main" data-aos="fade-left">
+                        <!-- Getting Started Category -->
+                        <div class="wiki-article" id="installation" data-category="getting-started">
+                            <div class="article-header">
+                                <h2><i class="fas fa-download"></i> Installation Guide</h2>
+                                <span class="article-tag">Getting Started</span>
+                            </div>
+                            <div class="article-content">
+                                <p>Follow these simple steps to get started with MeowCraft:</p>
+                                <ol>
+                                    <li><strong>Download the Launcher:</strong> Head to our <a href="download.html">download page</a> and get the MeowCraft launcher for your operating system.</li>
+                                    <li><strong>Install:</strong> Run the installer and follow the on-screen instructions.</li>
+                                    <li><strong>Login/Register:</strong> Create an account or login with your existing credentials.</li>
+                                    <li><strong>Launch:</strong> Click "Play" and the launcher will automatically download all required mods and connect you to the server.</li>
+                                </ol>
+                                <div class="info-box">
+                                    <strong>💡 Tip:</strong> Make sure you have Java 17 or higher installed for optimal performance.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wiki-article" id="first-steps" data-category="getting-started">
+                            <div class="article-header">
+                                <h2><i class="fas fa-bullseye"></i> First Steps</h2>
+                                <span class="article-tag">Getting Started</span>
+                            </div>
+                            <div class="article-content">
+                                <p>Once you've joined the server, here's what to do:</p>
+                                <h3>1. Choose Your Starter</h3>
+                                <p>When you first join, you'll be able to choose from a selection of starter Pokémon. Take your time and choose wisely!</p>
+                                
+                                <h3>2. Claim Your Land</h3>
+                                <p>Protect your builds using our land claim system. Use <code>/claim</code> to secure your area.</p>
+                                
+                                <h3>3. Explore the World</h3>
+                                <p>Our custom-generated world has unique biomes and structures waiting to be discovered.</p>
+                                
+                                <h3>4. Join the Community</h3>
+                                <p>Connect with other players on our Discord server and join in on events!</p>
+                            </div>
+                        </div>
+
+                        <div class="wiki-article" id="rules" data-category="getting-started">
+                            <div class="article-header">
+                                <h2>📜 Server Rules</h2>
+                                <span class="article-tag">Getting Started</span>
+                            </div>
+                            <div class="article-content">
+                                <div class="warning-box">
+                                    <strong>⚠️ Important:</strong> Breaking these rules may result in temporary or permanent bans.
+                                </div>
+                                <ul>
+                                    <li>Be respectful to all players and staff</li>
+                                    <li>No griefing or stealing</li>
+                                    <li>No cheating, hacking, or exploiting bugs</li>
+                                    <li>Keep chat family-friendly</li>
+                                    <li>No advertising other servers</li>
+                                    <li>Follow staff instructions</li>
+                                    <li>Report bugs and exploits to staff immediately</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Gameplay Category -->
+                        <div class="wiki-article" id="battling" data-category="gameplay">
+                            <div class="article-header">
+                                <h2>⚔️ PvP Battles</h2>
+                                <span class="article-tag">Gameplay</span>
+                            </div>
+                            <div class="article-content">
+                                <p>Engage in competitive battles with other players!</p>
+                                <h3>Battle Commands</h3>
+                                <ul>
+                                    <li><code>/battle [player]</code> - Challenge another player</li>
+                                    <li><code>/battle accept</code> - Accept a battle request</li>
+                                    <li><code>/battle decline</code> - Decline a battle request</li>
+                                    <li><code>/battle format [format]</code> - Choose battle format</li>
+                                </ul>
+                                
+                                <h3>Battle Formats</h3>
+                                <ul>
+                                    <li><strong>Singles:</strong> 1v1 battles</li>
+                                    <li><strong>Doubles:</strong> 2v2 battles</li>
+                                    <li><strong>Triples:</strong> 3v3 battles</li>
+                                    <li><strong>Custom:</strong> Set your own rules</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="wiki-article" id="claiming" data-category="gameplay">
+                            <div class="article-header">
+                                <h2><i class="fas fa-shield-alt"></i> Land Claiming</h2>
+                                <span class="article-tag">Gameplay</span>
+                            </div>
+                            <div class="article-content">
+                                <p>Protect your builds and items with our comprehensive claim system.</p>
+                                <h3>Basic Commands</h3>
+                                <ul>
+                                    <li><code>/claim</code> - Create a claim (requires Golden Shovel)</li>
+                                    <li><code>/trust [player]</code> - Give a player full access to your claim</li>
+                                    <li><code>/untrust [player]</code> - Remove trust from a player</li>
+                                    <li><code>/abandonclaim</code> - Delete the claim you're standing in</li>
+                                    <li><code>/claimlist</code> - List all your claims</li>
+                                </ul>
+                                
+                                <div class="info-box">
+                                    <strong>💡 Pro Tip:</strong> Use <code>/subdivide</code> to create smaller areas within your main claim for specific players!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cobblemon Category -->
+                        <div class="wiki-article" id="catching" data-category="cobblemon">
+                            <div class="article-header">
+                                <h2>⚾ Catching Pokémon</h2>
+                                <span class="article-tag">Cobblemon</span>
+                            </div>
+                            <div class="article-content">
+                                <p>Learn the art of catching Pokémon in MeowCraft!</p>
+                                <h3>Pokéball Types</h3>
+                                <ul>
+                                    <li><strong>Poké Ball:</strong> Basic catch rate</li>
+                                    <li><strong>Great Ball:</strong> 1.5x catch rate</li>
+                                    <li><strong>Ultra Ball:</strong> 2x catch rate</li>
+                                    <li><strong>Master Ball:</strong> 100% catch rate (very rare!)</li>
+                                </ul>
+                                
+                                <h3>Catch Rate Tips</h3>
+                                <ul>
+                                    <li>Lower the Pokémon's HP for better catch rates</li>
+                                    <li>Status conditions (sleep, paralysis) increase catch rate</li>
+                                    <li>Different balls work better in different situations</li>
+                                    <li>Time of day affects spawn rates of certain Pokémon</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="wiki-article" id="training" data-category="cobblemon">
+                            <div class="article-header">
+                                <h2>💪 Training Guide</h2>
+                                <span class="article-tag">Cobblemon</span>
+                            </div>
+                            <div class="article-content">
+                                <p>Maximize your Pokémon's potential with these training strategies.</p>
+                                <h3>Leveling Methods</h3>
+                                <ul>
+                                    <li><strong>Wild Battles:</strong> Classic exp grinding</li>
+                                    <li><strong>Trainer Battles:</strong> More experience than wild Pokémon</li>
+                                    <li><strong>Rare Candies:</strong> Instant level ups (obtainable from events)</li>
+                                    <li><strong>Exp Share:</strong> Level multiple Pokémon at once</li>
+                                </ul>
+                                
+                                <h3>EV Training</h3>
+                                <p>Defeat specific Pokémon to train your stats:</p>
+                                <ul>
+                                    <li>HP: Chansey, Blissey</li>
+                                    <li>Attack: Machop, Machoke</li>
+                                    <li>Defense: Geodude, Graveler</li>
+                                    <li>Sp. Attack: Gastly, Haunter</li>
+                                    <li>Sp. Defense: Tentacool, Tentacruel</li>
+                                    <li>Speed: Zubat, Golbat</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Economy Category -->
+                        <div class="wiki-article" id="economy" data-category="economy">
+                            <div class="article-header">
+                                <h2>💰 Economy System</h2>
+                                <span class="article-tag">Economy</span>
+                            </div>
+                            <div class="article-content">
+                                <p>Learn how to earn and spend money in MeowCraft!</p>
+                                <h3>Earning Money</h3>
+                                <ul>
+                                    <li><strong>Daily Rewards:</strong> Login daily for free money</li>
+                                    <li><strong>Selling Items:</strong> Use <code>/shop</code> to sell items</li>
+                                    <li><strong>Player Trading:</strong> Trade with other players</li>
+                                    <li><strong>Completing Quests:</strong> Earn rewards from quests</li>
+                                    <li><strong>Winning Events:</strong> Participate in server events</li>
+                                </ul>
+                                
+                                <h3>Economy Commands</h3>
+                                <ul>
+                                    <li><code>/balance</code> - Check your balance</li>
+                                    <li><code>/pay [player] [amount]</code> - Send money to players</li>
+                                    <li><code>/shop</code> - Access the shop menu</li>
+                                    <li><code>/ah</code> - Open the auction house</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up"><i class="fas fa-question-circle"></i>  Frequently Asked Questions</h2>
+                <div class="faq-grid" data-aos="fade-up">
+                    <div class="faq-item">
+                        <h3>How do I get started?</h3>
+                        <p>Download our custom launcher, create an account, and you'll be automatically connected to the server with all required mods!</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is the server always online?</h3>
+                        <p>Yes! MeowCraft is online 24/7 with 99.9% uptime.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I play with friends?</h3>
+                        <p>Absolutely! Invite your friends and create a team to explore together.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I report bugs?</h3>
+                        <p>Join our Discord and use the #bug-reports channel, or contact a staff member in-game.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MeowCraft</h3>
+                    <p>The ultimate Cobblemon Minecraft experience.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="wiki.html">Wiki</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="download.html">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Report Bug</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MeowCraft. Not affiliated with Mojang Studios or The Pokémon Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="wiki.js"></script>
+</body>
+</html>

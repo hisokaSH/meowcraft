@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MeowCraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="icons.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
+                <span class="brand-text">MeowCraft</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="register.html" class="nav-link login-btn">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <div class="auth-box">
+                <div class="auth-header">
+                    <h1>Welcome Back!</h1>
+                    <p>Login to access your account</p>
+                </div>
+
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username or Email</label>
+                        <input type="text" id="username" name="username" required placeholder="Enter your username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>OR</span>
+                </div>
+
+                <div class="social-auth">
+                    <button class="social-btn discord-btn">
+                        <i class="fab fa-discord"></i> Login with Discord
+                    </button>
+                    <button class="social-btn microsoft-btn">
+                        🎮 Login with Microsoft
+                    </button>
+                </div>
+
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="register.html">Register here</a></p>
+                </div>
+            </div>
+
+            <div class="auth-features">
+                <h2>Why Create an Account?</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🎮</span>
+                        <div>
+                            <h3>Track Your Progress</h3>
+                            <p>View your stats, achievements, and playtime</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon"><i class="fas fa-shopping-cart"></i></span>
+                        <div>
+                            <h3>Shop Access</h3>
+                            <p>Purchase ranks, items, and cosmetics</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👥</span>
+                        <div>
+                            <h3>Community Features</h3>
+                            <p>Connect with friends and join teams</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎁</span>
+                        <div>
+                            <h3>Daily Rewards</h3>
+                            <p>Claim exclusive daily bonuses</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

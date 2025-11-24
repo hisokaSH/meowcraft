@@ -1,0 +1,219 @@
+/* Professional Icon Styling for Font Awesome Icons */
+
+/* Logo Icon */
+.nav-brand .logo {
+    font-size: 2rem;
+    color: var(--primary-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Logo Image */
+.logo-img {
+    height: 40px;
+    width: auto;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(255, 107, 53, 0.5));
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 35px;
+    }
+}
+
+/* Stat Card Icons */
+.stat-icon i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Feature Card Icons */
+.feature-icon i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon i {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+/* Product Icons */
+.product-icon i {
+    font-size: 4rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Platform Icons */
+.platform-icon i {
+    font-size: 5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Social Card Icons */
+.social-card-icon i {
+    font-size: 5rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.social-card:hover .social-card-icon i {
+    transform: scale(1.1) rotate(5deg);
+    color: var(--accent-color);
+}
+
+/* Step Number Icons (for guides) */
+.step-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Info Box Icons */
+.info-box i,
+.warning-box i,
+.success-box i {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Button Icons */
+.btn i {
+    margin-right: 0.5rem;
+}
+
+/* Social Links in Footer */
+.social-link i {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover i {
+    transform: scale(1.2);
+}
+
+/* Download Button Icons */
+.download-btn i {
+    margin-right: 0.5rem;
+}
+
+/* Cart Icon */
+.cart-btn i {
+    margin-right: 0.5rem;
+}
+
+/* Article Icons */
+.article-tag i {
+    margin-right: 0.5rem;
+}
+
+/* Animated Icons */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.stat-icon i {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Icon Background Circles */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.1) 100%);
+    border: 2px solid rgba(255, 107, 53, 0.3);
+    transition: all 0.3s ease;
+}
+
+.icon-circle:hover {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(247, 147, 30, 0.2) 100%);
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.icon-circle i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+/* Icon Badges */
+.icon-badge {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-badge::after {
+    content: attr(data-badge);
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+/* Spinning Icons */
+.icon-spin {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Icon Glow Effect */
+.icon-glow i {
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+/* Responsive Icon Sizes */
+@media (max-width: 768px) {
+    .stat-icon i {
+        font-size: 2.5rem;
+    }
+    
+    .feature-icon i {
+        font-size: 2.5rem;
+    }
+    
+    .product-icon i {
+        font-size: 3rem;
+    }
+    
+    .platform-icon i {
+        font-size: 4rem;
+    }
+    
+    .social-card-icon i {
+        font-size: 4rem;
+    }
+}

@@ -1,0 +1,331 @@
+/* Wiki Hero */
+.wiki-hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+}
+
+.search-bar {
+    max-width: 600px;
+    margin: 2rem auto;
+    display: flex;
+    gap: 1rem;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 50px;
+    padding: 0.5rem;
+}
+
+.search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-btn {
+    background: var(--gradient-1);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+}
+
+/* Wiki Navigation */
+.wiki-nav-section {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.wiki-categories {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: var(--gradient-1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* Wiki Layout */
+.wiki-content {
+    padding: 4rem 0;
+}
+
+.wiki-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+}
+
+/* Sidebar */
+.wiki-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.sidebar-section {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.wiki-links {
+    list-style: none;
+}
+
+.wiki-links li {
+    margin-bottom: 0.8rem;
+}
+
+.wiki-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.wiki-links a:hover {
+    color: var(--primary-color);
+    background: rgba(255, 107, 53, 0.1);
+    padding-left: 1rem;
+}
+
+/* Wiki Articles */
+.wiki-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.wiki-article {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    scroll-margin-top: 100px;
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.article-header h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.article-tag {
+    background: var(--gradient-1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: white;
+    font-weight: 600;
+}
+
+.article-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.article-content h3 {
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.article-content p {
+    margin-bottom: 1rem;
+}
+
+.article-content ul,
+.article-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+.article-content code {
+    background: rgba(255, 107, 53, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    color: var(--accent-color);
+    font-family: 'Courier New', monospace;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.article-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.article-content a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* Info Boxes */
+.info-box {
+    background: rgba(255, 193, 7, 0.1);
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    color: var(--text-secondary);
+}
+
+.warning-box {
+    background: rgba(244, 67, 54, 0.1);
+    border-left: 4px solid #f44336;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    color: var(--text-secondary);
+}
+
+.success-box {
+    background: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4caf50;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    color: var(--text-secondary);
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 4rem 0;
+    background: rgba(255, 107, 53, 0.02);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+    border-color: var(--primary-color);
+}
+
+.faq-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .wiki-layout {
+        grid-template-columns: 250px 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .wiki-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .wiki-sidebar {
+        position: static;
+        order: -1;
+    }
+
+    .sidebar-section {
+        margin-bottom: 1rem;
+    }
+
+    .article-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        border-radius: 15px;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .wiki-categories {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+
+    .category-btn {
+        white-space: nowrap;
+    }
+}

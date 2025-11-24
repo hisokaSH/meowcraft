@@ -1,0 +1,418 @@
+/* Download Hero */
+.download-hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+}
+
+.version-badge {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+}
+
+.version-badge span:first-child {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.version-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Download Options */
+.download-options {
+    padding: 4rem 0;
+}
+
+.platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.platform-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.platform-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(255, 107, 53, 0.3);
+    border-color: var(--primary-color);
+}
+
+.platform-card.popular {
+    border: 2px solid var(--primary-color);
+}
+
+.platform-card.popular::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-1);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+}
+
+.platform-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.platform-card h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.platform-compatibility {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.download-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.file-size,
+.file-type {
+    display: flex;
+    align-items: center;
+}
+
+.download-btn {
+    width: 100%;
+    margin: 1.5rem 0;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.system-requirements {
+    text-align: left;
+    background: rgba(255, 107, 53, 0.05);
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.system-requirements strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.system-requirements ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.system-requirements li {
+    color: var(--text-secondary);
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.system-requirements li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Alternative Downloads */
+.alternative-downloads {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.alternative-downloads h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.alt-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Installation Guide */
+.installation-guide {
+    padding: 4rem 0;
+    background: rgba(255, 107, 53, 0.02);
+}
+
+.guide-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.guide-tab {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    padding: 1rem 2.5rem;
+    border-radius: 25px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.guide-tab:hover,
+.guide-tab.active {
+    background: var(--gradient-1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.guide-content {
+    display: none;
+    max-width: 900px;
+    margin: 2rem auto 0;
+}
+
+.guide-content.active {
+    display: block;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.step {
+    display: flex;
+    gap: 2rem;
+    align-items: start;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.2);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.step-content code {
+    background: rgba(255, 107, 53, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    color: var(--accent-color);
+    font-family: 'Courier New', monospace;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+/* Troubleshooting */
+.troubleshooting {
+    padding: 4rem 0;
+}
+
+.troubleshooting-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.trouble-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.trouble-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+    border-color: var(--primary-color);
+}
+
+.trouble-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.trouble-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.trouble-card strong {
+    color: var(--accent-color);
+}
+
+.trouble-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.trouble-card a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.help-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.help-cta p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Launcher Features */
+.launcher-features {
+    padding: 4rem 0;
+    background: rgba(255, 107, 53, 0.02);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+    border-color: var(--primary-color);
+}
+
+.feature-item .feature-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.feature-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .platforms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step-number {
+        margin: 0 auto;
+    }
+
+    .alt-buttons {
+        flex-direction: column;
+    }
+
+    .alt-buttons .btn {
+        width: 100%;
+    }
+
+    .guide-tabs {
+        flex-direction: column;
+    }
+
+    .guide-tab {
+        width: 100%;
+    }
+
+    .download-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

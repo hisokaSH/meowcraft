@@ -1,0 +1,246 @@
+═══════════════════════════════════════════════════════════
+    🐱 MEOWCRAFT WEBSITE - GITHUB UPLOAD INSTRUCTIONS
+═══════════════════════════════════════════════════════════
+
+📦 WHAT YOU HAVE:
+- Complete website with 9 pages
+- Professional design with custom background
+- 887 Pokémon in Pokédex
+- Gym Leaders data with calculated stats
+- Ready for Vercel deployment!
+
+═══════════════════════════════════════════════════════════
+    🚀 OPTION 1: UPLOAD VIA WEB (EASIEST!)
+═══════════════════════════════════════════════════════════
+
+1. GO TO YOUR GITHUB REPO:
+   → Open: https://github.com/hisokaSH/meowcraft
+
+2. CLEAR EXISTING FILES (if any):
+   → Click each file
+   → Click trash icon (🗑️)
+   → Commit deletion
+   → Repeat for all files
+
+3. UPLOAD NEW FILES:
+   → Click "Add file" button
+   → Click "Upload files"
+   → Drag ALL files from your extracted folder
+   → Wait for upload to complete
+   → Scroll down
+   → Click "Commit changes"
+
+4. ✅ DONE! Files are on GitHub!
+
+═══════════════════════════════════════════════════════════
+    🚀 OPTION 2: USING GITHUB DESKTOP (RECOMMENDED)
+═══════════════════════════════════════════════════════════
+
+1. DOWNLOAD GITHUB DESKTOP:
+   → Go to: https://desktop.github.com/
+   → Install it
+
+2. SIGN IN:
+   → Open GitHub Desktop
+   → File → Options → Sign In
+   → Sign in with your GitHub account
+
+3. CLONE YOUR REPO:
+   → File → Clone Repository
+   → Find "hisokaSH/meowcraft"
+   → Choose where to save it locally
+   → Click "Clone"
+
+4. REPLACE FILES:
+   → Open the cloned folder on your computer
+   → DELETE everything inside
+   → COPY all website files into this folder
+
+5. COMMIT & PUSH:
+   → Go back to GitHub Desktop
+   → You'll see all changes listed
+   → Write commit message: "Deploy MeowCraft website"
+   → Click "Commit to main"
+   → Click "Push origin"
+
+6. ✅ DONE! Check GitHub to see your files!
+
+═══════════════════════════════════════════════════════════
+    🚀 OPTION 3: USING GIT COMMAND LINE
+═══════════════════════════════════════════════════════════
+
+1. OPEN TERMINAL/COMMAND PROMPT
+
+2. NAVIGATE TO YOUR WEBSITE FOLDER:
+   cd /path/to/your/extracted/folder
+
+3. INITIALIZE GIT (if needed):
+   git init
+
+4. ADD REMOTE (if not connected):
+   git remote add origin https://github.com/hisokaSH/meowcraft.git
+
+5. ADD ALL FILES:
+   git add .
+
+6. COMMIT FILES:
+   git commit -m "Deploy MeowCraft website"
+
+7. PUSH TO GITHUB:
+   git branch -M main
+   git push -u origin main
+
+8. ✅ DONE! Check GitHub!
+
+═══════════════════════════════════════════════════════════
+    🌐 DEPLOY TO VERCEL (AFTER GITHUB UPLOAD)
+═══════════════════════════════════════════════════════════
+
+1. GO TO VERCEL:
+   → Visit: https://vercel.com
+   → Click "Sign Up" (use GitHub)
+
+2. IMPORT PROJECT:
+   → Click "Add New Project"
+   → Click "Import Git Repository"
+   → Find "meowcraft"
+   → Click "Import"
+
+3. DEPLOY:
+   → Leave all settings as default
+   → Click "Deploy"
+   → Wait 30-60 seconds
+
+4. ✅ YOUR SITE IS LIVE!
+   → URL: https://meowcraft.vercel.app
+   → Visit it and see your website!
+
+═══════════════════════════════════════════════════════════
+    🌐 ADD CUSTOM DOMAIN (OPTIONAL)
+═══════════════════════════════════════════════════════════
+
+1. IN VERCEL:
+   → Click your project
+   → Settings → Domains
+   → Add: meowcraft.net
+   → Add: www.meowcraft.net
+
+2. UPDATE DNS:
+   → Go to your domain registrar
+   → Add these records:
+
+   Type: A
+   Name: @
+   Value: 76.76.21.21
+
+   Type: CNAME
+   Name: www
+   Value: cname.vercel-dns.com
+
+3. WAIT:
+   → DNS takes 5-30 minutes
+   → Vercel will show "Valid Configuration"
+   → SSL is automatic!
+
+4. ✅ DONE! Visit https://meowcraft.net
+
+═══════════════════════════════════════════════════════════
+    ✅ FILES CHECKLIST
+═══════════════════════════════════════════════════════════
+
+Make sure you upload ALL these files:
+
+HTML FILES (9):
+✓ index.html
+✓ wiki.html
+✓ shop.html
+✓ gym-leaders.html
+✓ pokedex.html
+✓ community.html
+✓ download.html
+✓ login.html
+✓ register.html
+
+CSS FILES (9):
+✓ styles.css
+✓ home.css
+✓ gym-leaders.css
+✓ pokedex.css
+✓ shop.css
+✓ wiki.css
+✓ download.css
+✓ auth.css
+✓ backgrounds.css
+✓ icons.css
+
+JAVASCRIPT FILES (6):
+✓ script.js
+✓ gym-leaders.js
+✓ pokedex.js
+✓ shop.js
+✓ wiki.js
+✓ download.js
+✓ auth.js
+
+DATA FILES (2):
+✓ gym-config.js (90 KB - Gym Leaders data)
+✓ pokedex-config.js (28 KB - Pokédex data)
+
+CONFIG FILES (5):
+✓ vercel.json (Vercel configuration)
+✓ package.json (Project metadata)
+✓ .gitignore (Git ignore rules)
+✓ README.md (Documentation)
+✓ LICENSE (MIT License)
+
+EXTRA:
+✓ DEPLOYMENT_GUIDE.md
+✓ images/ folder (optional)
+
+═══════════════════════════════════════════════════════════
+    🆘 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════
+
+PROBLEM: "Permission denied" when pushing
+SOLUTION: Make sure you're signed into GitHub in your terminal
+         or use GitHub Desktop instead
+
+PROBLEM: Vercel deployment fails
+SOLUTION: Make sure vercel.json file is uploaded
+         Check Vercel deployment logs for errors
+
+PROBLEM: Website shows 404
+SOLUTION: Make sure index.html is in the root folder
+         Check all files uploaded correctly
+
+PROBLEM: Styles not loading
+SOLUTION: Clear browser cache (Ctrl+F5)
+         Check CSS files are uploaded
+         Check browser console for errors
+
+PROBLEM: Custom domain not working
+SOLUTION: Wait 30 minutes for DNS propagation
+         Check DNS records are correct
+         Use https://dnschecker.org to verify
+
+═══════════════════════════════════════════════════════════
+    📞 NEED HELP?
+═══════════════════════════════════════════════════════════
+
+1. Read DEPLOYMENT_GUIDE.md for detailed instructions
+2. Check README.md for project overview
+3. Google your error message
+4. Check Vercel documentation
+5. Ask in Discord
+
+═══════════════════════════════════════════════════════════
+    🎉 CONGRATULATIONS!
+═══════════════════════════════════════════════════════════
+
+Once deployed, your website will be live at:
+→ https://meowcraft.vercel.app
+→ https://meowcraft.net (with custom domain)
+
+Share it with your community! 🐱✨
+
+═══════════════════════════════════════════════════════════

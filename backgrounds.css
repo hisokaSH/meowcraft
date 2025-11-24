@@ -1,0 +1,230 @@
+/* Background Images System for MeowCraft */
+
+/* Hero sections with background images */
+.hero,
+.download-hero,
+.shop-hero,
+.wiki-hero,
+.community-hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+/* Dark overlay for readability */
+.hero::before,
+.download-hero::before,
+.shop-hero::before,
+.wiki-hero::before,
+.community-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 10, 10, 0.85) 0%,
+        rgba(255, 107, 53, 0.3) 50%,
+        rgba(10, 10, 10, 0.85) 100%
+    );
+    z-index: 0;
+}
+
+/* Ensure content appears above overlay */
+.hero .container,
+.download-hero .container,
+.shop-hero .container,
+.wiki-hero .container,
+.community-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Specific background images for each page */
+
+/* Homepage - Main server showcase */
+.hero {
+    background-image: url('https://i.ibb.co/SDcMwTh7/image-2025-11-08-220243333.png');
+}
+
+/* Download page - Launcher/gameplay screenshot */
+.download-hero {
+    background-image: url('https://i.ibb.co/SDcMwTh7/image-2025-11-08-220243333.png');
+}
+
+/* Shop page - Builds or cosmetics showcase */
+.shop-hero {
+    background-image: url('https://i.ibb.co/SDcMwTh7/image-2025-11-08-220243333.png');
+}
+
+/* Wiki page - Educational/tutorial screenshot */
+.wiki-hero {
+    background-image: url('https://i.ibb.co/SDcMwTh7/image-2025-11-08-220243333.png');
+}
+
+/* Community page - Players together screenshot */
+.community-hero {
+    background-image: url('https://i.ibb.co/SDcMwTh7/image-2025-11-08-220243333.png');
+}
+
+/* Fallback gradient if images aren't loaded */
+.hero:not([style*="background-image"]) {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+/* Alternative style - animated gradient overlay */
+.hero-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-animated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 107, 53, 0.2) 0%,
+        rgba(247, 147, 30, 0.2) 25%,
+        rgba(255, 215, 0, 0.2) 50%,
+        rgba(247, 147, 30, 0.2) 75%,
+        rgba(255, 107, 53, 0.2) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Blur effect on scroll (optional) */
+.hero-blur {
+    transition: filter 0.3s ease;
+}
+
+.hero-blur.scrolled {
+    filter: blur(3px);
+}
+
+/* Image loading animation */
+.hero,
+.download-hero,
+.shop-hero,
+.wiki-hero,
+.community-hero {
+    animation: fadeInBackground 1s ease-in-out;
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Better text contrast on images */
+.hero .hero-title,
+.download-hero .section-title,
+.shop-hero .section-title,
+.wiki-hero .section-title,
+.community-hero .section-title {
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 107, 53, 0.5);
+}
+
+.hero .hero-subtitle,
+.hero .hero-description,
+.section-subtitle {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Enhanced button visibility on images */
+.hero .btn,
+.download-hero .btn,
+.shop-hero .btn {
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(255, 107, 53, 0.3);
+}
+
+.hero .btn:hover,
+.download-hero .btn:hover,
+.shop-hero .btn:hover {
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(255, 107, 53, 0.5);
+}
+
+/* Mobile optimization - reduce parallax */
+@media (max-width: 768px) {
+    .hero,
+    .download-hero,
+    .shop-hero,
+    .wiki-hero,
+    .community-hero {
+        background-attachment: scroll;
+        background-position: center center;
+    }
+    
+    /* Darker overlay on mobile for better readability */
+    .hero::before,
+    .download-hero::before,
+    .shop-hero::before,
+    .wiki-hero::before,
+    .community-hero::before {
+        background: linear-gradient(
+            135deg,
+            rgba(10, 10, 10, 0.9) 0%,
+            rgba(255, 107, 53, 0.3) 50%,
+            rgba(10, 10, 10, 0.9) 100%
+        );
+    }
+}
+
+/* Alternative: Slideshow backgrounds */
+@keyframes backgroundSlide {
+    0%, 100% { opacity: 1; }
+    33% { opacity: 0; }
+    66% { opacity: 0; }
+}
+
+.hero-slideshow {
+    position: relative;
+}
+
+.hero-slideshow .bg-image-1,
+.hero-slideshow .bg-image-2,
+.hero-slideshow .bg-image-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    animation: backgroundSlide 15s infinite;
+}
+
+.hero-slideshow .bg-image-2 {
+    animation-delay: 5s;
+}
+
+.hero-slideshow .bg-image-3 {
+    animation-delay: 10s;
+}

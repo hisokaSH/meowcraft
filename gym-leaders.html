@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Leaders - MeowCraft</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="backgrounds.css">
+    <link rel="stylesheet" href="icons.css">
+    <link rel="stylesheet" href="gym-leaders.css">
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
+                <span class="logo-text">MeowCraft</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="wiki.html">Wiki</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="gym-leaders.html" class="active">Gym Leaders</a></li>
+                <li><a href="pokedex.html">Pokédex</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="download.html">Download</a></li>
+                <li><a href="login.html" class="nav-cta">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="gym-leaders-page">
+        <div class="hero-section">
+            <div class="container">
+                <h1 class="page-title" data-aos="fade-down">
+                    <i class="fas fa-trophy"></i> Gym Leader Challenge
+                </h1>
+                <p class="page-subtitle" data-aos="fade-up">Test your skills against the region's elite trainers</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="gym-leaders-container" id="gymLeadersContainer">
+                <!-- Gym leaders will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>MeowCraft</h3>
+                <p>A Cobblemon adventure awaits!</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="wiki.html">Wiki</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="download.html">Download</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Rules</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MeowCraft. Not affiliated with Mojang or Nintendo.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        // Hide loading screen immediately
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
+        });
+        
+        // Fallback - hide after 1 second regardless
+        setTimeout(function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
+        }, 1000);
+    </script>
+    <script src="script.js"></script>
+    <script src="gym-config.js"></script>
+    <script src="gym-leaders.js"></script>
+</body>
+</html>

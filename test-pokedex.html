@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex Test</title>
+    <style>
+        body {
+            background: #1a1a2e;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+        }
+        .test-info {
+            background: #16213e;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .success { color: #4CAF50; }
+        .error { color: #f44336; }
+        .pokemon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .pokemon-card {
+            background: #0f3460;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .pokemon-card img {
+            width: 96px;
+            height: 96px;
+            image-rendering: pixelated;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Pokédex Data Test</h1>
+    
+    <div class="test-info" id="testInfo">
+        <p>⏳ Loading test results...</p>
+    </div>
+    
+    <div class="test-info" id="samplePokemon">
+        <h3>First 20 Pokémon:</h3>
+        <div class="pokemon-grid" id="sampleGrid"></div>
+    </div>
+    
+    <script src="pokedex-config.js"></script>
+    <script>
+        const testInfo = document.getElementById('testInfo');
+        const sampleGrid = document.getElementById('sampleGrid');
+        
+        // Test 1: Check if pokedexData exists
+        if (typeof pokedexData === 'undefined') {
+            testInfo.innerHTML = '<p class="error">❌ ERROR: pokedexData is not defined!</p>' +
+                                 '<p>Make sure pokedex-config.js is loaded correctly.</p>';
+        } else {
+            // Test 2: Check data structure
+            let html = '<p class="success">✅ pokedexData loaded successfully!</p>';
+            html += `<p class="success">✅ Total Pokémon: ${pokedexData.length}</p>`;
+            
+            // Check first entry structure
+            if (pokedexData.length > 0) {
+                const first = pokedexData[0];
+                html += '<p class="success">✅ Data structure looks good:</p>';
+                html += '<pre>' + JSON.stringify(first, null, 2) + '</pre>';
+            }
+            
+            testInfo.innerHTML = html;
+            
+            // Display first 20 Pokémon
+            const sample = pokedexData.slice(0, 20);
+            sample.forEach(pokemon => {
+                const card = document.createElement('div');
+                card.className = 'pokemon-card';
+                card.innerHTML = `
+                    <div style="font-size: 0.8rem; color: #888;">#${pokemon.number}</div>
+                    <img src="${pokemon.sprite}" alt="${pokemon.name}" 
+                         onerror="this.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png'">
+                    <div style="font-weight: bold; margin-top: 0.5rem;">${pokemon.name}</div>
+                    <div style="font-size: 0.8rem; color: #aaa;">${pokemon.types.join(', ')}</div>
+                `;
+                sampleGrid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

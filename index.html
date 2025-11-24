@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeowCraft - Cobblemon Minecraft Server</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="backgrounds.css">
+    <link rel="stylesheet" href="icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
+                <span class="brand-text">MeowCraft</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="gym-leaders.html" class="nav-link">Gym Leaders</a></li>
+                <li><a href="pokedex.html" class="nav-link">Pokédex</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="download.html" class="nav-link">Download</a></li>
+                <li><a href="login.html" class="nav-link login-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <h1 class="hero-title">Welcome to <span class="highlight">MeowCraft</span></h1>
+                    <p class="hero-subtitle">The Ultimate Cobblemon Experience</p>
+                    <p class="hero-description">
+                        Catch, train, and battle with Pokémon in Minecraft! Join our vibrant community
+                        and embark on an unforgettable adventure.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="download.html" class="btn btn-primary">Download Launcher</a>
+                        <a href="#server-info" class="btn btn-secondary">Server Info</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Server Stats -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid" data-aos="fade-up">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-number" id="players-count">0</div>
+                        <div class="stat-label">Players Online</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-gamepad"></i></div>
+                        <div class="stat-number" id="total-players">2,450</div>
+                        <div class="stat-label">Total Players</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Always Online</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Server Info -->
+        <section id="server-info" class="server-info-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Server Information</h2>
+                <div class="server-info-grid">
+                    <div class="info-card" data-aos="fade-right">
+                        <h3><i class="fas fa-server"></i> Server Details</h3>
+                        <div class="info-item">
+                            <span class="info-label">IP Address:</span>
+                            <code class="server-ip" id="server-ip">play.meowcraft.net</code>
+                            <button class="copy-btn" onclick="copyIP()"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Version:</span>
+                            <span class="version-value">1.21.1</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Modpack:</span>
+                            <span>Cobblemon + Custom Mods</span>
+                        </div>
+                    </div>
+                    <div class="info-card" data-aos="fade-left">
+                        <h3><i class="fas fa-link"></i> Quick Links</h3>
+                        <div class="quick-links">
+                            <a href="wiki.html" class="quick-link">📚 Wiki & Guides</a>
+                            <a href="shop.html" class="quick-link"><i class="fas fa-shopping-cart"></i> Webstore</a>
+                            <a href="community.html" class="quick-link"><i class="fab fa-discord"></i> Discord</a>
+                            <a href="download.html" class="quick-link">⬇️ Download Launcher</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Why Choose MeowCraft?</h2>
+                <p class="section-subtitle" data-aos="fade-up">Experience the best Cobblemon server</p>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon"><i class="fas fa-sword"></i></div>
+                        <h3>Competitive Battles</h3>
+                        <p>Engage in epic Pokémon battles with players worldwide</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon"><i class="fas fa-trophy"></i></div>
+                        <h3>Custom Events</h3>
+                        <p>Participate in exclusive events and win amazing prizes</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Custom Content</h3>
+                        <p>Unique custom Pokémon, items, and gameplay features</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Land Protection</h3>
+                        <p>Secure your builds with our advanced claim system</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                        <h3>Player Economy</h3>
+                        <p>Trade, sell, and build your fortune in our economy</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Friendly Community</h3>
+                        <p>Join thousands of players in our welcoming community</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content" data-aos="zoom-in">
+                    <h2>Ready to Start Your Adventure?</h2>
+                    <p>Download our custom launcher and join the fun today!</p>
+                    <div class="cta-buttons">
+                        <a href="download.html" class="btn btn-primary">Download Now</a>
+                        <a href="register.html" class="btn btn-secondary">Create Account</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MeowCraft</h3>
+                    <p>The ultimate Cobblemon Minecraft experience. Join thousands of players today!</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="wiki.html">Wiki</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Report Bug</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Server Info</h3>
+                    <ul>
+                        <li>IP: play.meowcraft.net</li>
+                        <li>Version: 1.21.1</li>
+                        <li>Status: Online</li>
+                        <li>Players: <span id="footer-players">Loading...</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MeowCraft. Not affiliated with Mojang Studios or The Pokémon Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

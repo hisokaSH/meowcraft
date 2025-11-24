@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - MeowCraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="backgrounds.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="icons.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
+                <span class="brand-text">MeowCraft</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="gym-leaders.html" class="nav-link">Gym Leaders</a></li>
+                <li><a href="pokedex.html" class="nav-link">Pokédex</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="download.html" class="nav-link">Download</a></li>
+                <li><a href="login.html" class="nav-link login-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Shop Hero -->
+        <section class="shop-hero">
+            <div class="container">
+                <h1 class="section-title" data-aos="fade-up"><i class="fas fa-shopping-cart"></i>  MeowCraft Shop</h1>
+                <p class="section-subtitle" data-aos="fade-up">Support the server and unlock exclusive perks!</p>
+                <div class="cart-indicator" data-aos="fade-up">
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop Categories -->
+        <section class="shop-categories">
+            <div class="container">
+                <div class="category-tabs" data-aos="fade-up">
+                    <button class="tab-btn active" data-tab="ranks">👑 Ranks</button>
+                    <button class="tab-btn" data-tab="cosmetics">✨ Cosmetics</button>
+                    <button class="tab-btn" data-tab="items">📦 Items</button>
+                    <button class="tab-btn" data-tab="keys">🔑 Crate Keys</button>
+                    <button class="tab-btn" data-tab="bundles">🎁 Bundles</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranks Tab -->
+        <section class="products-section" data-tab-content="ranks">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Server Ranks</h2>
+                <p class="section-subtitle" data-aos="fade-up">Permanent ranks with exclusive perks</p>
+                
+                <div class="products-grid">
+                    <div class="product-card rank-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="rank-badge vip">VIP</div>
+                        <div class="product-icon"><i class="fas fa-star"></i></div>
+                        <h3 class="product-title">VIP Rank</h3>
+                        <p class="product-description">Start your journey with basic perks</p>
+                        <ul class="perks-list">
+                            <li>✓ VIP prefix in chat</li>
+                            <li>✓ Access to /fly command</li>
+                            <li>✓ 2 extra homes</li>
+                            <li>✓ Daily $500 bonus</li>
+                            <li>✓ Priority queue access</li>
+                        </ul>
+                        <div class="product-price">$4.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="VIP Rank" data-price="4.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card rank-card popular" data-aos="fade-up" data-aos-delay="200">
+                        <div class="rank-badge mvp">MVP</div>
+                        <div class="popular-badge">MOST POPULAR</div>
+                        <div class="product-icon"><i class="fas fa-gem"></i></div>
+                        <h3 class="product-title">MVP Rank</h3>
+                        <p class="product-description">Enhanced gameplay experience</p>
+                        <ul class="perks-list">
+                            <li>✓ MVP prefix in chat</li>
+                            <li>✓ All VIP perks</li>
+                            <li>✓ Access to /god command</li>
+                            <li>✓ 5 extra homes</li>
+                            <li>✓ Daily $1,500 bonus</li>
+                            <li>✓ Colored chat messages</li>
+                            <li>✓ Exclusive particle effects</li>
+                        </ul>
+                        <div class="product-price">$9.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="MVP Rank" data-price="9.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card rank-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="rank-badge elite">ELITE</div>
+                        <div class="product-icon"><i class="fas fa-crown"></i></div>
+                        <h3 class="product-title">Elite Rank</h3>
+                        <p class="product-description">Premium experience</p>
+                        <ul class="perks-list">
+                            <li>✓ Elite prefix in chat</li>
+                            <li>✓ All MVP perks</li>
+                            <li>✓ Custom nickname colors</li>
+                            <li>✓ 10 extra homes</li>
+                            <li>✓ Daily $3,000 bonus</li>
+                            <li>✓ Priority support</li>
+                            <li>✓ Exclusive cosmetics</li>
+                            <li>✓ Private mines access</li>
+                        </ul>
+                        <div class="product-price">$19.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Elite Rank" data-price="19.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card rank-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="rank-badge legend">LEGEND</div>
+                        <div class="product-icon"><i class="fas fa-fire"></i></div>
+                        <h3 class="product-title">Legend Rank</h3>
+                        <p class="product-description">Ultimate power and prestige</p>
+                        <ul class="perks-list">
+                            <li>✓ Legend prefix in chat</li>
+                            <li>✓ All Elite perks</li>
+                            <li>✓ Animated chat tags</li>
+                            <li>✓ Unlimited homes</li>
+                            <li>✓ Daily $10,000 bonus</li>
+                            <li>✓ Exclusive legendary Pokémon spawns</li>
+                            <li>✓ Custom join/leave messages</li>
+                            <li>✓ Access to Legend-only areas</li>
+                            <li>✓ Monthly legendary crate</li>
+                        </ul>
+                        <div class="product-price">$49.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Legend Rank" data-price="49.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cosmetics Tab -->
+        <section class="products-section hidden" data-tab-content="cosmetics">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Cosmetics</h2>
+                <p class="section-subtitle" data-aos="fade-up">Stand out with unique cosmetics</p>
+                
+                <div class="products-grid">
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-icon"><i class="fas fa-palette"></i></div>
+                        <h3 class="product-title">Particle Effects Pack</h3>
+                        <p class="product-description">10 unique particle effects to follow you around</p>
+                        <div class="product-price">$2.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Particle Effects Pack" data-price="2.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="product-icon"><i class="fas fa-masks-theater"></i></div>
+                        <h3 class="product-title">Custom Hat Pack</h3>
+                        <p class="product-description">15 awesome hats to wear in-game</p>
+                        <div class="product-price">$3.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Custom Hat Pack" data-price="3.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="product-icon"><i class="fas fa-paw"></i></div>
+                        <h3 class="product-title">Pet Collection</h3>
+                        <p class="product-description">5 adorable pets that follow you everywhere</p>
+                        <div class="product-price">$4.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Pet Collection" data-price="4.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="product-icon"><i class="fas fa-sparkles"></i></div>
+                        <h3 class="product-title">Chat Animations</h3>
+                        <p class="product-description">Animated chat effects when you talk</p>
+                        <div class="product-price">$1.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Chat Animations" data-price="1.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Items Tab -->
+        <section class="products-section hidden" data-tab-content="items">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">In-Game Items</h2>
+                <p class="section-subtitle" data-aos="fade-up">Boost your gameplay with these items</p>
+                
+                <div class="products-grid">
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-icon"><i class="fas fa-baseball"></i></div>
+                        <h3 class="product-title">Master Ball x5</h3>
+                        <p class="product-description">Guaranteed catch on any Pokémon</p>
+                        <div class="product-price">$9.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Master Ball x5" data-price="9.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="product-icon"><i class="fas fa-candy-cane"></i></div>
+                        <h3 class="product-title">Rare Candy x64</h3>
+                        <p class="product-description">Instantly level up your Pokémon</p>
+                        <div class="product-price">$7.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Rare Candy x64" data-price="7.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="product-icon"><i class="fas fa-sparkles"></i></div>
+                        <h3 class="product-title">Shiny Charm</h3>
+                        <p class="product-description">Increases shiny Pokémon encounter rate by 3x</p>
+                        <div class="product-price">$14.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Shiny Charm" data-price="14.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="product-icon"><i class="fas fa-coins"></i></div>
+                        <h3 class="product-title">$50,000 In-Game Money</h3>
+                        <p class="product-description">Boost your bank account</p>
+                        <div class="product-price">$4.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="$50,000 In-Game Money" data-price="4.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keys Tab -->
+        <section class="products-section hidden" data-tab-content="keys">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Crate Keys</h2>
+                <p class="section-subtitle" data-aos="fade-up">Open crates for amazing rewards</p>
+                
+                <div class="products-grid">
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-icon"><i class="fas fa-key"></i></div>
+                        <h3 class="product-title">Common Crate Key x3</h3>
+                        <p class="product-description">Basic rewards and items</p>
+                        <div class="product-price">$1.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Common Crate Key x3" data-price="1.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="product-icon"><i class="fas fa-lock"></i></div>
+                        <h3 class="product-title">Rare Crate Key x3</h3>
+                        <p class="product-description">Better chance at rare items</p>
+                        <div class="product-price">$4.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Rare Crate Key x3" data-price="4.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="product-icon"><i class="fas fa-key"></i></div>
+                        <h3 class="product-title">Epic Crate Key x3</h3>
+                        <p class="product-description">Epic rewards await</p>
+                        <div class="product-price">$9.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Epic Crate Key x3" data-price="9.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="product-icon"><i class="fas fa-khanda"></i></div>
+                        <h3 class="product-title">Legendary Crate Key</h3>
+                        <p class="product-description">Guaranteed legendary item</p>
+                        <div class="product-price">$19.99</div>
+                        <button class="btn btn-primary add-to-cart" data-product="Legendary Crate Key" data-price="19.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bundles Tab -->
+        <section class="products-section hidden" data-tab-content="bundles">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Value Bundles</h2>
+                <p class="section-subtitle" data-aos="fade-up">Save more with our bundle deals!</p>
+                
+                <div class="products-grid">
+                    <div class="product-card bundle-card" data-aos="fade-up">
+                        <div class="save-badge">Save 30%</div>
+                        <div class="product-icon"><i class="fas fa-gift"></i></div>
+                        <h3 class="product-title">Starter Bundle</h3>
+                        <p class="product-description">Perfect for new players</p>
+                        <ul class="bundle-items">
+                            <li>• VIP Rank</li>
+                            <li>• 10 Master Balls</li>
+                            <li>• $100,000 in-game money</li>
+                            <li>• 3 Rare Crate Keys</li>
+                        </ul>
+                        <div class="product-price">
+                            <span class="old-price">$24.99</span>
+                            <span class="new-price">$17.49</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart" data-product="Starter Bundle" data-price="17.49">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card bundle-card popular" data-aos="fade-up" data-aos-delay="100">
+                        <div class="save-badge">Save 40%</div>
+                        <div class="popular-badge">BEST VALUE</div>
+                        <div class="product-icon"><i class="fas fa-gem"></i></div>
+                        <h3 class="product-title">Ultimate Bundle</h3>
+                        <p class="product-description">Everything you need and more</p>
+                        <ul class="bundle-items">
+                            <li>• Elite Rank</li>
+                            <li>• 20 Master Balls</li>
+                            <li>• Shiny Charm</li>
+                            <li>• $500,000 in-game money</li>
+                            <li>• 5 Epic Crate Keys</li>
+                            <li>• All Cosmetics Packs</li>
+                        </ul>
+                        <div class="product-price">
+                            <span class="old-price">$79.99</span>
+                            <span class="new-price">$47.99</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart" data-product="Ultimate Bundle" data-price="47.99">Add to Cart</button>
+                    </div>
+
+                    <div class="product-card bundle-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="save-badge">Save 50%</div>
+                        <div class="product-icon"><i class="fas fa-fire"></i></div>
+                        <h3 class="product-title">Legend Bundle</h3>
+                        <p class="product-description">Become a legend instantly</p>
+                        <ul class="bundle-items">
+                            <li>• Legend Rank</li>
+                            <li>• 50 Master Balls</li>
+                            <li>• Permanent Shiny Charm</li>
+                            <li>• $1,000,000 in-game money</li>
+                            <li>• 10 Legendary Crate Keys</li>
+                            <li>• Every Cosmetic Item</li>
+                            <li>• Exclusive "Founder" Title</li>
+                        </ul>
+                        <div class="product-price">
+                            <span class="old-price">$199.99</span>
+                            <span class="new-price">$99.99</span>
+                        </div>
+                        <button class="btn btn-primary add-to-cart" data-product="Legend Bundle" data-price="99.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <button class="close-cart" id="closeCart">✕</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">Your cart is empty</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-price" id="totalPrice">$0.00</span>
+                </div>
+                <button class="btn btn-primary checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MeowCraft</h3>
+                    <p>The ultimate Cobblemon Minecraft experience.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="wiki.html">Wiki</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="download.html">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MeowCraft. All purchases are virtual goods with no real-world value.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html>
