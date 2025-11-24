@@ -1,15 +1,11 @@
 // api/auth/discord/callback.js
-// Discord OAuth2 Callback Handler for Vercel
+// Discord OAuth2 Callback Handler for Vercel with MongoDB
 
 const { MongoClient } = require('mongodb');
 
-// Environment variables (set these in Vercel dashboard)
 const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
 const MONGODB_URI = process.env.MONGODB_URI;
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this';
-const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
-const DISCORD_GUILD_ID = process.env.DISCORD_GUILD_ID;
 
 let cachedDb = null;
 
@@ -21,7 +17,7 @@ async function connectToDatabase() {
     return cachedDb;
 }
 
-// Simple JWT-like token generation (for production, use proper JWT library)
+// Simple token generation
 function generateToken(userId) {
     const payload = {
         userId,
@@ -38,6 +34,10 @@ module.exports = async (req, res) => {
     }
 
     try {
+        const protocol = req.headers['x-forwarded-proto'] || 'https';
+        const host = req.headers.host;
+        const redirectUri = `${protocol}://${host}/api/auth/discord/callback`;
+
         // Exchange code for access token
         const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
             method: 'POST',
@@ -49,7 +49,7 @@ module.exports = async (req, res) => {
                 client_secret: DISCORD_CLIENT_SECRET,
                 grant_type: 'authorization_code',
                 code: code,
-                redirect_uri: `${req.headers['x-forwarded-proto'] || 'https'}://${req.headers.host}/api/auth/discord/callback`,
+                redirect_uri: redirectUri,
             }),
         });
 
@@ -63,7 +63,7 @@ module.exports = async (req, res) => {
         // Get user info from Discord
         const userResponse = await fetch('https://discord.com/api/users/@me', {
             headers: {
-                Authorization: `Bearer ${tokenData.access_token}`,
+                Authorization: 'Bearer ' + tokenData.access_token,
             },
         });
 
@@ -107,7 +107,7 @@ module.exports = async (req, res) => {
         // Generate session token
         const token = generateToken(discordUser.id);
 
-        // Prepare user data for frontend (exclude sensitive info)
+        // Prepare user data for frontend
         const userData = {
             discordId: discordUser.id,
             username: discordUser.username,
@@ -118,7 +118,7 @@ module.exports = async (req, res) => {
 
         // Redirect to frontend with token
         const userDataEncoded = encodeURIComponent(JSON.stringify(userData));
-        res.redirect(`/auth-success.html?token=${token}&user=${userDataEncoded}`);
+        res.redirect('/auth-success.html?token=' + token + '&user=' + userDataEncoded);
 
     } catch (error) {
         console.error('Auth error:', error);
