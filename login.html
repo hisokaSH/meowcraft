@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MeowCraft</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="backgrounds.css">
     <link rel="stylesheet" href="auth.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <!-- Particle Background -->
-    <div id="particles-js"></div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -20,69 +19,63 @@
                 <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
                 <span class="brand-text">MeowCraft</span>
             </div>
-            <ul class="nav-menu">
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="register.html" class="nav-link login-btn">Register</a></li>
+                <li><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="gym-leaders.html" class="nav-link">Gym Leaders</a></li>
+                <li><a href="pokedex.html" class="nav-link">Pokédex</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="download.html" class="nav-link">Download</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="auth-main">
         <div class="auth-container">
-            <div class="auth-box">
+            <div class="auth-box discord-login-box">
                 <div class="auth-header">
-                    <h1>Welcome Back!</h1>
-                    <p>Login to access your account</p>
+                    <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft" class="auth-logo">
+                    <h1>Welcome to MeowCraft</h1>
+                    <p>Login with your Discord account to continue</p>
                 </div>
 
-                <form class="auth-form" id="loginForm">
-                    <div class="form-group">
-                        <label for="username">Username or Email</label>
-                        <input type="text" id="username" name="username" required placeholder="Enter your username">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required placeholder="Enter your password">
-                    </div>
-
-                    <div class="form-options">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="remember">
-                            <span>Remember me</span>
-                        </label>
-                        <a href="#" class="forgot-link">Forgot password?</a>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-
-                <div class="auth-divider">
-                    <span>OR</span>
-                </div>
-
-                <div class="social-auth">
-                    <button class="social-btn discord-btn">
-                        <i class="fab fa-discord"></i> Login with Discord
+                <div class="discord-login-section">
+                    <button class="discord-login-btn" id="discordLoginBtn">
+                        <i class="fab fa-discord"></i>
+                        <span>Continue with Discord</span>
                     </button>
-                    <button class="social-btn microsoft-btn">
-                        🎮 Login with Microsoft
-                    </button>
+                    <p class="discord-note">
+                        <i class="fas fa-shield-alt"></i>
+                        Secure login powered by Discord OAuth2
+                    </p>
                 </div>
 
-                <div class="auth-footer">
-                    <p>Don't have an account? <a href="register.html">Register here</a></p>
+                <div class="login-benefits">
+                    <h3>What you'll get:</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Link your Minecraft username</li>
+                        <li><i class="fas fa-check"></i> Purchase ranks & items from the shop</li>
+                        <li><i class="fas fa-check"></i> Get Discord roles for purchases</li>
+                        <li><i class="fas fa-check"></i> Track your purchase history</li>
+                        <li><i class="fas fa-check"></i> Compete on the shop leaderboard</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="auth-features">
-                <h2>Why Create an Account?</h2>
+                <h2>Why Login with Discord?</h2>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <span class="feature-icon">🎮</span>
+                        <span class="feature-icon"><i class="fab fa-discord"></i></span>
                         <div>
-                            <h3>Track Your Progress</h3>
-                            <p>View your stats, achievements, and playtime</p>
+                            <h3>One-Click Login</h3>
+                            <p>No passwords to remember - just use your Discord</p>
                         </div>
                     </div>
                     <div class="feature-item">
@@ -93,17 +86,17 @@
                         </div>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-icon">👥</span>
+                        <span class="feature-icon"><i class="fas fa-medal"></i></span>
                         <div>
-                            <h3>Community Features</h3>
-                            <p>Connect with friends and join teams</p>
+                            <h3>Discord Roles</h3>
+                            <p>Automatically get roles when you purchase</p>
                         </div>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-icon">🎁</span>
+                        <span class="feature-icon"><i class="fas fa-trophy"></i></span>
                         <div>
-                            <h3>Daily Rewards</h3>
-                            <p>Claim exclusive daily bonuses</p>
+                            <h3>Leaderboards</h3>
+                            <p>Compete for top supporter status</p>
                         </div>
                     </div>
                 </div>
@@ -111,9 +104,29 @@
         </div>
     </main>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
-    <script src="auth.js"></script>
+    <script>
+        // Discord OAuth Configuration
+        const DISCORD_CLIENT_ID = '1427935073570652284';
+        const REDIRECT_URI = window.location.origin + '/api/auth/discord/callback';
+        const DISCORD_AUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=identify%20guilds.join`;
+
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = localStorage.getItem('meowcraft_user');
+            if (user) {
+                window.location.href = '/profile.html';
+            }
+        });
+
+        // Discord Login Button
+        document.getElementById('discordLoginBtn').addEventListener('click', function() {
+            window.location.href = DISCORD_AUTH_URL;
+        });
+
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
