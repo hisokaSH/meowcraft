@@ -1,111 +1,31 @@
-// Shop JavaScript - Cart and Tab Functionality
+// MeowCraft Shop - Tebex Integration
+// Store URL: https://meowcraft-store.tebex.io
 
-// Cart state
-let cart = [];
+const TEBEX_STORE = 'https://meowcraft-store.tebex.io';
 
-// Load cart from localStorage
-function loadCart() {
-    const savedCart = localStorage.getItem('meowcraft-cart');
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
-        updateCartUI();
-    }
-}
-
-// Save cart to localStorage
-function saveCart() {
-    localStorage.setItem('meowcraft-cart', JSON.stringify(cart));
-}
-
-// Add item to cart
-function addToCart(product, price) {
-    // Check if item already exists
-    const existingItem = cart.find(item => item.product === product);
+// Package IDs mapped to product names
+const PACKAGE_IDS = {
+    // Ranks
+    'VIP Rank': '7135669',
+    'MVP Rank': '7135674',
+    'Elite Rank': '7135683',
+    'Legend Rank': '7135688',
     
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({
-            product: product,
-            price: parseFloat(price),
-            quantity: 1
-        });
-    }
+    // Cosmetics
+    'Particle Effects Pack': '7135691',
+    'Custom Hat Pack': '7135696',
+    'Pet Collection': '7135697',
+    'Chat Animations': '7135702',
     
-    saveCart();
-    updateCartUI();
-    showAddedToCartNotification(product);
-}
-
-// Remove item from cart
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    saveCart();
-    updateCartUI();
-}
-
-// Update cart UI
-function updateCartUI() {
-    const cartCount = document.getElementById('cart-count');
-    const cartItems = document.getElementById('cartItems');
-    const totalPrice = document.getElementById('totalPrice');
+    // Gacha Tokens
+    'Gacha Token x5': '7135706',
+    'Premium Gacha Token x5': '7135728',
     
-    // Update cart count
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    if (cartCount) {
-        cartCount.textContent = totalItems;
-    }
-    
-    // Update cart items display
-    if (cartItems) {
-        if (cart.length === 0) {
-            cartItems.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
-        } else {
-            cartItems.innerHTML = cart.map((item, index) => `
-                <div class="cart-item">
-                    <div class="item-info">
-                        <h3>${item.product}</h3>
-                        <div class="item-price">$${item.price.toFixed(2)} x ${item.quantity}</div>
-                    </div>
-                    <button class="remove-item" onclick="removeFromCart(${index})">Remove</button>
-                </div>
-            `).join('');
-        }
-    }
-    
-    // Update total price
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    if (totalPrice) {
-        totalPrice.textContent = `$${total.toFixed(2)}`;
-    }
-}
-
-// Show notification when item is added
-function showAddedToCartNotification(product) {
-    const notification = document.createElement('div');
-    notification.className = 'cart-notification';
-    notification.textContent = `✓ ${product} added to cart!`;
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        font-weight: 600;
-        z-index: 3000;
-        animation: slideIn 0.3s ease;
-        box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
-    `;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    }, 2000);
-}
+    // Bundles
+    'Starter Bundle': '7135818',
+    'Ultimate Bundle': '7135829',
+    'Legend Bundle': '7135831',
+};
 
 // Tab navigation
 function initTabs() {
@@ -114,15 +34,11 @@ function initTabs() {
     
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all buttons
             tabBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
             btn.classList.add('active');
             
-            // Hide all tab contents
             tabContents.forEach(content => content.classList.add('hidden'));
             
-            // Show selected tab content
             const targetTab = btn.getAttribute('data-tab');
             const targetContent = document.querySelector(`[data-tab-content="${targetTab}"]`);
             if (targetContent) {
@@ -132,102 +48,51 @@ function initTabs() {
     });
 }
 
-// Cart modal
-function initCartModal() {
-    const cartBtn = document.getElementById('cartBtn');
-    const cartModal = document.getElementById('cartModal');
-    const closeCart = document.getElementById('closeCart');
+// Buy buttons - redirect to Tebex
+function initBuyButtons() {
+    const buyBtns = document.querySelectorAll('.add-to-cart');
     
-    if (cartBtn) {
-        cartBtn.addEventListener('click', () => {
-            cartModal.classList.add('active');
-        });
-    }
-    
-    if (closeCart) {
-        closeCart.addEventListener('click', () => {
-            cartModal.classList.remove('active');
-        });
-    }
-    
-    // Close cart when clicking outside
-    if (cartModal) {
-        cartModal.addEventListener('click', (e) => {
-            if (e.target === cartModal) {
-                cartModal.classList.remove('active');
-            }
-        });
-    }
-}
-
-// Checkout
-function initCheckout() {
-    const checkoutBtn = document.getElementById('checkoutBtn');
-    
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert('Your cart is empty!');
-                return;
-            }
+    buyBtns.forEach(btn => {
+        // Change button text
+        btn.textContent = 'Buy Now';
+        
+        // Remove old listeners and add new one
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+        
+        newBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            // In a real application, this would redirect to a payment processor
-            alert('Redirecting to checkout...\n\nThis is a demo. In production, you would integrate with a payment processor like Stripe, PayPal, or Tebex.');
+            const productName = this.getAttribute('data-product');
+            const packageId = PACKAGE_IDS[productName];
             
-            // For demo purposes, clear the cart
-            // cart = [];
-            // saveCart();
-            // updateCartUI();
-            // document.getElementById('cartModal').classList.remove('active');
-        });
-    }
-}
-
-// Add to cart buttons
-function initAddToCartButtons() {
-    const addToCartBtns = document.querySelectorAll('.add-to-cart');
-    
-    addToCartBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const product = btn.getAttribute('data-product');
-            const price = btn.getAttribute('data-price');
-            addToCart(product, price);
+            if (packageId) {
+                // Redirect to Tebex checkout
+                window.location.href = `${TEBEX_STORE}/checkout/packages/add/${packageId}/single`;
+            } else {
+                // Fallback - go to main store
+                console.warn('Package ID not found for:', productName);
+                window.location.href = TEBEX_STORE;
+            }
         });
     });
 }
 
-// Add CSS for animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
+// Hide old cart elements
+function hideCartElements() {
+    const cartBtn = document.getElementById('cartBtn');
+    const cartModal = document.getElementById('cartModal');
+    const cartIndicator = document.querySelector('.cart-indicator');
     
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
+    if (cartBtn) cartBtn.style.display = 'none';
+    if (cartModal) cartModal.style.display = 'none';
+    if (cartIndicator) cartIndicator.style.display = 'none';
+}
 
-// Initialize everything when DOM is loaded
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    loadCart();
     initTabs();
-    initCartModal();
-    initCheckout();
-    initAddToCartButtons();
+    initBuyButtons();
+    hideCartElements();
 });
