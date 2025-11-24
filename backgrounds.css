@@ -49,20 +49,7 @@ body {
     z-index: 1;
 }
 
-/* Strong text shadows for readability on background */
-.hero .hero-title,
-.download-hero .section-title,
-.shop-hero .section-title,
-.wiki-hero .section-title,
-.community-hero .section-title,
-.pokedex-hero .section-title,
-.gym-hero .section-title {
-    text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.9),
-        0 4px 8px rgba(0, 0, 0, 0.7),
-        0 8px 16px rgba(0, 0, 0, 0.5);
-}
-
+/* Text shadows only on subtitles/descriptions for readability */
 .hero .hero-subtitle,
 .hero .hero-description,
 .section-subtitle,
@@ -70,7 +57,10 @@ body {
 .download-hero p,
 .shop-hero p,
 .wiki-hero p,
-.community-hero p {
+.community-hero p,
+.card p,
+.feature-card p,
+.info-card p {
     text-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.9),
         0 4px 8px rgba(0, 0, 0, 0.7);
