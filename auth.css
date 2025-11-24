@@ -18,11 +18,13 @@
 
 /* Auth Box */
 .auth-box {
-    background: var(--card-bg);
+    background: rgba(10, 10, 10, 0.9); /* Much more opaque */
     border: 1px solid rgba(255, 107, 53, 0.2);
     border-radius: 20px;
     padding: 3rem;
     box-shadow: 0 10px 40px rgba(255, 107, 53, 0.1);
+    position: relative;
+    z-index: 2;
 }
 
 .auth-header {
@@ -213,10 +215,13 @@
 
 /* Auth Features */
 .auth-features {
-    background: var(--card-bg);
+    background: rgba(10, 10, 10, 0.85);
     border: 1px solid rgba(255, 107, 53, 0.2);
     border-radius: 20px;
     padding: 3rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
 .auth-features h2 {
