@@ -4,88 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki - MeowCraft</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <style>
-        /* ========== OVERRIDE GLOBAL HERO STYLES ========== */
-        /* Remove the mascot background from this page */
-        .hero,
-        .hero::before,
-        .hero::after,
-        .hero-content,
-        section.hero {
-            background-image: none !important;
-            background: transparent !important;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
-        /* Hide the hero section entirely if it exists from global styles */
-        body > .hero,
-        main > .hero {
-            display: none !important;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        /* Remove any pseudo-elements that might have the mascot */
-        body::before,
-        body::after,
-        main::before,
-        main::after {
-            display: none !important;
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+            padding: 1rem 0;
         }
 
-        /* ========== WIKI PAGE STYLES ========== */
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-img { height: 45px; }
+
+        .brand-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ff6b35;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            padding: 0.6rem 1rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white !important;
+            padding: 0.6rem 1.5rem !important;
+            border-radius: 25px !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+        }
+
+        /* Hero */
         .wiki-hero {
             padding: 150px 0 80px;
             text-align: center;
-            background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(20,20,30,0.95) 100%) !important;
-            position: relative;
-            z-index: 10;
+            background: linear-gradient(180deg, #0a0a0f 0%, #14141e 100%);
         }
 
-        .wiki-hero::before,
-        .wiki-hero::after {
-            display: none !important;
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title i {
+            color: #ff6b35;
+            margin-right: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
         }
 
         .search-container {
             max-width: 600px;
             margin: 2rem auto;
             display: flex;
-            gap: 0;
         }
 
         .search-container input {
             flex: 1;
             padding: 1rem 1.5rem;
-            border: 2px solid var(--primary-color);
+            border: 2px solid #ff6b35;
             border-right: none;
             border-radius: 50px 0 0 50px;
             background: rgba(0, 0, 0, 0.5);
-            color: var(--text-primary);
+            color: #fff;
             font-size: 1rem;
             outline: none;
         }
 
         .search-container button {
             padding: 1rem 2rem;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             border: none;
             border-radius: 0 50px 50px 0;
             color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
 
-        .search-container button:hover {
-            filter: brightness(1.1);
-        }
-
+        /* Wiki Content */
         .wiki-content {
             padding: 4rem 0;
-            background: rgba(10, 10, 15, 0.98) !important;
-            position: relative;
-            z-index: 10;
+            background: #0d0d12;
         }
 
         .wiki-grid {
@@ -95,7 +167,7 @@
         }
 
         .wiki-card {
-            background: var(--card-bg);
+            background: rgba(20, 20, 30, 0.9);
             border: 1px solid rgba(255, 107, 53, 0.2);
             border-radius: 15px;
             padding: 2rem;
@@ -104,14 +176,14 @@
 
         .wiki-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary-color);
+            border-color: #ff6b35;
             box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
         }
 
         .wiki-card-icon {
             width: 60px;
             height: 60px;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -125,35 +197,30 @@
         }
 
         .wiki-card h3 {
-            color: var(--primary-color);
+            color: #ff6b35;
             margin-bottom: 1rem;
             font-size: 1.4rem;
         }
 
         .wiki-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
+            color: #b0b0b0;
             margin-bottom: 1.5rem;
         }
 
         .wiki-card ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
 
         .wiki-card ul li {
             padding: 0.5rem 0;
             border-bottom: 1px solid rgba(255, 107, 53, 0.1);
-            color: var(--text-secondary);
+            color: #b0b0b0;
         }
 
-        .wiki-card ul li:last-child {
-            border-bottom: none;
-        }
+        .wiki-card ul li:last-child { border-bottom: none; }
 
         .wiki-card ul li i {
-            color: var(--primary-color);
+            color: #ff6b35;
             margin-right: 0.5rem;
             width: 20px;
         }
@@ -162,7 +229,7 @@
             background: rgba(255, 107, 53, 0.15);
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
-            color: var(--accent-color);
+            color: #f7931e;
             font-family: monospace;
             font-size: 0.85rem;
         }
@@ -175,9 +242,7 @@
             border-radius: 0 8px 8px 0;
         }
 
-        .info-box i {
-            color: #ffc107;
-        }
+        .info-box i { color: #ffc107; }
 
         .warning-box {
             background: rgba(244, 67, 54, 0.1);
@@ -187,15 +252,12 @@
             border-radius: 0 8px 8px 0;
         }
 
-        .warning-box i {
-            color: #f44336;
-        }
+        .warning-box i { color: #f44336; }
 
+        /* FAQ */
         .faq-section {
             padding: 4rem 0;
-            background: rgba(0, 0, 0, 0.5) !important;
-            position: relative;
-            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .faq-grid {
@@ -206,48 +268,109 @@
         }
 
         .faq-item {
-            background: var(--card-bg);
+            background: rgba(20, 20, 30, 0.9);
             border: 1px solid rgba(255, 107, 53, 0.2);
             border-radius: 15px;
             padding: 1.5rem;
-            transition: all 0.3s ease;
         }
 
-        .faq-item:hover {
-            border-color: var(--primary-color);
-        }
+        .faq-item:hover { border-color: #ff6b35; }
 
         .faq-item h3 {
-            color: var(--primary-color);
+            color: #ff6b35;
             margin-bottom: 0.8rem;
             font-size: 1.1rem;
         }
 
-        .faq-item p {
-            color: var(--text-secondary);
-            line-height: 1.6;
+        .faq-item p { color: #b0b0b0; }
+
+        /* Footer */
+        footer {
+            background: #0a0a0f;
+            padding: 3rem 0 1rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
         }
 
-        /* Ensure footer is visible */
-        footer {
-            position: relative;
-            z-index: 10;
-            background: rgba(10, 10, 15, 0.98) !important;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section li {
+            color: #b0b0b0;
+        }
+
+        .footer-section ul { list-style: none; }
+
+        .footer-section ul li { margin-bottom: 0.5rem; }
+
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover { color: #ff6b35; }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.1);
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu { 
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 15, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-toggle { display: flex; }
+            .wiki-hero { padding: 120px 0 60px; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft Logo" class="logo-img">
+                <img src="https://i.ibb.co/5XDLJ7F0/Adobe-Express-file.png" alt="MeowCraft" class="logo-img">
                 <span class="brand-text">MeowCraft</span>
             </div>
-            <button class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('active')">
+                <span></span><span></span><span></span>
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
@@ -263,30 +386,25 @@
     </nav>
 
     <main>
-        <!-- Wiki Hero Section -->
         <section class="wiki-hero">
             <div class="container">
-                <h1 class="section-title" data-aos="fade-up"><i class="fas fa-book"></i> MeowCraft Wiki</h1>
-                <p class="section-subtitle" data-aos="fade-up">Your complete guide to mastering MeowCraft</p>
-                <div class="search-container" data-aos="fade-up">
+                <h1 class="section-title"><i class="fas fa-book"></i> MeowCraft Wiki</h1>
+                <p class="section-subtitle">Your complete guide to mastering MeowCraft</p>
+                <div class="search-container">
                     <input type="text" placeholder="Search the wiki...">
                     <button><i class="fas fa-search"></i></button>
                 </div>
             </div>
         </section>
 
-        <!-- Wiki Content -->
         <section class="wiki-content">
             <div class="container">
                 <div class="wiki-grid">
                     
-                    <!-- Getting Started -->
-                    <div class="wiki-card" data-aos="fade-up">
-                        <div class="wiki-card-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
+                    <div class="wiki-card">
+                        <div class="wiki-card-icon"><i class="fas fa-rocket"></i></div>
                         <h3>Getting Started</h3>
-                        <p>New to MeowCraft? Here's everything you need to know to begin your adventure.</p>
+                        <p>New to MeowCraft? Here's everything you need to know.</p>
                         <ul>
                             <li><i class="fas fa-download"></i> Download the MeowCraft Launcher</li>
                             <li><i class="fas fa-user-plus"></i> Create an account or login</li>
@@ -298,13 +416,10 @@
                         </div>
                     </div>
 
-                    <!-- Commands -->
-                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="wiki-card-icon">
-                            <i class="fas fa-terminal"></i>
-                        </div>
+                    <div class="wiki-card">
+                        <div class="wiki-card-icon"><i class="fas fa-terminal"></i></div>
                         <h3>Essential Commands</h3>
-                        <p>Master these commands to navigate the server like a pro.</p>
+                        <p>Master these commands to navigate the server.</p>
                         <ul>
                             <li><i class="fas fa-chevron-right"></i> <code>/spawn</code> - Return to spawn</li>
                             <li><i class="fas fa-chevron-right"></i> <code>/home</code> - Teleport home</li>
@@ -315,11 +430,8 @@
                         </ul>
                     </div>
 
-                    <!-- Land Claiming -->
-                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="wiki-card-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
+                    <div class="wiki-card">
+                        <div class="wiki-card-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3>Land Claiming</h3>
                         <p>Protect your builds and items from other players.</p>
                         <ul>
@@ -327,17 +439,14 @@
                             <li><i class="fas fa-chevron-right"></i> <code>/trust [player]</code> - Add trusted player</li>
                             <li><i class="fas fa-chevron-right"></i> <code>/untrust [player]</code> - Remove trust</li>
                             <li><i class="fas fa-chevron-right"></i> <code>/abandonclaim</code> - Delete claim</li>
-                            <li><i class="fas fa-chevron-right"></i> <code>/claimlist</code> - View your claims</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/claimlist</code> - View claims</li>
                         </ul>
                     </div>
 
-                    <!-- Cobblemon Basics -->
-                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="wiki-card-icon">
-                            <i class="fas fa-paw"></i>
-                        </div>
+                    <div class="wiki-card">
+                        <div class="wiki-card-icon"><i class="fas fa-paw"></i></div>
                         <h3>Cobblemon Basics</h3>
-                        <p>Learn how to catch, train, and battle with your Pokémon.</p>
+                        <p>Learn how to catch, train, and battle.</p>
                         <ul>
                             <li><i class="fas fa-crosshairs"></i> Throw Pokéballs at wild Pokémon</li>
                             <li><i class="fas fa-fist-raised"></i> Battle to gain experience</li>
@@ -347,11 +456,8 @@
                         </ul>
                     </div>
 
-                    <!-- Economy -->
-                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="wiki-card-icon">
-                            <i class="fas fa-coins"></i>
-                        </div>
+                    <div class="wiki-card">
+                        <div class="wiki-card-icon"><i class="fas fa-coins"></i></div>
                         <h3>Economy System</h3>
                         <p>Earn PokéCoins and spend them wisely!</p>
                         <ul>
@@ -363,30 +469,24 @@
                         </ul>
                     </div>
 
-                    <!-- Battling -->
-                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="500">
-                        <div class="wiki-card-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
+                    <div class="wiki-card">
+                        <div class="wiki-card-icon"><i class="fas fa-bolt"></i></div>
                         <h3>PvP Battles</h3>
-                        <p>Challenge other trainers to prove your skills!</p>
+                        <p>Challenge other trainers!</p>
                         <ul>
                             <li><i class="fas fa-chevron-right"></i> <code>/battle [player]</code> - Challenge</li>
                             <li><i class="fas fa-chevron-right"></i> <code>/battle accept</code> - Accept battle</li>
                             <li><i class="fas fa-chevron-right"></i> <code>/battle decline</code> - Decline</li>
                         </ul>
                         <div class="info-box">
-                            <i class="fas fa-info-circle"></i> Battle formats: Singles, Doubles, Triples
+                            <i class="fas fa-info-circle"></i> Formats: Singles, Doubles, Triples
                         </div>
                     </div>
 
-                    <!-- Server Rules -->
-                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="600">
-                        <div class="wiki-card-icon">
-                            <i class="fas fa-gavel"></i>
-                        </div>
+                    <div class="wiki-card">
+                        <div class="wiki-card-icon"><i class="fas fa-gavel"></i></div>
                         <h3>Server Rules</h3>
-                        <p>Follow these rules to keep MeowCraft fun for everyone.</p>
+                        <p>Keep MeowCraft fun for everyone.</p>
                         <ul>
                             <li><i class="fas fa-check"></i> Be respectful to all players</li>
                             <li><i class="fas fa-check"></i> No griefing or stealing</li>
@@ -395,17 +495,14 @@
                             <li><i class="fas fa-check"></i> No advertising other servers</li>
                         </ul>
                         <div class="warning-box">
-                            <i class="fas fa-exclamation-triangle"></i> Breaking rules may result in bans!
+                            <i class="fas fa-exclamation-triangle"></i> Breaking rules = bans!
                         </div>
                     </div>
 
-                    <!-- Discord -->
-                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="700">
-                        <div class="wiki-card-icon">
-                            <i class="fab fa-discord"></i>
-                        </div>
+                    <div class="wiki-card">
+                        <div class="wiki-card-icon"><i class="fab fa-discord"></i></div>
                         <h3>Join Our Discord</h3>
-                        <p>Connect with the community and get help!</p>
+                        <p>Connect with the community!</p>
                         <ul>
                             <li><i class="fas fa-comments"></i> Chat with other players</li>
                             <li><i class="fas fa-question-circle"></i> Get support from staff</li>
@@ -419,14 +516,13 @@
             </div>
         </section>
 
-        <!-- FAQ Section -->
         <section class="faq-section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up"><i class="fas fa-question-circle"></i> FAQ</h2>
-                <div class="faq-grid" data-aos="fade-up">
+                <h2 class="section-title"><i class="fas fa-question-circle"></i> FAQ</h2>
+                <div class="faq-grid">
                     <div class="faq-item">
                         <h3>How do I get started?</h3>
-                        <p>Download our launcher from the Download page, create an account, and click Play!</p>
+                        <p>Download our launcher, create an account, and click Play!</p>
                     </div>
                     <div class="faq-item">
                         <h3>Is the server always online?</h3>
@@ -438,11 +534,11 @@
                     </div>
                     <div class="faq-item">
                         <h3>How do I report bugs?</h3>
-                        <p>Join our Discord and use the #bug-reports channel.</p>
+                        <p>Join our Discord and use #bug-reports.</p>
                     </div>
                     <div class="faq-item">
                         <h3>What Minecraft version?</h3>
-                        <p>MeowCraft runs on Fabric 1.21.1 with Cobblemon.</p>
+                        <p>Fabric 1.21.1 with Cobblemon.</p>
                     </div>
                     <div class="faq-item">
                         <h3>How do I get more Pokémon?</h3>
@@ -453,13 +549,12 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>MeowCraft</h3>
-                    <p>The ultimate Cobblemon Minecraft experience.</p>
+                    <p>The ultimate Cobblemon experience.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -485,13 +580,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 MeowCraft. Not affiliated with Mojang Studios or The Pokémon Company.</p>
+                <p>&copy; 2024 MeowCraft. Not affiliated with Mojang or The Pokémon Company.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
