@@ -1,825 +1,173 @@
-/* ========================================
-   WIKI PAGE STYLES - FIXED LAYOUT
-======================================== */
+/* MeowCraft Wiki Styles - Clean Version */
+
+/* Remove any hero/mascot backgrounds */
+.hero,
+.hero::before,
+.hero::after,
+body::before,
+body::after {
+    background-image: none !important;
+    content: none !important;
+}
 
 /* Wiki Hero */
 .wiki-hero {
-    padding: 120px 0 60px;
+    padding: 150px 0 80px;
     text-align: center;
-    position: relative;
-    z-index: 1;
-    background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+    background: linear-gradient(180deg, rgba(10,10,15,1) 0%, rgba(20,20,30,1) 100%);
 }
 
-.wiki-hero .section-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.wiki-hero .section-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-}
-
-.search-bar {
+.search-container {
     max-width: 600px;
     margin: 2rem auto;
     display: flex;
-    gap: 0;
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 107, 53, 0.3);
-    border-radius: 50px;
-    overflow: hidden;
 }
 
-.search-bar input {
+.search-container input {
     flex: 1;
-    background: transparent;
-    border: none;
     padding: 1rem 1.5rem;
+    border: 2px solid var(--primary-color);
+    border-right: none;
+    border-radius: 50px 0 0 50px;
+    background: rgba(0, 0, 0, 0.5);
     color: var(--text-primary);
     font-size: 1rem;
     outline: none;
 }
 
-.search-bar input::placeholder {
+.search-container input::placeholder {
     color: var(--text-secondary);
 }
 
-.search-btn {
+.search-container button {
+    padding: 1rem 2rem;
     background: var(--gradient-1);
     border: none;
-    padding: 1rem 2rem;
+    border-radius: 0 50px 50px 0;
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.search-btn:hover {
+.search-container button:hover {
     filter: brightness(1.1);
 }
 
-/* Wiki Navigation */
-.wiki-nav-section {
-    padding: 1.5rem 0;
-    background: rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
-    position: relative;
-    z-index: 10;
-}
-
-.wiki-categories {
-    display: flex;
-    gap: 0.8rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.category-btn {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 107, 53, 0.3);
-    padding: 0.7rem 1.3rem;
-    border-radius: 25px;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.category-btn:hover,
-.category-btn.active {
-    background: var(--gradient-1);
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
-}
-
-/* Wiki Content Layout */
+/* Wiki Content */
 .wiki-content {
-    padding: 3rem 0;
-    position: relative;
-    z-index: 5;
-    background: rgba(10, 10, 15, 0.95);
-    min-height: 100vh;
+    padding: 4rem 0;
+    background: rgba(10, 10, 15, 0.98);
 }
 
-.wiki-layout {
+.wiki-grid {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    align-items: start;
 }
 
-/* Sidebar */
-.wiki-sidebar {
-    position: sticky;
-    top: 100px;
-    height: fit-content;
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-    background: var(--card-bg);
+/* Wiki Cards */
+.wiki-card {
+    background: var(--card-bg, rgba(20, 20, 30, 0.9));
     border: 1px solid rgba(255, 107, 53, 0.2);
     border-radius: 15px;
-    padding: 1.5rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
 }
 
-.sidebar-section {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+.wiki-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
 }
 
-.sidebar-section:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.sidebar-section h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
+.wiki-card-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-1, linear-gradient(135deg, #ff6b35 0%, #f7931e 100%));
+    border-radius: 15px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
 }
 
-.sidebar-section h3 i {
-    width: 20px;
-    text-align: center;
+.wiki-card-icon i {
+    font-size: 1.8rem;
+    color: white;
 }
 
-.wiki-links {
+.wiki-card h3 {
+    color: var(--primary-color, #ff6b35);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.wiki-card p {
+    color: var(--text-secondary, #b0b0b0);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.wiki-card ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.wiki-links li {
-    margin-bottom: 0.4rem;
+.wiki-card ul li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+    color: var(--text-secondary, #b0b0b0);
 }
 
-.wiki-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: block;
-    padding: 0.4rem 0.8rem;
-    border-radius: 5px;
-    font-size: 0.9rem;
+.wiki-card ul li:last-child {
+    border-bottom: none;
 }
 
-.wiki-links a:hover {
-    color: var(--primary-color);
-    background: rgba(255, 107, 53, 0.1);
-    padding-left: 1rem;
+.wiki-card ul li i {
+    color: var(--primary-color, #ff6b35);
+    margin-right: 0.5rem;
+    width: 20px;
 }
 
-/* Wiki Main Content */
-.wiki-main {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-/* Wiki Articles */
-.wiki-article {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 15px;
-    padding: 2rem;
-    scroll-margin-top: 100px;
-}
-
-.article-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.article-header h2 {
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    margin: 0;
-}
-
-.article-header h2 i {
-    font-size: 1.5rem;
-}
-
-.article-tag {
-    background: var(--gradient-1);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: white;
-    font-weight: 600;
-}
-
-.article-content {
-    color: var(--text-secondary);
-    line-height: 1.8;
-}
-
-.article-content h3 {
-    color: var(--primary-color);
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.article-content p {
-    margin-bottom: 1rem;
-}
-
-.article-content ul,
-.article-content ol {
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.article-content li {
-    margin-bottom: 0.5rem;
-}
-
-.article-content code {
+.wiki-card code {
     background: rgba(255, 107, 53, 0.15);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
-    color: var(--accent-color);
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-}
-
-.article-content a {
-    color: var(--primary-color);
-    text-decoration: none;
-    border-bottom: 1px solid var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-.article-content a:hover {
-    color: var(--accent-color);
-    border-bottom-color: var(--accent-color);
+    color: var(--accent-color, #f7931e);
+    font-family: monospace;
+    font-size: 0.85rem;
 }
 
 /* Info & Warning Boxes */
 .info-box {
     background: rgba(255, 193, 7, 0.1);
     border-left: 4px solid #ffc107;
-    padding: 1rem 1.2rem;
-    margin: 1.5rem 0;
+    padding: 1rem;
+    margin-top: 1rem;
     border-radius: 0 8px 8px 0;
-    color: var(--text-secondary);
 }
 
 .info-box i {
     color: #ffc107;
-    margin-right: 0.5rem;
 }
 
 .warning-box {
     background: rgba(244, 67, 54, 0.1);
     border-left: 4px solid #f44336;
-    padding: 1rem 1.2rem;
-    margin: 1.5rem 0;
+    padding: 1rem;
+    margin-top: 1rem;
     border-radius: 0 8px 8px 0;
-    color: var(--text-secondary);
 }
 
 .warning-box i {
     color: #f44336;
-    margin-right: 0.5rem;
 }
 
-/* ========================================
-   QUEST STYLES
-======================================== */
-
-.quest-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.quest-card {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 12px;
-    padding: 1.2rem 1.5rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    transition: all 0.3s ease;
-}
-
-.quest-card:hover {
-    border-color: var(--primary-color);
-    transform: translateX(5px);
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.quest-card.main-quest {
-    border-left: 4px solid #ffd700;
-    background: linear-gradient(90deg, rgba(255, 215, 0, 0.08) 0%, transparent 40%);
-}
-
-.quest-card.side-quest {
-    border-left: 4px solid #00bcd4;
-    background: linear-gradient(90deg, rgba(0, 188, 212, 0.08) 0%, transparent 40%);
-}
-
-.quest-card.daily-quest {
-    border-left: 4px solid #4caf50;
-    background: linear-gradient(90deg, rgba(76, 175, 80, 0.08) 0%, transparent 40%);
-}
-
-.quest-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 107, 53, 0.15);
-    border: 1px solid rgba(255, 107, 53, 0.3);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.quest-icon i {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-}
-
-.quest-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.quest-title {
-    color: var(--text-primary);
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-}
-
-.quest-desc {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 0.8rem;
-}
-
-.quest-rewards {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.reward-tag {
-    background: rgba(255, 107, 53, 0.15);
-    border: 1px solid rgba(255, 107, 53, 0.25);
-    padding: 0.25rem 0.6rem;
-    border-radius: 15px;
-    font-size: 0.75rem;
-    color: var(--accent-color);
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.reward-tag i {
-    font-size: 0.7rem;
-}
-
-/* ========================================
-   GYM LEADER STYLES
-======================================== */
-
-.region-card {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 15px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.region-header {
-    margin-bottom: 1rem;
-}
-
-.region-name {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.region-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--gradient-1);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.region-icon i {
-    font-size: 1.5rem;
-    color: white;
-}
-
-.region-icon.johto {
-    background: linear-gradient(135deg, #ffd700, #ff9800);
-}
-
-.region-icon.hoenn {
-    background: linear-gradient(135deg, #4caf50, #2196f3);
-}
-
-.region-icon.sinnoh {
-    background: linear-gradient(135deg, #673ab7, #3f51b5);
-}
-
-.region-name h4 {
-    color: var(--primary-color);
-    font-size: 1.3rem;
-    margin: 0;
-}
-
-.region-badges {
-    display: flex;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-}
-
-.badge-slot {
-    width: 45px;
-    height: 45px;
-    background: rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.badge-slot:hover {
-    transform: scale(1.1);
-    border-color: var(--primary-color);
-}
-
-.badge-slot .badge-tooltip {
-    position: absolute;
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--card-bg);
-    border: 1px solid var(--primary-color);
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    white-space: nowrap;
-    font-size: 0.75rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    z-index: 10;
-    color: var(--text-primary);
-}
-
-.badge-slot:hover .badge-tooltip {
-    opacity: 1;
-}
-
-/* Type-colored badge slots */
-.badge-slot.type-rock { border-color: #8d6e63; background: rgba(141, 110, 99, 0.3); }
-.badge-slot.type-water { border-color: #42a5f5; background: rgba(66, 165, 245, 0.3); }
-.badge-slot.type-electric { border-color: #ffee58; background: rgba(255, 238, 88, 0.3); }
-.badge-slot.type-grass { border-color: #66bb6a; background: rgba(102, 187, 106, 0.3); }
-.badge-slot.type-poison { border-color: #ab47bc; background: rgba(171, 71, 188, 0.3); }
-.badge-slot.type-psychic { border-color: #f48fb1; background: rgba(244, 143, 177, 0.3); }
-.badge-slot.type-fire { border-color: #ff7043; background: rgba(255, 112, 67, 0.3); }
-.badge-slot.type-ground { border-color: #a1887f; background: rgba(161, 136, 127, 0.3); }
-.badge-slot.type-flying { border-color: #81d4fa; background: rgba(129, 212, 250, 0.3); }
-.badge-slot.type-bug { border-color: #aed581; background: rgba(174, 213, 129, 0.3); }
-.badge-slot.type-ghost { border-color: #7c4dff; background: rgba(124, 77, 255, 0.3); }
-.badge-slot.type-normal { border-color: #bdbdbd; background: rgba(189, 189, 189, 0.3); }
-.badge-slot.type-fighting { border-color: #ef5350; background: rgba(239, 83, 80, 0.3); }
-.badge-slot.type-steel { border-color: #90a4ae; background: rgba(144, 164, 174, 0.3); }
-.badge-slot.type-ice { border-color: #80deea; background: rgba(128, 222, 234, 0.3); }
-.badge-slot.type-dragon { border-color: #7e57c2; background: rgba(126, 87, 194, 0.3); }
-.badge-slot.type-dark { border-color: #616161; background: rgba(97, 97, 97, 0.3); }
-
-/* Gym Leader Grid */
-.gym-leader-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.gym-leader-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.gym-leader-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
-    border-color: var(--primary-color);
-}
-
-.gym-leader-banner {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.gym-leader-banner.rock { background: linear-gradient(135deg, #8d6e63, #5d4037); }
-.gym-leader-banner.water { background: linear-gradient(135deg, #42a5f5, #1565c0); }
-.gym-leader-banner.electric { background: linear-gradient(135deg, #ffee58, #f9a825); }
-.gym-leader-banner.grass { background: linear-gradient(135deg, #66bb6a, #2e7d32); }
-.gym-leader-banner.poison { background: linear-gradient(135deg, #ab47bc, #7b1fa2); }
-.gym-leader-banner.psychic { background: linear-gradient(135deg, #f48fb1, #c2185b); }
-.gym-leader-banner.fire { background: linear-gradient(135deg, #ff7043, #d84315); }
-.gym-leader-banner.ground { background: linear-gradient(135deg, #a1887f, #6d4c41); }
-.gym-leader-banner.fighting { background: linear-gradient(135deg, #ef5350, #b71c1c); }
-.gym-leader-banner.steel { background: linear-gradient(135deg, #90a4ae, #546e7a); }
-.gym-leader-banner.ice { background: linear-gradient(135deg, #80deea, #00838f); }
-.gym-leader-banner.dragon { background: linear-gradient(135deg, #7e57c2, #4527a0); }
-.gym-leader-banner.ghost { background: linear-gradient(135deg, #7c4dff, #311b92); }
-.gym-leader-banner.dark { background: linear-gradient(135deg, #616161, #212121); }
-.gym-leader-banner.normal { background: linear-gradient(135deg, #bdbdbd, #757575); }
-.gym-leader-banner.flying { background: linear-gradient(135deg, #81d4fa, #4fc3f7); }
-.gym-leader-banner.bug { background: linear-gradient(135deg, #aed581, #689f38); }
-.gym-leader-banner.fairy { background: linear-gradient(135deg, #f8bbd0, #f06292); }
-
-.type-badge {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: white;
-}
-
-.gym-leader-info {
-    padding: 1.2rem;
-}
-
-.gym-leader-name {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.gym-leader-type {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
-}
-
-.gym-leader-pokemon {
-    display: flex;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-}
-
-.pokemon-mini {
-    background: rgba(255, 107, 53, 0.1);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-}
-
-.gym-badge-reward {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(255, 107, 53, 0.1);
-}
-
-.mini-badge {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    border: 2px solid;
-}
-
-.mini-badge.type-rock { border-color: #8d6e63; background: linear-gradient(135deg, #8d6e63, #5d4037); }
-.mini-badge.type-water { border-color: #42a5f5; background: linear-gradient(135deg, #42a5f5, #1565c0); }
-.mini-badge.type-electric { border-color: #ffee58; background: linear-gradient(135deg, #ffee58, #f9a825); }
-.mini-badge.type-grass { border-color: #66bb6a; background: linear-gradient(135deg, #66bb6a, #2e7d32); }
-.mini-badge.type-poison { border-color: #ab47bc; background: linear-gradient(135deg, #ab47bc, #7b1fa2); }
-.mini-badge.type-psychic { border-color: #f48fb1; background: linear-gradient(135deg, #f48fb1, #c2185b); }
-.mini-badge.type-fire { border-color: #ff7043; background: linear-gradient(135deg, #ff7043, #d84315); }
-.mini-badge.type-ground { border-color: #a1887f; background: linear-gradient(135deg, #a1887f, #6d4c41); }
-.mini-badge.type-flying { border-color: #81d4fa; background: linear-gradient(135deg, #81d4fa, #4fc3f7); }
-.mini-badge.type-bug { border-color: #aed581; background: linear-gradient(135deg, #aed581, #689f38); }
-.mini-badge.type-ghost { border-color: #7c4dff; background: linear-gradient(135deg, #7c4dff, #311b92); }
-.mini-badge.type-normal { border-color: #bdbdbd; background: linear-gradient(135deg, #bdbdbd, #757575); }
-.mini-badge.type-fighting { border-color: #ef5350; background: linear-gradient(135deg, #ef5350, #b71c1c); }
-.mini-badge.type-steel { border-color: #90a4ae; background: linear-gradient(135deg, #90a4ae, #546e7a); }
-.mini-badge.type-ice { border-color: #80deea; background: linear-gradient(135deg, #80deea, #00838f); }
-.mini-badge.type-dragon { border-color: #7e57c2; background: linear-gradient(135deg, #7e57c2, #4527a0); }
-.mini-badge.type-dark { border-color: #616161; background: linear-gradient(135deg, #616161, #212121); }
-
-.gym-badge-name {
-    font-weight: 600;
-    color: var(--text-primary);
-    font-size: 0.9rem;
-}
-
-/* Elite Four Section */
-.elite-section {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(103, 58, 183, 0.1) 100%);
-    border: 1px solid rgba(156, 39, 176, 0.3);
-    border-radius: 15px;
-}
-
-.elite-section h3 {
-    color: #ce93d8;
-    text-align: center;
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.elite-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1rem;
-}
-
-.elite-member {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(156, 39, 176, 0.3);
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.elite-member:hover {
-    transform: translateY(-3px);
-    border-color: #ce93d8;
-}
-
-.elite-member.champion {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 107, 53, 0.15) 100%);
-    border-color: #ffd700;
-}
-
-.elite-type-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 0.8rem;
-    font-size: 1.3rem;
-    color: white;
-}
-
-.elite-type-icon.type-ice { background: linear-gradient(135deg, #80deea, #00838f); }
-.elite-type-icon.type-fighting { background: linear-gradient(135deg, #ef5350, #b71c1c); }
-.elite-type-icon.type-ghost { background: linear-gradient(135deg, #7c4dff, #311b92); }
-.elite-type-icon.type-dragon { background: linear-gradient(135deg, #7e57c2, #4527a0); }
-.elite-type-icon.type-psychic { background: linear-gradient(135deg, #f48fb1, #c2185b); }
-.elite-type-icon.type-poison { background: linear-gradient(135deg, #ab47bc, #7b1fa2); }
-.elite-type-icon.type-dark { background: linear-gradient(135deg, #616161, #212121); }
-.elite-type-icon.type-bug { background: linear-gradient(135deg, #aed581, #689f38); }
-.elite-type-icon.type-ground { background: linear-gradient(135deg, #a1887f, #6d4c41); }
-.elite-type-icon.type-fire { background: linear-gradient(135deg, #ff7043, #d84315); }
-.elite-type-icon.champion-icon { background: linear-gradient(135deg, #ffd700, #ff9800); }
-
-.elite-name {
-    font-weight: 600;
-    color: var(--text-primary);
-    font-size: 1rem;
-}
-
-.elite-type {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-top: 0.2rem;
-}
-
-/* ========================================
-   ACHIEVEMENT STYLES
-======================================== */
-
-.achievement-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.achievement-card {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 12px;
-    padding: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.achievement-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.15);
-}
-
-.achievement-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.8rem;
-}
-
-.achievement-icon {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(247, 147, 30, 0.1) 100%);
-    border-radius: 12px;
-    flex-shrink: 0;
-}
-
-.achievement-icon i {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-}
-
-.achievement-title {
-    color: var(--text-primary);
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-}
-
-.achievement-rarity {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.rarity-common { background: rgba(158, 158, 158, 0.3); color: #bdbdbd; }
-.rarity-uncommon { background: rgba(76, 175, 80, 0.3); color: #81c784; }
-.rarity-rare { background: rgba(33, 150, 243, 0.3); color: #64b5f6; }
-.rarity-epic { background: rgba(156, 39, 176, 0.3); color: #ba68c8; }
-.rarity-legendary { background: rgba(255, 193, 7, 0.3); color: #ffd54f; }
-
-.achievement-desc {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    line-height: 1.5;
-}
-
-/* ========================================
-   FAQ SECTION
-======================================== */
-
+/* FAQ Section */
 .faq-section {
     padding: 4rem 0;
-    background: rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 5;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .faq-grid {
@@ -830,7 +178,7 @@
 }
 
 .faq-item {
-    background: var(--card-bg);
+    background: var(--card-bg, rgba(20, 20, 30, 0.9));
     border: 1px solid rgba(255, 107, 53, 0.2);
     border-radius: 15px;
     padding: 1.5rem;
@@ -838,125 +186,42 @@
 }
 
 .faq-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
-    border-color: var(--primary-color);
+    border-color: var(--primary-color, #ff6b35);
 }
 
 .faq-item h3 {
-    color: var(--primary-color);
+    color: var(--primary-color, #ff6b35);
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
 }
 
 .faq-item p {
-    color: var(--text-secondary);
+    color: var(--text-secondary, #b0b0b0);
     line-height: 1.6;
-    font-size: 0.95rem;
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-======================================== */
-
-@media (max-width: 1024px) {
-    .wiki-layout {
-        grid-template-columns: 250px 1fr;
-        gap: 1.5rem;
-    }
-    
-    .gym-leader-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
     .wiki-hero {
-        padding: 100px 0 40px;
+        padding: 120px 0 60px;
     }
     
-    .wiki-hero .section-title {
-        font-size: 2rem;
-    }
-    
-    .wiki-layout {
+    .wiki-grid {
         grid-template-columns: 1fr;
     }
-
-    .wiki-sidebar {
-        position: static;
-        max-height: none;
-        order: -1;
-    }
-
-    .article-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
     
-    .article-header h2 {
-        font-size: 1.5rem;
-    }
-
-    .search-bar {
+    .search-container {
         flex-direction: column;
         border-radius: 15px;
     }
-
-    .search-btn {
-        width: 100%;
+    
+    .search-container input {
+        border-radius: 15px 15px 0 0;
+        border-right: 2px solid var(--primary-color);
+        border-bottom: none;
+    }
+    
+    .search-container button {
         border-radius: 0 0 15px 15px;
-    }
-
-    .wiki-categories {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: 0.5rem;
-        flex-wrap: nowrap;
-    }
-
-    .category-btn {
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-
-    .gym-leader-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .achievement-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .quest-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .quest-rewards {
-        justify-content: center;
-    }
-
-    .region-badges {
-        justify-content: center;
-    }
-    
-    .elite-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .wiki-article {
-        padding: 1.2rem;
-    }
-    
-    .wiki-sidebar {
-        padding: 1rem;
-    }
-    
-    .elite-grid {
-        grid-template-columns: 1fr;
     }
 }
