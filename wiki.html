@@ -5,17 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki - MeowCraft</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="wiki.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        /* Wiki Page Styles */
+        .wiki-hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 0;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-right: none;
+            border-radius: 50px 0 0 50px;
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-container button {
+            padding: 1rem 2rem;
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 0 50px 50px 0;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-container button:hover {
+            filter: brightness(1.1);
+        }
+
+        .wiki-content {
+            padding: 4rem 0;
+            background: rgba(10, 10, 15, 0.95);
+        }
+
+        .wiki-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .wiki-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .wiki-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .wiki-card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .wiki-card-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .wiki-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .wiki-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .wiki-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .wiki-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            color: var(--text-secondary);
+        }
+
+        .wiki-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .wiki-card ul li i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            width: 20px;
+        }
+
+        .wiki-card code {
+            background: rgba(255, 107, 53, 0.15);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            color: var(--accent-color);
+            font-family: monospace;
+            font-size: 0.85rem;
+        }
+
+        .info-box {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box i {
+            color: #ffc107;
+        }
+
+        .warning-box {
+            background: rgba(244, 67, 54, 0.1);
+            border-left: 4px solid #f44336;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box i {
+            color: #f44336;
+        }
+
+        .faq-section {
+            padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+
+        .faq-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader"></div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -47,25 +225,9 @@
             <div class="container">
                 <h1 class="section-title" data-aos="fade-up"><i class="fas fa-book"></i> MeowCraft Wiki</h1>
                 <p class="section-subtitle" data-aos="fade-up">Your complete guide to mastering MeowCraft</p>
-                <div class="search-bar" data-aos="fade-up">
-                    <input type="text" id="wikiSearch" placeholder="Search for guides, tutorials, and more...">
-                    <button class="search-btn"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Wiki Navigation -->
-        <section class="wiki-nav-section">
-            <div class="container">
-                <div class="wiki-categories" data-aos="fade-up">
-                    <button class="category-btn active" data-category="all">All Topics</button>
-                    <button class="category-btn" data-category="getting-started">Getting Started</button>
-                    <button class="category-btn" data-category="gameplay">Gameplay</button>
-                    <button class="category-btn" data-category="cobblemon">Cobblemon</button>
-                    <button class="category-btn" data-category="quests">Quests</button>
-                    <button class="category-btn" data-category="gym-leaders">Gym Leaders</button>
-                    <button class="category-btn" data-category="achievements">Achievements</button>
-                    <button class="category-btn" data-category="economy">Economy</button>
+                <div class="search-container" data-aos="fade-up">
+                    <input type="text" placeholder="Search the wiki...">
+                    <button><i class="fas fa-search"></i></button>
                 </div>
             </div>
         </section>
@@ -73,1146 +235,175 @@
         <!-- Wiki Content -->
         <section class="wiki-content">
             <div class="container">
-                <div class="wiki-layout">
-                    <!-- Sidebar -->
-                    <aside class="wiki-sidebar" data-aos="fade-right">
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-rocket"></i> Getting Started</h3>
-                            <ul class="wiki-links">
-                                <li><a href="#installation">Installation Guide</a></li>
-                                <li><a href="#first-steps">First Steps</a></li>
-                                <li><a href="#rules">Server Rules</a></li>
-                            </ul>
+                <div class="wiki-grid">
+                    
+                    <!-- Getting Started -->
+                    <div class="wiki-card" data-aos="fade-up">
+                        <div class="wiki-card-icon">
+                            <i class="fas fa-rocket"></i>
                         </div>
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-scroll"></i> Quests</h3>
-                            <ul class="wiki-links">
-                                <li><a href="#main-quests">Main Story</a></li>
-                                <li><a href="#side-quests">Side Quests</a></li>
-                                <li><a href="#daily-quests">Daily Quests</a></li>
-                            </ul>
+                        <h3>Getting Started</h3>
+                        <p>New to MeowCraft? Here's everything you need to know to begin your adventure.</p>
+                        <ul>
+                            <li><i class="fas fa-download"></i> Download the MeowCraft Launcher</li>
+                            <li><i class="fas fa-user-plus"></i> Create an account or login</li>
+                            <li><i class="fas fa-play"></i> Click Play and join the server</li>
+                            <li><i class="fas fa-paw"></i> Choose your starter Pokémon</li>
+                        </ul>
+                        <div class="info-box">
+                            <i class="fas fa-lightbulb"></i> <strong>Tip:</strong> Make sure you have Java 17+ installed!
                         </div>
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-medal"></i> Gym Leaders</h3>
-                            <ul class="wiki-links">
-                                <li><a href="#kanto-gyms">Kanto League</a></li>
-                                <li><a href="#johto-gyms">Johto League</a></li>
-                                <li><a href="#hoenn-gyms">Hoenn League</a></li>
-                                <li><a href="#sinnoh-gyms">Sinnoh League</a></li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-trophy"></i> Achievements</h3>
-                            <ul class="wiki-links">
-                                <li><a href="#achievements">All Achievements</a></li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-gamepad"></i> Gameplay</h3>
-                            <ul class="wiki-links">
-                                <li><a href="#battling">PvP Battles</a></li>
-                                <li><a href="#claiming">Land Claiming</a></li>
-                                <li><a href="#economy">Economy System</a></li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-paw"></i> Cobblemon</h3>
-                            <ul class="wiki-links">
-                                <li><a href="#catching">Catching Pokémon</a></li>
-                                <li><a href="#training">Training Guide</a></li>
-                            </ul>
-                        </div>
-                    </aside>
-
-                    <!-- Main Content -->
-                    <div class="wiki-main" data-aos="fade-left">
-                        
-                        <!-- GETTING STARTED -->
-                        <div class="wiki-article" id="installation" data-category="getting-started">
-                            <div class="article-header">
-                                <h2><i class="fas fa-download"></i> Installation Guide</h2>
-                                <span class="article-tag">Getting Started</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Follow these simple steps to get started with MeowCraft:</p>
-                                <ol>
-                                    <li><strong>Download the Launcher:</strong> Head to our <a href="download.html">download page</a> and get the MeowCraft launcher.</li>
-                                    <li><strong>Install:</strong> Run the installer and follow the on-screen instructions.</li>
-                                    <li><strong>Login/Register:</strong> Create an account or login with your existing credentials.</li>
-                                    <li><strong>Launch:</strong> Click "Play" and the launcher will automatically download all required mods.</li>
-                                </ol>
-                                <div class="info-box">
-                                    <strong><i class="fas fa-lightbulb"></i> Tip:</strong> Make sure you have Java 17 or higher installed for optimal performance.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="first-steps" data-category="getting-started">
-                            <div class="article-header">
-                                <h2><i class="fas fa-flag-checkered"></i> First Steps</h2>
-                                <span class="article-tag">Getting Started</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Once you've joined the server, here's what to do:</p>
-                                <h3>1. Choose Your Starter</h3>
-                                <p>When you first join, you'll be able to choose from a selection of starter Pokémon.</p>
-                                <h3>2. Claim Your Land</h3>
-                                <p>Protect your builds using our land claim system. Use <code>/claim</code> to secure your area.</p>
-                                <h3>3. Explore the World</h3>
-                                <p>Our custom-generated world has unique biomes and structures waiting to be discovered.</p>
-                                <h3>4. Join the Community</h3>
-                                <p>Connect with other players on our Discord server and join in on events!</p>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="rules" data-category="getting-started">
-                            <div class="article-header">
-                                <h2><i class="fas fa-gavel"></i> Server Rules</h2>
-                                <span class="article-tag">Getting Started</span>
-                            </div>
-                            <div class="article-content">
-                                <div class="warning-box">
-                                    <strong><i class="fas fa-exclamation-triangle"></i> Important:</strong> Breaking these rules may result in temporary or permanent bans.
-                                </div>
-                                <ul>
-                                    <li>Be respectful to all players and staff</li>
-                                    <li>No griefing or stealing</li>
-                                    <li>No cheating, hacking, or exploiting bugs</li>
-                                    <li>Keep chat family-friendly</li>
-                                    <li>No advertising other servers</li>
-                                    <li>Follow staff instructions</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- QUESTS -->
-                        <div class="wiki-article" id="main-quests" data-category="quests">
-                            <div class="article-header">
-                                <h2><i class="fas fa-scroll"></i> Main Story Quests</h2>
-                                <span class="article-tag">Quests</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Follow the main story to progress through the game and unlock new regions!</p>
-                                
-                                <div class="quest-list">
-                                    <div class="quest-card main-quest">
-                                        <div class="quest-icon"><i class="fas fa-egg"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">A New Beginning</div>
-                                            <div class="quest-desc">Choose your starter Pokémon and begin your adventure in MeowCraft.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-briefcase"></i> Starter Kit</span>
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 500 PokéCoins</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card main-quest">
-                                        <div class="quest-icon"><i class="fas fa-home"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Home Sweet Home</div>
-                                            <div class="quest-desc">Claim your first plot of land and build a base to store your items.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-hammer"></i> Building Materials</span>
-                                                <span class="reward-tag"><i class="fas fa-box"></i> Storage Chest</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card main-quest">
-                                        <div class="quest-icon"><i class="fas fa-fist-raised"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">First Victory</div>
-                                            <div class="quest-desc">Win your first Pokémon battle against a wild Pokémon or trainer.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-circle"></i> 10x Poké Balls</span>
-                                                <span class="reward-tag"><i class="fas fa-flask"></i> 5x Potions</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card main-quest">
-                                        <div class="quest-icon"><i class="fas fa-building"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">The Kanto Challenge</div>
-                                            <div class="quest-desc">Defeat all 8 Kanto Gym Leaders and collect their badges.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-award"></i> Kanto Champion Title</span>
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 50,000 PokéCoins</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card main-quest">
-                                        <div class="quest-icon"><i class="fas fa-crown"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Elite Four Showdown</div>
-                                            <div class="quest-desc">Challenge the Elite Four and face the Champion to prove your worth.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-crown"></i> Champion Crown</span>
-                                                <span class="reward-tag"><i class="fas fa-star"></i> Hall of Fame</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card main-quest">
-                                        <div class="quest-icon"><i class="fas fa-globe"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">World Champion</div>
-                                            <div class="quest-desc">Become Champion in all 4 regions and cement your legacy!</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-crown"></i> World Champion Title</span>
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 500,000 PokéCoins</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="side-quests" data-category="quests">
-                            <div class="article-header">
-                                <h2><i class="fas fa-map-signs"></i> Side Quests</h2>
-                                <span class="article-tag">Quests</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Optional quests that provide extra rewards and unique experiences!</p>
-                                
-                                <div class="quest-list">
-                                    <div class="quest-card side-quest">
-                                        <div class="quest-icon"><i class="fas fa-flask"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Professor's Assistant</div>
-                                            <div class="quest-desc">Help Professor Oak by catching 10 different species of Pokémon.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-mobile-alt"></i> Pokédex Upgrade</span>
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 2,000 PokéCoins</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card side-quest">
-                                        <div class="quest-icon"><i class="fas fa-gem"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Fossil Hunter</div>
-                                            <div class="quest-desc">Discover and revive an ancient Pokémon from a fossil.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-bone"></i> Rare Fossil</span>
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 5,000 PokéCoins</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card side-quest">
-                                        <div class="quest-icon"><i class="fas fa-fish"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Master Angler</div>
-                                            <div class="quest-desc">Catch 20 Water-type Pokémon using a fishing rod.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-fish"></i> Super Rod</span>
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 3,000 PokéCoins</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card side-quest">
-                                        <div class="quest-icon"><i class="fas fa-star"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Shiny Seeker</div>
-                                            <div class="quest-desc">Catch your first shiny Pokémon.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-gem"></i> Shiny Charm</span>
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 25,000 PokéCoins</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="daily-quests" data-category="quests">
-                            <div class="article-header">
-                                <h2><i class="fas fa-calendar-day"></i> Daily Quests</h2>
-                                <span class="article-tag">Quests</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Complete these quests every day for bonus rewards! Resets at midnight server time.</p>
-                                
-                                <div class="quest-list">
-                                    <div class="quest-card daily-quest">
-                                        <div class="quest-icon"><i class="fas fa-fist-raised"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Daily Battler</div>
-                                            <div class="quest-desc">Win 5 battles against wild Pokémon or trainers.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 1,000 PokéCoins</span>
-                                                <span class="reward-tag"><i class="fas fa-star"></i> 50 XP</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card daily-quest">
-                                        <div class="quest-icon"><i class="fas fa-crosshairs"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Daily Catch</div>
-                                            <div class="quest-desc">Catch 3 wild Pokémon today.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-circle"></i> 5x Great Balls</span>
-                                                <span class="reward-tag"><i class="fas fa-star"></i> 30 XP</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card daily-quest">
-                                        <div class="quest-icon"><i class="fas fa-hiking"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Explorer</div>
-                                            <div class="quest-desc">Travel 1,000 blocks in the overworld.</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 500 PokéCoins</span>
-                                                <span class="reward-tag"><i class="fas fa-bolt"></i> Speed Boost</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="quest-card daily-quest">
-                                        <div class="quest-icon"><i class="fas fa-sign-in-alt"></i></div>
-                                        <div class="quest-info">
-                                            <div class="quest-title">Daily Login</div>
-                                            <div class="quest-desc">Simply log in to the server today!</div>
-                                            <div class="quest-rewards">
-                                                <span class="reward-tag"><i class="fas fa-coins"></i> 250 PokéCoins</span>
-                                                <span class="reward-tag"><i class="fas fa-gift"></i> Daily Box</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- KANTO GYM LEADERS -->
-                        <div class="wiki-article" id="kanto-gyms" data-category="gym-leaders">
-                            <div class="article-header">
-                                <h2><i class="fas fa-medal"></i> Kanto Gym Leaders</h2>
-                                <span class="article-tag">Gym Leaders</span>
-                            </div>
-                            <div class="article-content">
-                                <p>The original 8 Gym Leaders of Kanto await your challenge!</p>
-                                
-                                <div class="region-card">
-                                    <div class="region-header">
-                                        <div class="region-name">
-                                            <div class="region-icon"><i class="fas fa-mountain"></i></div>
-                                            <h4>Kanto League Progress</h4>
-                                        </div>
-                                    </div>
-                                    <div class="region-badges">
-                                        <div class="badge-slot type-rock"><span class="badge-tooltip">Boulder Badge</span></div>
-                                        <div class="badge-slot type-water"><span class="badge-tooltip">Cascade Badge</span></div>
-                                        <div class="badge-slot type-electric"><span class="badge-tooltip">Thunder Badge</span></div>
-                                        <div class="badge-slot type-grass"><span class="badge-tooltip">Rainbow Badge</span></div>
-                                        <div class="badge-slot type-poison"><span class="badge-tooltip">Soul Badge</span></div>
-                                        <div class="badge-slot type-psychic"><span class="badge-tooltip">Marsh Badge</span></div>
-                                        <div class="badge-slot type-fire"><span class="badge-tooltip">Volcano Badge</span></div>
-                                        <div class="badge-slot type-ground"><span class="badge-tooltip">Earth Badge</span></div>
-                                    </div>
-                                </div>
-
-                                <div class="gym-leader-grid">
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner rock"><div class="type-badge">ROCK</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Brock</div>
-                                            <div class="gym-leader-type">Rock-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Geodude</span>
-                                                <span class="pokemon-mini">Onix</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-rock"></div>
-                                                <span class="gym-badge-name">Boulder Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner water"><div class="type-badge">WATER</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Misty</div>
-                                            <div class="gym-leader-type">Water-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Staryu</span>
-                                                <span class="pokemon-mini">Starmie</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-water"></div>
-                                                <span class="gym-badge-name">Cascade Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner electric"><div class="type-badge">ELECTRIC</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Lt. Surge</div>
-                                            <div class="gym-leader-type">Electric-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Voltorb</span>
-                                                <span class="pokemon-mini">Pikachu</span>
-                                                <span class="pokemon-mini">Raichu</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-electric"></div>
-                                                <span class="gym-badge-name">Thunder Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner grass"><div class="type-badge">GRASS</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Erika</div>
-                                            <div class="gym-leader-type">Grass-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Victreebel</span>
-                                                <span class="pokemon-mini">Tangela</span>
-                                                <span class="pokemon-mini">Vileplume</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-grass"></div>
-                                                <span class="gym-badge-name">Rainbow Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner poison"><div class="type-badge">POISON</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Koga</div>
-                                            <div class="gym-leader-type">Poison-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Koffing</span>
-                                                <span class="pokemon-mini">Muk</span>
-                                                <span class="pokemon-mini">Weezing</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-poison"></div>
-                                                <span class="gym-badge-name">Soul Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner psychic"><div class="type-badge">PSYCHIC</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Sabrina</div>
-                                            <div class="gym-leader-type">Psychic-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Kadabra</span>
-                                                <span class="pokemon-mini">Mr. Mime</span>
-                                                <span class="pokemon-mini">Alakazam</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-psychic"></div>
-                                                <span class="gym-badge-name">Marsh Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner fire"><div class="type-badge">FIRE</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Blaine</div>
-                                            <div class="gym-leader-type">Fire-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Growlithe</span>
-                                                <span class="pokemon-mini">Ponyta</span>
-                                                <span class="pokemon-mini">Arcanine</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-fire"></div>
-                                                <span class="gym-badge-name">Volcano Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner ground"><div class="type-badge">GROUND</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Giovanni</div>
-                                            <div class="gym-leader-type">Ground-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Rhyhorn</span>
-                                                <span class="pokemon-mini">Dugtrio</span>
-                                                <span class="pokemon-mini">Nidoking</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-ground"></div>
-                                                <span class="gym-badge-name">Earth Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="elite-section">
-                                    <h3><i class="fas fa-crown"></i> Kanto Elite Four &amp; Champion</h3>
-                                    <div class="elite-grid">
-                                        <div class="elite-member">
-                                            <div class="elite-type-icon type-ice"><i class="fas fa-snowflake"></i></div>
-                                            <div class="elite-name">Lorelei</div>
-                                            <div class="elite-type">Ice-type</div>
-                                        </div>
-                                        <div class="elite-member">
-                                            <div class="elite-type-icon type-fighting"><i class="fas fa-fist-raised"></i></div>
-                                            <div class="elite-name">Bruno</div>
-                                            <div class="elite-type">Fighting-type</div>
-                                        </div>
-                                        <div class="elite-member">
-                                            <div class="elite-type-icon type-ghost"><i class="fas fa-ghost"></i></div>
-                                            <div class="elite-name">Agatha</div>
-                                            <div class="elite-type">Ghost-type</div>
-                                        </div>
-                                        <div class="elite-member">
-                                            <div class="elite-type-icon type-dragon"><i class="fas fa-dragon"></i></div>
-                                            <div class="elite-name">Lance</div>
-                                            <div class="elite-type">Dragon-type</div>
-                                        </div>
-                                        <div class="elite-member champion">
-                                            <div class="elite-type-icon champion-icon"><i class="fas fa-crown"></i></div>
-                                            <div class="elite-name">Blue</div>
-                                            <div class="elite-type">Champion</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- JOHTO GYM LEADERS -->
-                        <div class="wiki-article" id="johto-gyms" data-category="gym-leaders">
-                            <div class="article-header">
-                                <h2><i class="fas fa-medal"></i> Johto Gym Leaders</h2>
-                                <span class="article-tag">Gym Leaders</span>
-                            </div>
-                            <div class="article-content">
-                                <p>The tradition-rich Johto region awaits! Unlock by completing Kanto.</p>
-                                
-                                <div class="region-card">
-                                    <div class="region-header">
-                                        <div class="region-name">
-                                            <div class="region-icon johto"><i class="fas fa-torii-gate"></i></div>
-                                            <h4>Johto League Progress</h4>
-                                        </div>
-                                    </div>
-                                    <div class="region-badges">
-                                        <div class="badge-slot type-flying"><span class="badge-tooltip">Zephyr Badge</span></div>
-                                        <div class="badge-slot type-bug"><span class="badge-tooltip">Hive Badge</span></div>
-                                        <div class="badge-slot type-ghost"><span class="badge-tooltip">Fog Badge</span></div>
-                                        <div class="badge-slot type-normal"><span class="badge-tooltip">Plain Badge</span></div>
-                                        <div class="badge-slot type-fighting"><span class="badge-tooltip">Storm Badge</span></div>
-                                        <div class="badge-slot type-steel"><span class="badge-tooltip">Mineral Badge</span></div>
-                                        <div class="badge-slot type-ice"><span class="badge-tooltip">Glacier Badge</span></div>
-                                        <div class="badge-slot type-dragon"><span class="badge-tooltip">Rising Badge</span></div>
-                                    </div>
-                                </div>
-
-                                <div class="gym-leader-grid">
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner flying"><div class="type-badge">FLYING</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Valerio</div>
-                                            <div class="gym-leader-type">Flying-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Pidgey</span>
-                                                <span class="pokemon-mini">Pidgeotto</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-flying"></div>
-                                                <span class="gym-badge-name">Zephyr Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner bug"><div class="type-badge">BUG</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Alfredo</div>
-                                            <div class="gym-leader-type">Bug-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Metapod</span>
-                                                <span class="pokemon-mini">Kakuna</span>
-                                                <span class="pokemon-mini">Scyther</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-bug"></div>
-                                                <span class="gym-badge-name">Hive Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner ghost"><div class="type-badge">GHOST</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Furio</div>
-                                            <div class="gym-leader-type">Ghost-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Gastly</span>
-                                                <span class="pokemon-mini">Haunter</span>
-                                                <span class="pokemon-mini">Gengar</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-ghost"></div>
-                                                <span class="gym-badge-name">Fog Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner normal"><div class="type-badge">NORMAL</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Chiara</div>
-                                            <div class="gym-leader-type">Normal-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Clefairy</span>
-                                                <span class="pokemon-mini">Miltank</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-normal"></div>
-                                                <span class="gym-badge-name">Plain Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner fighting"><div class="type-badge">FIGHTING</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Angelo</div>
-                                            <div class="gym-leader-type">Fighting-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Primeape</span>
-                                                <span class="pokemon-mini">Poliwrath</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-fighting"></div>
-                                                <span class="gym-badge-name">Storm Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner steel"><div class="type-badge">STEEL</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Jasmine</div>
-                                            <div class="gym-leader-type">Steel-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Magnemite</span>
-                                                <span class="pokemon-mini">Steelix</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-steel"></div>
-                                                <span class="gym-badge-name">Mineral Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner ice"><div class="type-badge">ICE</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Raffaello</div>
-                                            <div class="gym-leader-type">Ice-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Seel</span>
-                                                <span class="pokemon-mini">Dewgong</span>
-                                                <span class="pokemon-mini">Piloswine</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-ice"></div>
-                                                <span class="gym-badge-name">Glacier Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner dragon"><div class="type-badge">DRAGON</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Sandra</div>
-                                            <div class="gym-leader-type">Dragon-type Specialist</div>
-                                            <div class="gym-leader-pokemon">
-                                                <span class="pokemon-mini">Dragonair</span>
-                                                <span class="pokemon-mini">Kingdra</span>
-                                            </div>
-                                            <div class="gym-badge-reward">
-                                                <div class="mini-badge type-dragon"></div>
-                                                <span class="gym-badge-name">Rising Badge</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="elite-section">
-                                    <h3><i class="fas fa-crown"></i> Johto Elite Four &amp; Champion</h3>
-                                    <div class="elite-grid">
-                                        <div class="elite-member">
-                                            <div class="elite-type-icon type-psychic"><i class="fas fa-eye"></i></div>
-                                            <div class="elite-name">Pino</div>
-                                            <div class="elite-type">Psychic-type</div>
-                                        </div>
-                                        <div class="elite-member">
-                                            <div class="elite-type-icon type-poison"><i class="fas fa-skull-crossbones"></i></div>
-                                            <div class="elite-name">Koga</div>
-                                            <div class="elite-type">Poison-type</div>
-                                        </div>
-                                        <div class="elite-member">
-                                            <div class="elite-type-icon type-fighting"><i class="fas fa-fist-raised"></i></div>
-                                            <div class="elite-name">Bruno</div>
-                                            <div class="elite-type">Fighting-type</div>
-                                        </div>
-                                        <div class="elite-member">
-                                            <div class="elite-type-icon type-dark"><i class="fas fa-moon"></i></div>
-                                            <div class="elite-name">Karen</div>
-                                            <div class="elite-type">Dark-type</div>
-                                        </div>
-                                        <div class="elite-member champion">
-                                            <div class="elite-type-icon champion-icon"><i class="fas fa-crown"></i></div>
-                                            <div class="elite-name">Lance</div>
-                                            <div class="elite-type">Champion</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- HOENN & SINNOH - Collapsed for brevity, same pattern -->
-                        <div class="wiki-article" id="hoenn-gyms" data-category="gym-leaders">
-                            <div class="article-header">
-                                <h2><i class="fas fa-medal"></i> Hoenn Gym Leaders</h2>
-                                <span class="article-tag">Gym Leaders</span>
-                            </div>
-                            <div class="article-content">
-                                <p>The tropical Hoenn region! Unlock by completing Johto.</p>
-                                
-                                <div class="region-card">
-                                    <div class="region-header">
-                                        <div class="region-name">
-                                            <div class="region-icon hoenn"><i class="fas fa-umbrella-beach"></i></div>
-                                            <h4>Hoenn League Progress</h4>
-                                        </div>
-                                    </div>
-                                    <div class="region-badges">
-                                        <div class="badge-slot type-rock"><span class="badge-tooltip">Stone Badge</span></div>
-                                        <div class="badge-slot type-fighting"><span class="badge-tooltip">Knuckle Badge</span></div>
-                                        <div class="badge-slot type-electric"><span class="badge-tooltip">Dynamo Badge</span></div>
-                                        <div class="badge-slot type-fire"><span class="badge-tooltip">Heat Badge</span></div>
-                                        <div class="badge-slot type-normal"><span class="badge-tooltip">Balance Badge</span></div>
-                                        <div class="badge-slot type-flying"><span class="badge-tooltip">Feather Badge</span></div>
-                                        <div class="badge-slot type-psychic"><span class="badge-tooltip">Mind Badge</span></div>
-                                        <div class="badge-slot type-water"><span class="badge-tooltip">Rain Badge</span></div>
-                                    </div>
-                                </div>
-
-                                <div class="gym-leader-grid">
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner rock"><div class="type-badge">ROCK</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Petra</div>
-                                            <div class="gym-leader-type">Rock-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Geodude</span><span class="pokemon-mini">Nosepass</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-rock"></div><span class="gym-badge-name">Stone Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner fighting"><div class="type-badge">FIGHTING</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Rudi</div>
-                                            <div class="gym-leader-type">Fighting-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Machop</span><span class="pokemon-mini">Meditite</span><span class="pokemon-mini">Makuhita</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-fighting"></div><span class="gym-badge-name">Knuckle Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner electric"><div class="type-badge">ELECTRIC</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Walter</div>
-                                            <div class="gym-leader-type">Electric-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Voltorb</span><span class="pokemon-mini">Electrike</span><span class="pokemon-mini">Magneton</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-electric"></div><span class="gym-badge-name">Dynamo Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner fire"><div class="type-badge">FIRE</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Fiammetta</div>
-                                            <div class="gym-leader-type">Fire-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Numel</span><span class="pokemon-mini">Slugma</span><span class="pokemon-mini">Camerupt</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-fire"></div><span class="gym-badge-name">Heat Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner normal"><div class="type-badge">NORMAL</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Norman</div>
-                                            <div class="gym-leader-type">Normal-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Spinda</span><span class="pokemon-mini">Vigoroth</span><span class="pokemon-mini">Slaking</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-normal"></div><span class="gym-badge-name">Balance Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner flying"><div class="type-badge">FLYING</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Alice</div>
-                                            <div class="gym-leader-type">Flying-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Swellow</span><span class="pokemon-mini">Pelipper</span><span class="pokemon-mini">Altaria</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-flying"></div><span class="gym-badge-name">Feather Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner psychic"><div class="type-badge">PSYCHIC</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Tell &amp; Pat</div>
-                                            <div class="gym-leader-type">Psychic-type Specialists</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Solrock</span><span class="pokemon-mini">Lunatone</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-psychic"></div><span class="gym-badge-name">Mind Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner water"><div class="type-badge">WATER</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Adriano</div>
-                                            <div class="gym-leader-type">Water-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Luvdisc</span><span class="pokemon-mini">Whiscash</span><span class="pokemon-mini">Milotic</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-water"></div><span class="gym-badge-name">Rain Badge</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="elite-section">
-                                    <h3><i class="fas fa-crown"></i> Hoenn Elite Four &amp; Champion</h3>
-                                    <div class="elite-grid">
-                                        <div class="elite-member"><div class="elite-type-icon type-dark"><i class="fas fa-moon"></i></div><div class="elite-name">Lyris</div><div class="elite-type">Dark-type</div></div>
-                                        <div class="elite-member"><div class="elite-type-icon type-ghost"><i class="fas fa-ghost"></i></div><div class="elite-name">Phoebe</div><div class="elite-type">Ghost-type</div></div>
-                                        <div class="elite-member"><div class="elite-type-icon type-ice"><i class="fas fa-snowflake"></i></div><div class="elite-name">Glacia</div><div class="elite-type">Ice-type</div></div>
-                                        <div class="elite-member"><div class="elite-type-icon type-dragon"><i class="fas fa-dragon"></i></div><div class="elite-name">Drake</div><div class="elite-type">Dragon-type</div></div>
-                                        <div class="elite-member champion"><div class="elite-type-icon champion-icon"><i class="fas fa-crown"></i></div><div class="elite-name">Rocco</div><div class="elite-type">Champion</div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="sinnoh-gyms" data-category="gym-leaders">
-                            <div class="article-header">
-                                <h2><i class="fas fa-medal"></i> Sinnoh Gym Leaders</h2>
-                                <span class="article-tag">Gym Leaders</span>
-                            </div>
-                            <div class="article-content">
-                                <p>The mountainous Sinnoh region! Unlock by completing Hoenn.</p>
-                                
-                                <div class="region-card">
-                                    <div class="region-header">
-                                        <div class="region-name">
-                                            <div class="region-icon sinnoh"><i class="fas fa-mountain"></i></div>
-                                            <h4>Sinnoh League Progress</h4>
-                                        </div>
-                                    </div>
-                                    <div class="region-badges">
-                                        <div class="badge-slot type-rock"><span class="badge-tooltip">Coal Badge</span></div>
-                                        <div class="badge-slot type-grass"><span class="badge-tooltip">Forest Badge</span></div>
-                                        <div class="badge-slot type-fighting"><span class="badge-tooltip">Cobble Badge</span></div>
-                                        <div class="badge-slot type-water"><span class="badge-tooltip">Fen Badge</span></div>
-                                        <div class="badge-slot type-ghost"><span class="badge-tooltip">Relic Badge</span></div>
-                                        <div class="badge-slot type-steel"><span class="badge-tooltip">Mine Badge</span></div>
-                                        <div class="badge-slot type-ice"><span class="badge-tooltip">Icicle Badge</span></div>
-                                        <div class="badge-slot type-electric"><span class="badge-tooltip">Beacon Badge</span></div>
-                                    </div>
-                                </div>
-
-                                <div class="gym-leader-grid">
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner rock"><div class="type-badge">ROCK</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Pedro</div>
-                                            <div class="gym-leader-type">Rock-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Geodude</span><span class="pokemon-mini">Onix</span><span class="pokemon-mini">Cranidos</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-rock"></div><span class="gym-badge-name">Coal Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner grass"><div class="type-badge">GRASS</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Gardenia</div>
-                                            <div class="gym-leader-type">Grass-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Cherubi</span><span class="pokemon-mini">Turtwig</span><span class="pokemon-mini">Roserade</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-grass"></div><span class="gym-badge-name">Forest Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner fighting"><div class="type-badge">FIGHTING</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Marzia</div>
-                                            <div class="gym-leader-type">Fighting-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Meditite</span><span class="pokemon-mini">Machoke</span><span class="pokemon-mini">Lucario</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-fighting"></div><span class="gym-badge-name">Cobble Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner water"><div class="type-badge">WATER</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Omar</div>
-                                            <div class="gym-leader-type">Water-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Gyarados</span><span class="pokemon-mini">Quagsire</span><span class="pokemon-mini">Floatzel</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-water"></div><span class="gym-badge-name">Fen Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner ghost"><div class="type-badge">GHOST</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Fannie</div>
-                                            <div class="gym-leader-type">Ghost-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Drifblim</span><span class="pokemon-mini">Gengar</span><span class="pokemon-mini">Mismagius</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-ghost"></div><span class="gym-badge-name">Relic Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner steel"><div class="type-badge">STEEL</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Ferruccio</div>
-                                            <div class="gym-leader-type">Steel-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Magneton</span><span class="pokemon-mini">Steelix</span><span class="pokemon-mini">Bastiodon</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-steel"></div><span class="gym-badge-name">Mine Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner ice"><div class="type-badge">ICE</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Bianca</div>
-                                            <div class="gym-leader-type">Ice-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Snover</span><span class="pokemon-mini">Sneasel</span><span class="pokemon-mini">Froslass</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-ice"></div><span class="gym-badge-name">Icicle Badge</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="gym-leader-card">
-                                        <div class="gym-leader-banner electric"><div class="type-badge">ELECTRIC</div></div>
-                                        <div class="gym-leader-info">
-                                            <div class="gym-leader-name">Corrado</div>
-                                            <div class="gym-leader-type">Electric-type Specialist</div>
-                                            <div class="gym-leader-pokemon"><span class="pokemon-mini">Jolteon</span><span class="pokemon-mini">Luxray</span><span class="pokemon-mini">Electivire</span></div>
-                                            <div class="gym-badge-reward"><div class="mini-badge type-electric"></div><span class="gym-badge-name">Beacon Badge</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="elite-section">
-                                    <h3><i class="fas fa-crown"></i> Sinnoh Elite Four &amp; Champion</h3>
-                                    <div class="elite-grid">
-                                        <div class="elite-member"><div class="elite-type-icon type-bug"><i class="fas fa-bug"></i></div><div class="elite-name">Aaron</div><div class="elite-type">Bug-type</div></div>
-                                        <div class="elite-member"><div class="elite-type-icon type-ground"><i class="fas fa-globe"></i></div><div class="elite-name">Terrie</div><div class="elite-type">Ground-type</div></div>
-                                        <div class="elite-member"><div class="elite-type-icon type-fire"><i class="fas fa-fire"></i></div><div class="elite-name">Vulcano</div><div class="elite-type">Fire-type</div></div>
-                                        <div class="elite-member"><div class="elite-type-icon type-psychic"><i class="fas fa-eye"></i></div><div class="elite-name">Luciano</div><div class="elite-type">Psychic-type</div></div>
-                                        <div class="elite-member champion"><div class="elite-type-icon champion-icon"><i class="fas fa-crown"></i></div><div class="elite-name">Camilla</div><div class="elite-type">Champion</div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ACHIEVEMENTS -->
-                        <div class="wiki-article" id="achievements" data-category="achievements">
-                            <div class="article-header">
-                                <h2><i class="fas fa-trophy"></i> Achievements</h2>
-                                <span class="article-tag">Achievements</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Unlock achievements by completing challenges! Each grants exclusive rewards.</p>
-
-                                <h3><i class="fas fa-paw"></i> Collection</h3>
-                                <div class="achievement-grid">
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-briefcase"></i></div>
-                                            <div><div class="achievement-title">First Catch</div><span class="achievement-rarity rarity-common">Common</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Catch your first wild Pokémon.</div>
-                                    </div>
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-book"></i></div>
-                                            <div><div class="achievement-title">Pokédex Pioneer</div><span class="achievement-rarity rarity-uncommon">Uncommon</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Register 50 different Pokémon species.</div>
-                                    </div>
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-star"></i></div>
-                                            <div><div class="achievement-title">Shiny Hunter</div><span class="achievement-rarity rarity-epic">Epic</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Catch your first shiny Pokémon.</div>
-                                    </div>
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-scroll"></i></div>
-                                            <div><div class="achievement-title">Living Pokédex</div><span class="achievement-rarity rarity-legendary">Legendary</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Own one of every catchable species.</div>
-                                    </div>
-                                </div>
-
-                                <h3><i class="fas fa-fist-raised"></i> Battle</h3>
-                                <div class="achievement-grid">
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-bolt"></i></div>
-                                            <div><div class="achievement-title">First Victory</div><span class="achievement-rarity rarity-common">Common</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Win your first Pokémon battle.</div>
-                                    </div>
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-medal"></i></div>
-                                            <div><div class="achievement-title">Gym Challenger</div><span class="achievement-rarity rarity-rare">Rare</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Defeat all Gym Leaders in one region.</div>
-                                    </div>
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-crown"></i></div>
-                                            <div><div class="achievement-title">Champion</div><span class="achievement-rarity rarity-epic">Epic</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Defeat the Elite Four and become Champion.</div>
-                                    </div>
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-globe"></i></div>
-                                            <div><div class="achievement-title">World Champion</div><span class="achievement-rarity rarity-legendary">Legendary</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Become Champion in all 4 regions.</div>
-                                    </div>
-                                </div>
-
-                                <h3><i class="fas fa-coins"></i> Economy</h3>
-                                <div class="achievement-grid">
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-wallet"></i></div>
-                                            <div><div class="achievement-title">First Earnings</div><span class="achievement-rarity rarity-common">Common</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Earn your first 1,000 PokéCoins.</div>
-                                    </div>
-                                    <div class="achievement-card">
-                                        <div class="achievement-header">
-                                            <div class="achievement-icon"><i class="fas fa-gem"></i></div>
-                                            <div><div class="achievement-title">Pokémon Millionaire</div><span class="achievement-rarity rarity-legendary">Legendary</span></div>
-                                        </div>
-                                        <div class="achievement-desc">Accumulate 1,000,000 PokéCoins.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- GAMEPLAY -->
-                        <div class="wiki-article" id="battling" data-category="gameplay">
-                            <div class="article-header">
-                                <h2><i class="fas fa-fist-raised"></i> PvP Battles</h2>
-                                <span class="article-tag">Gameplay</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Engage in competitive battles with other players!</p>
-                                <h3>Battle Commands</h3>
-                                <ul>
-                                    <li><code>/battle [player]</code> - Challenge another player</li>
-                                    <li><code>/battle accept</code> - Accept a battle request</li>
-                                    <li><code>/battle decline</code> - Decline a battle request</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="claiming" data-category="gameplay">
-                            <div class="article-header">
-                                <h2><i class="fas fa-shield-alt"></i> Land Claiming</h2>
-                                <span class="article-tag">Gameplay</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Protect your builds and items with our claim system.</p>
-                                <h3>Basic Commands</h3>
-                                <ul>
-                                    <li><code>/claim</code> - Create a claim</li>
-                                    <li><code>/trust [player]</code> - Give access to your claim</li>
-                                    <li><code>/untrust [player]</code> - Remove access</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="economy" data-category="economy">
-                            <div class="article-header">
-                                <h2><i class="fas fa-coins"></i> Economy System</h2>
-                                <span class="article-tag">Economy</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Learn how to earn and spend money in MeowCraft!</p>
-                                <h3>Economy Commands</h3>
-                                <ul>
-                                    <li><code>/balance</code> - Check your balance</li>
-                                    <li><code>/pay [player] [amount]</code> - Send money</li>
-                                    <li><code>/shop</code> - Access the shop</li>
-                                    <li><code>/ah</code> - Open auction house</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="catching" data-category="cobblemon">
-                            <div class="article-header">
-                                <h2><i class="fas fa-crosshairs"></i> Catching Pokémon</h2>
-                                <span class="article-tag">Cobblemon</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Learn the art of catching Pokémon in MeowCraft!</p>
-                                <h3>Pokéball Types</h3>
-                                <ul>
-                                    <li><strong>Poké Ball:</strong> Basic catch rate</li>
-                                    <li><strong>Great Ball:</strong> 1.5x catch rate</li>
-                                    <li><strong>Ultra Ball:</strong> 2x catch rate</li>
-                                    <li><strong>Master Ball:</strong> 100% catch rate (very rare!)</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="wiki-article" id="training" data-category="cobblemon">
-                            <div class="article-header">
-                                <h2><i class="fas fa-dumbbell"></i> Training Guide</h2>
-                                <span class="article-tag">Cobblemon</span>
-                            </div>
-                            <div class="article-content">
-                                <p>Maximize your Pokémon's potential!</p>
-                                <h3>Leveling Methods</h3>
-                                <ul>
-                                    <li><strong>Wild Battles:</strong> Classic exp grinding</li>
-                                    <li><strong>Trainer Battles:</strong> More experience</li>
-                                    <li><strong>Rare Candies:</strong> Instant level ups</li>
-                                </ul>
-                            </div>
-                        </div>
-
                     </div>
+
+                    <!-- Commands -->
+                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="wiki-card-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h3>Essential Commands</h3>
+                        <p>Master these commands to navigate the server like a pro.</p>
+                        <ul>
+                            <li><i class="fas fa-chevron-right"></i> <code>/spawn</code> - Return to spawn</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/home</code> - Teleport home</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/sethome</code> - Set your home</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/tpa [player]</code> - Request teleport</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/balance</code> - Check money</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/pay [player] [amount]</code> - Send money</li>
+                        </ul>
+                    </div>
+
+                    <!-- Land Claiming -->
+                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="wiki-card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Land Claiming</h3>
+                        <p>Protect your builds and items from other players.</p>
+                        <ul>
+                            <li><i class="fas fa-chevron-right"></i> <code>/claim</code> - Create a claim</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/trust [player]</code> - Add trusted player</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/untrust [player]</code> - Remove trust</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/abandonclaim</code> - Delete claim</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/claimlist</code> - View your claims</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cobblemon Basics -->
+                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="wiki-card-icon">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3>Cobblemon Basics</h3>
+                        <p>Learn how to catch, train, and battle with your Pokémon.</p>
+                        <ul>
+                            <li><i class="fas fa-crosshairs"></i> Throw Pokéballs at wild Pokémon</li>
+                            <li><i class="fas fa-fist-raised"></i> Battle to gain experience</li>
+                            <li><i class="fas fa-level-up-alt"></i> Level up to evolve</li>
+                            <li><i class="fas fa-heart"></i> Heal at Pokémon Centers</li>
+                            <li><i class="fas fa-exchange-alt"></i> Trade with other players</li>
+                        </ul>
+                    </div>
+
+                    <!-- Economy -->
+                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="wiki-card-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Economy System</h3>
+                        <p>Earn PokéCoins and spend them wisely!</p>
+                        <ul>
+                            <li><i class="fas fa-calendar-check"></i> Daily login rewards</li>
+                            <li><i class="fas fa-store"></i> Sell items at <code>/shop</code></li>
+                            <li><i class="fas fa-gavel"></i> Auction house <code>/ah</code></li>
+                            <li><i class="fas fa-tasks"></i> Complete quests for rewards</li>
+                            <li><i class="fas fa-trophy"></i> Win events and tournaments</li>
+                        </ul>
+                    </div>
+
+                    <!-- Battling -->
+                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="wiki-card-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>PvP Battles</h3>
+                        <p>Challenge other trainers to prove your skills!</p>
+                        <ul>
+                            <li><i class="fas fa-chevron-right"></i> <code>/battle [player]</code> - Challenge</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/battle accept</code> - Accept battle</li>
+                            <li><i class="fas fa-chevron-right"></i> <code>/battle decline</code> - Decline</li>
+                        </ul>
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i> Battle formats: Singles, Doubles, Triples
+                        </div>
+                    </div>
+
+                    <!-- Server Rules -->
+                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="wiki-card-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Server Rules</h3>
+                        <p>Follow these rules to keep MeowCraft fun for everyone.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Be respectful to all players</li>
+                            <li><i class="fas fa-check"></i> No griefing or stealing</li>
+                            <li><i class="fas fa-check"></i> No cheating or exploiting</li>
+                            <li><i class="fas fa-check"></i> Keep chat family-friendly</li>
+                            <li><i class="fas fa-check"></i> No advertising other servers</li>
+                        </ul>
+                        <div class="warning-box">
+                            <i class="fas fa-exclamation-triangle"></i> Breaking rules may result in bans!
+                        </div>
+                    </div>
+
+                    <!-- Discord -->
+                    <div class="wiki-card" data-aos="fade-up" data-aos-delay="700">
+                        <div class="wiki-card-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Join Our Discord</h3>
+                        <p>Connect with the community and get help!</p>
+                        <ul>
+                            <li><i class="fas fa-comments"></i> Chat with other players</li>
+                            <li><i class="fas fa-question-circle"></i> Get support from staff</li>
+                            <li><i class="fas fa-bell"></i> Server announcements</li>
+                            <li><i class="fas fa-calendar"></i> Event notifications</li>
+                            <li><i class="fas fa-gift"></i> Exclusive giveaways</li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- FAQs Section -->
+        <!-- FAQ Section -->
         <section class="faq-section">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                <h2 class="section-title" data-aos="fade-up"><i class="fas fa-question-circle"></i> FAQ</h2>
                 <div class="faq-grid" data-aos="fade-up">
                     <div class="faq-item">
                         <h3>How do I get started?</h3>
-                        <p>Download our custom launcher, create an account, and you'll be automatically connected!</p>
+                        <p>Download our launcher from the Download page, create an account, and click Play!</p>
                     </div>
                     <div class="faq-item">
                         <h3>Is the server always online?</h3>
-                        <p>Yes! MeowCraft is online 24/7 with 99.9% uptime.</p>
+                        <p>Yes! MeowCraft runs 24/7 with 99.9% uptime.</p>
                     </div>
                     <div class="faq-item">
                         <h3>Can I play with friends?</h3>
-                        <p>Absolutely! Invite your friends and create a team to explore together.</p>
+                        <p>Absolutely! Invite friends to join and explore together.</p>
                     </div>
                     <div class="faq-item">
                         <h3>How do I report bugs?</h3>
                         <p>Join our Discord and use the #bug-reports channel.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What Minecraft version?</h3>
+                        <p>MeowCraft runs on Fabric 1.21.1 with Cobblemon.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I get more Pokémon?</h3>
+                        <p>Explore different biomes! Each has unique spawns.</p>
                     </div>
                 </div>
             </div>
@@ -1259,6 +450,5 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-    <script src="wiki.js"></script>
 </body>
 </html>
