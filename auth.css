@@ -1,3 +1,5 @@
+/* MeowCraft Auth Styles - Clean Sober Design */
+
 /* Auth Main */
 .auth-main {
     min-height: 100vh;
@@ -5,28 +7,24 @@
     align-items: center;
     justify-content: center;
     padding: 6rem 2rem 2rem;
+    background: linear-gradient(180deg, #0a0a0f 0%, #14141e 100%);
 }
 
 .auth-container {
-    max-width: 1200px;
+    max-width: 1100px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     align-items: start;
-    position: relative;
-    z-index: 1;
 }
 
 /* Auth Box */
 .auth-box {
-    background: rgba(10, 10, 10, 0.9); /* Much more opaque */
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: 0 10px 40px rgba(255, 107, 53, 0.1);
-    position: relative;
-    z-index: 2;
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid rgba(255, 107, 53, 0.15);
+    border-radius: 12px;
+    padding: 2.5rem;
 }
 
 .auth-header {
@@ -35,72 +33,74 @@
 }
 
 .auth-header h1 {
-    font-size: 2.5rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 2rem;
+    color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .auth-header p {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
+    color: #a0a0a0;
+    font-size: 1rem;
 }
 
 /* Auth Form */
 .auth-form {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .form-group label {
     display: block;
-    color: var(--text-primary);
+    color: #fff;
     font-weight: 500;
     margin-bottom: 0.5rem;
+    font-size: 0.95rem;
 }
 
 .form-group input {
     width: 100%;
-    padding: 1rem;
-    background: rgba(255, 107, 53, 0.05);
+    padding: 0.875rem 1rem;
+    background: rgba(10, 10, 15, 0.8);
     border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 10px;
-    color: var(--text-primary);
+    border-radius: 8px;
+    color: #fff;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .form-group input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #555;
 }
 
 .form-group small {
     display: block;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
 }
 
 .form-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .checkbox-label {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-secondary);
+    color: #a0a0a0;
     cursor: pointer;
+    font-size: 0.9rem;
 }
 
 .checkbox-label input[type="checkbox"] {
@@ -108,31 +108,24 @@
     cursor: pointer;
 }
 
-.forgot-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.forgot-link:hover {
-    color: var(--accent-color);
-}
-
+.forgot-link,
 .form-options a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
+    font-size: 0.9rem;
 }
 
+.forgot-link:hover,
 .form-options a:hover {
-    color: var(--accent-color);
+    color: #ffd700;
 }
 
 /* Auth Divider */
 .auth-divider {
     position: relative;
     text-align: center;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
 }
 
 .auth-divider::before {
@@ -142,35 +135,36 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: rgba(255, 107, 53, 0.2);
+    background: rgba(255, 107, 53, 0.15);
 }
 
 .auth-divider span {
     position: relative;
-    background: var(--dark-bg);
+    background: rgba(20, 20, 30, 0.95);
     padding: 0 1rem;
-    color: var(--text-secondary);
+    color: #666;
+    font-size: 0.9rem;
 }
 
 /* Social Auth */
 .social-auth {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .social-btn {
     width: 100%;
-    padding: 1rem;
+    padding: 0.875rem;
     border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 10px;
-    background: rgba(255, 107, 53, 0.05);
-    color: var(--text-primary);
+    border-radius: 8px;
+    background: rgba(10, 10, 15, 0.5);
+    color: #fff;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,100 +172,97 @@
 }
 
 .social-btn:hover {
-    background: rgba(255, 107, 53, 0.1);
-    border-color: var(--primary-color);
-    transform: translateY(-2px);
+    border-color: rgba(255, 107, 53, 0.4);
 }
 
 .discord-btn:hover {
-    background: rgba(88, 101, 242, 0.1);
+    background: rgba(88, 101, 242, 0.15);
     border-color: #5865f2;
 }
 
 .microsoft-btn:hover {
-    background: rgba(0, 120, 212, 0.1);
+    background: rgba(0, 120, 212, 0.15);
     border-color: #0078d4;
 }
 
 /* Auth Footer */
 .auth-footer {
     text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 107, 53, 0.2);
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 107, 53, 0.1);
 }
 
 .auth-footer p {
-    color: var(--text-secondary);
+    color: #a0a0a0;
+    font-size: 0.95rem;
 }
 
 .auth-footer a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
 }
 
 .auth-footer a:hover {
-    color: var(--accent-color);
+    color: #ffd700;
 }
 
 /* Auth Features */
 .auth-features {
-    background: rgba(10, 10, 10, 0.85);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 20px;
-    padding: 3rem;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid rgba(255, 107, 53, 0.15);
+    border-radius: 12px;
+    padding: 2.5rem;
 }
 
 .auth-features h2 {
     color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.75rem;
     text-align: center;
 }
 
 .feature-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .feature-item {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.25rem;
     align-items: start;
 }
 
 .feature-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     flex-shrink: 0;
-    width: 60px;
+    width: 50px;
     text-align: center;
 }
 
 .feature-item h3 {
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    margin-bottom: 0.35rem;
+    font-size: 1.1rem;
 }
 
 .feature-item p {
-    color: var(--text-secondary);
-    line-height: 1.6;
+    color: #a0a0a0;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
-/* Error Messages */
+/* Error/Success Messages */
 .error-message {
     background: rgba(244, 67, 54, 0.1);
     border: 1px solid #f44336;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    padding: 0.875rem;
+    margin-bottom: 1.25rem;
     color: #f44336;
     display: none;
+    font-size: 0.95rem;
 }
 
 .error-message.active {
@@ -281,15 +272,378 @@
 .success-message {
     background: rgba(76, 175, 80, 0.1);
     border: 1px solid #4caf50;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    padding: 0.875rem;
+    margin-bottom: 1.25rem;
     color: #4caf50;
     display: none;
+    font-size: 0.95rem;
 }
 
 .success-message.active {
     display: block;
+}
+
+/* ===== Discord Login Styles ===== */
+.auth-logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+}
+
+.discord-login-box {
+    text-align: center;
+}
+
+.discord-login-section {
+    margin: 1.5rem 0;
+}
+
+.discord-login-btn {
+    width: 100%;
+    padding: 1rem 1.75rem;
+    background: #5865f2;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: all 0.2s ease;
+}
+
+.discord-login-btn:hover {
+    background: #4752c4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(88, 101, 242, 0.35);
+}
+
+.discord-login-btn i {
+    font-size: 1.3rem;
+}
+
+.discord-note {
+    margin-top: 0.875rem;
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.discord-note i {
+    color: #43b581;
+}
+
+.login-benefits {
+    text-align: left;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.login-benefits h3 {
+    color: #fff;
+    margin-bottom: 0.875rem;
+    font-size: 1rem;
+}
+
+.login-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.login-benefits li {
+    color: #a0a0a0;
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+}
+
+.login-benefits li i {
+    color: #43b581;
+    font-size: 0.85rem;
+}
+
+/* ===== Profile Page Styles ===== */
+.profile-main {
+    min-height: 100vh;
+    padding: 6rem 2rem 2rem;
+    background: linear-gradient(180deg, #0a0a0f 0%, #14141e 100%);
+}
+
+.profile-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid rgba(255, 107, 53, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    background: rgba(255, 107, 53, 0.05);
+    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+    flex-wrap: wrap;
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+}
+
+.avatar-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #5865f2;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h1 {
+    color: #fff;
+    font-size: 1.75rem;
+    margin-bottom: 0.2rem;
+}
+
+.discord-tag {
+    color: #a0a0a0;
+    font-size: 0.85rem;
+}
+
+.member-since {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid #f44336;
+    color: #f44336;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.logout-btn:hover {
+    background: #f44336;
+    color: white;
+}
+
+.profile-section {
+    padding: 1.75rem;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.08);
+}
+
+.profile-section:last-child {
+    border-bottom: none;
+}
+
+.profile-section h2 {
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Minecraft Section */
+.minecraft-link-box {
+    background: rgba(10, 10, 15, 0.5);
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.minecraft-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.minecraft-info {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+.minecraft-head {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    image-rendering: pixelated;
+}
+
+#minecraftUsername {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.minecraft-input-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.875rem;
+    flex-wrap: wrap;
+}
+
+.minecraft-input-group input {
+    flex: 1;
+    min-width: 180px;
+    padding: 0.875rem 1rem;
+    background: rgba(10, 10, 15, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.minecraft-input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-note {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.6rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.85rem;
+}
+
+/* Stats Section */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.25rem;
+}
+
+.stat-card {
+    background: rgba(255, 107, 53, 0.05);
+    border: 1px solid rgba(255, 107, 53, 0.15);
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.stat-label {
+    color: #a0a0a0;
+    font-size: 0.85rem;
+}
+
+/* Purchase History */
+.purchase-history {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.purchase-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem;
+    background: rgba(10, 10, 15, 0.5);
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+}
+
+.purchase-name {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.purchase-date {
+    color: #666;
+    font-size: 0.8rem;
+    margin-left: 0.75rem;
+}
+
+.purchase-amount {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.no-purchases, .no-roles {
+    text-align: center;
+    padding: 1.5rem;
+    color: #666;
+}
+
+.no-purchases i {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.4;
+}
+
+.no-purchases .btn {
+    margin-top: 0.875rem;
+}
+
+/* Discord Roles */
+.roles-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.role-badge {
+    padding: 0.4rem 0.875rem;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.85rem;
 }
 
 /* Responsive */
@@ -310,17 +664,17 @@
 
     .auth-box,
     .auth-features {
-        padding: 2rem 1.5rem;
+        padding: 1.75rem 1.5rem;
     }
 
     .auth-header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .form-options {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 0.75rem;
     }
 
     .feature-item {
@@ -329,370 +683,9 @@
     }
 
     .feature-icon {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
-}
 
-/* ===== Discord Login Styles ===== */
-.auth-logo {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 1rem;
-}
-
-.discord-login-box {
-    text-align: center;
-}
-
-.discord-login-section {
-    margin: 2rem 0;
-}
-
-.discord-login-btn {
-    width: 100%;
-    padding: 1.2rem 2rem;
-    background: #5865f2;
-    border: none;
-    border-radius: 12px;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    transition: all 0.3s ease;
-}
-
-.discord-login-btn:hover {
-    background: #4752c4;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
-}
-
-.discord-login-btn i {
-    font-size: 1.5rem;
-}
-
-.discord-note {
-    margin-top: 1rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.discord-note i {
-    color: #43b581;
-}
-
-.login-benefits {
-    text-align: left;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.login-benefits h3 {
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.login-benefits ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.login-benefits li {
-    color: var(--text-secondary);
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.login-benefits li i {
-    color: #43b581;
-    font-size: 0.9rem;
-}
-
-/* ===== Profile Page Styles ===== */
-.profile-main {
-    min-height: 100vh;
-    padding: 6rem 2rem 2rem;
-}
-
-.profile-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.profile-card {
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.profile-header {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
-    background: rgba(255, 107, 53, 0.05);
-    border-bottom: 1px solid rgba(255, 107, 53, 0.2);
-    flex-wrap: wrap;
-}
-
-.profile-avatar-wrapper {
-    position: relative;
-}
-
-.profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 4px solid var(--primary-color);
-}
-
-.avatar-badge {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #5865f2;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.9rem;
-}
-
-.profile-info {
-    flex: 1;
-}
-
-.profile-info h1 {
-    color: var(--text-primary);
-    font-size: 2rem;
-    margin-bottom: 0.25rem;
-}
-
-.discord-tag {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-.member-since {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-}
-
-.logout-btn {
-    background: transparent;
-    border: 2px solid #f44336;
-    color: #f44336;
-    padding: 0.75rem 1.5rem;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.logout-btn:hover {
-    background: #f44336;
-    color: white;
-}
-
-.profile-section {
-    padding: 2rem;
-    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
-}
-
-.profile-section:last-child {
-    border-bottom: none;
-}
-
-.profile-section h2 {
-    color: var(--primary-color);
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-/* Minecraft Section */
-.minecraft-link-box {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    padding: 1.5rem;
-}
-
-.minecraft-status {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.minecraft-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.minecraft-head {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    image-rendering: pixelated;
-}
-
-#minecraftUsername {
-    color: var(--text-primary);
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.minecraft-input-group {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-}
-
-.minecraft-input-group input {
-    flex: 1;
-    min-width: 200px;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    color: var(--text-primary);
-    font-size: 1rem;
-}
-
-.minecraft-input-group input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.input-note {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-top: 0.75rem;
-}
-
-.btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-}
-
-/* Stats Section */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-}
-
-.stat-card {
-    background: rgba(255, 107, 53, 0.05);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-}
-
-.stat-value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 0.25rem;
-}
-
-.stat-label {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-/* Purchase History */
-.purchase-history {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.purchase-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 10px;
-    margin-bottom: 0.75rem;
-}
-
-.purchase-name {
-    color: var(--text-primary);
-    font-weight: 500;
-}
-
-.purchase-date {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-left: 1rem;
-}
-
-.purchase-amount {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.no-purchases, .no-roles {
-    text-align: center;
-    padding: 2rem;
-    color: var(--text-secondary);
-}
-
-.no-purchases i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    opacity: 0.5;
-}
-
-.no-purchases .btn {
-    margin-top: 1rem;
-}
-
-/* Discord Roles */
-.roles-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-}
-
-.role-badge {
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    color: white;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-/* Profile Responsive */
-@media (max-width: 768px) {
     .profile-header {
         flex-direction: column;
         text-align: center;
