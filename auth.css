@@ -1,711 +1,511 @@
-/* MeowCraft Auth Styles - Clean Sober Design */
+/* MeowCraft Gym Leaders Styles - Clean Sober Design */
 
-/* Auth Main */
-.auth-main {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff6b35;
+    --secondary-color: #8b5cf6;
+    --dark-bg: #0a0a0f;
+    --card-bg: rgba(20, 20, 30, 0.9);
+}
+
+/* Page Container */
+.gym-leaders-page {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 2rem 2rem;
+    padding-top: 80px;
+    background: var(--dark-bg);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 60px 20px;
+    text-align: center;
     background: linear-gradient(180deg, #0a0a0f 0%, #14141e 100%);
 }
 
-.auth-container {
-    max-width: 1100px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: start;
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Auth Box */
-.auth-box {
-    background: rgba(20, 20, 30, 0.95);
+.page-title i {
+    margin-right: 12px;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.75rem;
+    margin: 40px 0 25px;
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title i {
+    margin-right: 8px;
+}
+
+.elite-four-title {
+    color: #e74c3c;
+}
+
+.champion-title {
+    color: #f39c12;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.gym-leaders-container {
+    padding: 20px 0 80px;
+}
+
+/* Leader Card */
+.leader-card {
+    background: var(--card-bg);
     border: 1px solid rgba(255, 107, 53, 0.15);
     border-radius: 12px;
-    padding: 2.5rem;
-}
-
-.auth-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.auth-header h1 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.auth-header p {
-    color: #a0a0a0;
-    font-size: 1rem;
-}
-
-/* Auth Form */
-.auth-form {
-    margin-bottom: 1.5rem;
-}
-
-.form-group {
-    margin-bottom: 1.25rem;
-}
-
-.form-group label {
-    display: block;
-    color: #fff;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.875rem 1rem;
-    background: rgba(10, 10, 15, 0.8);
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 8px;
-    color: #fff;
-    font-size: 1rem;
+    margin-bottom: 20px;
+    overflow: hidden;
     transition: all 0.2s ease;
 }
 
-.form-group input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.form-group input::placeholder {
-    color: #555;
-}
-
-.form-group small {
-    display: block;
-    color: #666;
-    font-size: 0.8rem;
-    margin-top: 0.4rem;
-}
-
-.form-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.25rem;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #a0a0a0;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.checkbox-label input[type="checkbox"] {
-    width: auto;
-    cursor: pointer;
-}
-
-.forgot-link,
-.form-options a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-size: 0.9rem;
-}
-
-.forgot-link:hover,
-.form-options a:hover {
-    color: #ffd700;
-}
-
-/* Auth Divider */
-.auth-divider {
-    position: relative;
-    text-align: center;
-    margin: 1.5rem 0;
-}
-
-.auth-divider::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: rgba(255, 107, 53, 0.15);
-}
-
-.auth-divider span {
-    position: relative;
-    background: rgba(20, 20, 30, 0.95);
-    padding: 0 1rem;
-    color: #666;
-    font-size: 0.9rem;
-}
-
-/* Social Auth */
-.social-auth {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-}
-
-.social-btn {
-    width: 100%;
-    padding: 0.875rem;
-    border: 1px solid rgba(255, 107, 53, 0.2);
-    border-radius: 8px;
-    background: rgba(10, 10, 15, 0.5);
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.social-btn:hover {
+.leader-card:hover {
     border-color: rgba(255, 107, 53, 0.4);
 }
 
-.discord-btn:hover {
-    background: rgba(88, 101, 242, 0.15);
-    border-color: #5865f2;
-}
-
-.microsoft-btn:hover {
-    background: rgba(0, 120, 212, 0.15);
-    border-color: #0078d4;
-}
-
-/* Auth Footer */
-.auth-footer {
-    text-align: center;
-    padding-top: 1.25rem;
-    border-top: 1px solid rgba(255, 107, 53, 0.1);
-}
-
-.auth-footer p {
-    color: #a0a0a0;
-    font-size: 0.95rem;
-}
-
-.auth-footer a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.auth-footer a:hover {
-    color: #ffd700;
-}
-
-/* Auth Features */
-.auth-features {
-    background: rgba(20, 20, 30, 0.95);
-    border: 1px solid rgba(255, 107, 53, 0.15);
-    border-radius: 12px;
-    padding: 2.5rem;
-}
-
-.auth-features h2 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 1.75rem;
-    text-align: center;
-}
-
-.feature-list {
+/* Leader Header - Clickable */
+.leader-header {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
+    padding: 18px 22px;
+    cursor: pointer;
+    gap: 18px;
+    transition: background 0.2s ease;
 }
 
-.feature-item {
-    display: flex;
-    gap: 1.25rem;
-    align-items: start;
+.leader-header:hover {
+    background: rgba(255, 107, 53, 0.03);
 }
 
-.feature-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-    width: 50px;
-    text-align: center;
-}
-
-.feature-item h3 {
+/* Arrow */
+.leader-arrow {
+    transition: transform 0.2s ease;
     color: var(--primary-color);
-    margin-bottom: 0.35rem;
+}
+
+.leader-card.expanded .leader-arrow {
+    transform: rotate(90deg);
+}
+
+.leader-arrow i {
     font-size: 1.1rem;
 }
 
-.feature-item p {
-    color: #a0a0a0;
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-/* Error/Success Messages */
-.error-message {
-    background: rgba(244, 67, 54, 0.1);
-    border: 1px solid #f44336;
-    border-radius: 8px;
-    padding: 0.875rem;
-    margin-bottom: 1.25rem;
-    color: #f44336;
-    display: none;
-    font-size: 0.95rem;
-}
-
-.error-message.active {
-    display: block;
-}
-
-.success-message {
-    background: rgba(76, 175, 80, 0.1);
-    border: 1px solid #4caf50;
-    border-radius: 8px;
-    padding: 0.875rem;
-    margin-bottom: 1.25rem;
-    color: #4caf50;
-    display: none;
-    font-size: 0.95rem;
-}
-
-.success-message.active {
-    display: block;
-}
-
-/* ===== Discord Login Styles ===== */
-.auth-logo {
+/* Leader Sprite */
+.leader-sprite {
     width: 70px;
     height: 70px;
-    margin-bottom: 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+    flex-shrink: 0;
 }
 
-.discord-login-box {
-    text-align: center;
-}
-
-.discord-login-section {
-    margin: 1.5rem 0;
-}
-
-.discord-login-btn {
+.leader-sprite img {
     width: 100%;
-    padding: 1rem 1.75rem;
-    background: #5865f2;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1.1rem;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Leader Info */
+.leader-info {
+    flex: 1;
+}
+
+.leader-header-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.leader-name {
+    font-size: 1.5rem;
     font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    transition: all 0.2s ease;
-}
-
-.discord-login-btn:hover {
-    background: #4752c4;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(88, 101, 242, 0.35);
-}
-
-.discord-login-btn i {
-    font-size: 1.3rem;
-}
-
-.discord-note {
-    margin-top: 0.875rem;
-    color: #a0a0a0;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-}
-
-.discord-note i {
-    color: #43b581;
-}
-
-.login-benefits {
-    text-align: left;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.login-benefits h3 {
     color: #fff;
-    margin-bottom: 0.875rem;
-    font-size: 1rem;
-}
-
-.login-benefits ul {
-    list-style: none;
-    padding: 0;
     margin: 0;
 }
 
-.login-benefits li {
-    color: #a0a0a0;
-    padding: 0.4rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.9rem;
-}
-
-.login-benefits li i {
-    color: #43b581;
-    font-size: 0.85rem;
-}
-
-/* ===== Profile Page Styles ===== */
-.profile-main {
-    min-height: 100vh;
-    padding: 6rem 2rem 2rem;
-    background: linear-gradient(180deg, #0a0a0f 0%, #14141e 100%);
-}
-
-.profile-container {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.profile-card {
-    background: rgba(20, 20, 30, 0.95);
-    border: 1px solid rgba(255, 107, 53, 0.15);
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.profile-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.75rem;
-    background: rgba(255, 107, 53, 0.05);
-    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
-    flex-wrap: wrap;
-}
-
-.profile-avatar-wrapper {
-    position: relative;
-}
-
-.profile-avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 3px solid var(--primary-color);
-}
-
-.avatar-badge {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #5865f2;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.85rem;
-}
-
-.profile-info {
-    flex: 1;
-}
-
-.profile-info h1 {
-    color: #fff;
-    font-size: 1.75rem;
-    margin-bottom: 0.2rem;
-}
-
-.discord-tag {
-    color: #a0a0a0;
-    font-size: 0.85rem;
-}
-
-.member-since {
-    color: #666;
-    font-size: 0.8rem;
-    margin-top: 0.2rem;
-}
-
-.logout-btn {
-    background: transparent;
-    border: 1px solid #f44336;
-    color: #f44336;
-    padding: 0.6rem 1.25rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.logout-btn:hover {
-    background: #f44336;
-    color: white;
-}
-
-.profile-section {
-    padding: 1.75rem;
-    border-bottom: 1px solid rgba(255, 107, 53, 0.08);
-}
-
-.profile-section:last-child {
-    border-bottom: none;
-}
-
-.profile-section h2 {
-    color: var(--primary-color);
-    font-size: 1.15rem;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-/* Minecraft Section */
-.minecraft-link-box {
-    background: rgba(10, 10, 15, 0.5);
-    border-radius: 8px;
-    padding: 1.25rem;
-}
-
-.minecraft-status {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.minecraft-info {
-    display: flex;
-    align-items: center;
-    gap: 0.875rem;
-}
-
-.minecraft-head {
-    width: 44px;
-    height: 44px;
+.type-badge {
+    padding: 5px 14px;
     border-radius: 6px;
-    image-rendering: pixelated;
-}
-
-#minecraftUsername {
-    color: #fff;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.minecraft-input-group {
+.leader-gym {
+    color: #888;
+    font-size: 0.95rem;
+    margin: 4px 0 0 0;
+}
+
+/* Team Preview */
+.leader-team-preview {
     display: flex;
-    gap: 0.75rem;
-    margin-top: 0.875rem;
-    flex-wrap: wrap;
+    gap: 6px;
 }
 
-.minecraft-input-group input {
-    flex: 1;
-    min-width: 180px;
-    padding: 0.875rem 1rem;
-    background: rgba(10, 10, 15, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: #fff;
-    font-size: 1rem;
+.team-sprite {
+    width: 46px;
+    height: 46px;
+    background: rgba(10, 10, 15, 0.6);
+    border-radius: 6px;
+    padding: 4px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    transition: all 0.2s ease;
 }
 
-.minecraft-input-group input:focus {
-    outline: none;
+.team-sprite:hover {
+    transform: scale(1.08);
     border-color: var(--primary-color);
 }
 
-.input-note {
-    color: #666;
-    font-size: 0.8rem;
-    margin-top: 0.6rem;
+.team-sprite img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
 }
 
-.btn-sm {
-    padding: 0.5rem 0.875rem;
-    font-size: 0.85rem;
-}
-
-/* Stats Section */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.25rem;
-}
-
-.stat-card {
-    background: rgba(255, 107, 53, 0.05);
-    border: 1px solid rgba(255, 107, 53, 0.15);
-    border-radius: 10px;
-    padding: 1.25rem;
+/* Level Cap */
+.leader-level-cap {
     text-align: center;
+    padding: 8px;
+    background: rgba(139, 92, 246, 0.15);
+    border-radius: 8px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    min-width: 70px;
 }
 
-.stat-value {
-    font-size: 1.75rem;
+.level-cap-label {
+    font-size: 0.65rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.level-cap-number {
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 0.2rem;
+    color: var(--secondary-color);
 }
 
-.stat-label {
-    color: #a0a0a0;
+/* Team Expansion */
+.leader-team-expansion {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: rgba(10, 10, 15, 0.5);
+}
+
+.leader-card.expanded .leader-team-expansion {
+    max-height: 8000px;
+    border-top: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.team-content {
+    padding: 25px 18px;
+}
+
+/* Pokemon Grid */
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 20px;
+}
+
+/* Pokemon Card */
+.pokemon-card {
+    background: rgba(30, 30, 40, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.pokemon-card:hover {
+    border-color: rgba(255, 107, 53, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.pokemon-card-header {
+    position: relative;
+    padding: 14px;
+    background: rgba(40, 40, 50, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-type-badges {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.type-badge-small {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.pokemon-sprite-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.pokemon-sprite-container img {
+    max-width: 100%;
+    max-height: 100%;
+    image-rendering: pixelated;
+}
+
+.shiny-indicator {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    font-size: 1.75rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.7));
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.15) rotate(180deg); }
+}
+
+.pokemon-hp-display {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid #ff5959;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.pokemon-title-section {
+    padding: 14px 18px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pokemon-level-badge {
+    display: inline-block;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 6px;
+}
+
+.pokemon-name-display {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 6px 0;
+}
+
+.pokemon-ability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(241, 196, 15, 0.15);
+    border: 1px solid rgba(241, 196, 15, 0.3);
+    border-radius: 4px;
+    padding: 5px 12px;
     font-size: 0.85rem;
+    color: #f1c40f;
 }
 
-/* Purchase History */
-.purchase-history {
-    max-height: 280px;
-    overflow-y: auto;
+.pokemon-moves-section {
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.purchase-item {
+.move-item {
+    background: rgba(10, 10, 15, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+
+.move-item:hover {
+    border-color: rgba(255, 107, 53, 0.3);
+}
+
+.move-name-power {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.875rem;
-    background: rgba(10, 10, 15, 0.5);
-    border-radius: 8px;
-    margin-bottom: 0.6rem;
 }
 
-.purchase-name {
-    color: #fff;
-    font-weight: 500;
-    font-size: 0.95rem;
-}
-
-.purchase-date {
-    color: #666;
-    font-size: 0.8rem;
-    margin-left: 0.75rem;
-}
-
-.purchase-amount {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.no-purchases, .no-roles {
-    text-align: center;
-    padding: 1.5rem;
-    color: #666;
-}
-
-.no-purchases i {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-    opacity: 0.4;
-}
-
-.no-purchases .btn {
-    margin-top: 0.875rem;
-}
-
-/* Discord Roles */
-.roles-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-}
-
-.role-badge {
-    padding: 0.4rem 0.875rem;
-    border-radius: 6px;
-    color: white;
-    font-weight: 500;
+.move-name {
     font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
 }
+
+.move-power {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #888;
+}
+
+.pokemon-stats-section {
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 40px 35px 1fr;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #888;
+    text-transform: lowercase;
+}
+
+.stat-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: right;
+}
+
+.stat-bar-bg {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stat-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+/* Type Colors */
+.type-normal { background: #A8A878; color: #fff; }
+.type-fire { background: #F08030; color: #fff; }
+.type-water { background: #6890F0; color: #fff; }
+.type-electric { background: #F8D030; color: #333; }
+.type-grass { background: #78C850; color: #fff; }
+.type-ice { background: #98D8D8; color: #333; }
+.type-fighting { background: #C03028; color: #fff; }
+.type-poison { background: #A040A0; color: #fff; }
+.type-ground { background: #E0C068; color: #333; }
+.type-flying { background: #A890F0; color: #fff; }
+.type-psychic { background: #F85888; color: #fff; }
+.type-bug { background: #A8B820; color: #fff; }
+.type-rock { background: #B8A038; color: #fff; }
+.type-ghost { background: #705898; color: #fff; }
+.type-dragon { background: #7038F8; color: #fff; }
+.type-dark { background: #705848; color: #fff; }
+.type-steel { background: #B8B8D0; color: #333; }
+.type-fairy { background: #EE99AC; color: #333; }
+.type-champion { background: linear-gradient(135deg, #f39c12, #e74c3c); color: #fff; }
 
 /* Responsive */
-@media (max-width: 1024px) {
-    .auth-container {
-        grid-template-columns: 1fr;
-    }
-
-    .auth-features {
-        order: -1;
-    }
-}
-
 @media (max-width: 768px) {
-    .auth-main {
-        padding: 5rem 1rem 1rem;
-    }
-
-    .auth-box,
-    .auth-features {
-        padding: 1.75rem 1.5rem;
-    }
-
-    .auth-header h1 {
+    .page-title {
         font-size: 1.75rem;
     }
 
-    .form-options {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
+    .leader-header {
+        flex-wrap: wrap;
+        padding: 14px;
     }
 
-    .feature-item {
-        flex-direction: column;
-        text-align: center;
+    .leader-sprite {
+        width: 55px;
+        height: 55px;
     }
 
-    .feature-icon {
-        font-size: 2rem;
-    }
-
-    .profile-header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .logout-btn {
+    .leader-team-preview {
+        order: 4;
         width: 100%;
-        justify-content: center;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .minecraft-status {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .minecraft-input-group {
-        flex-direction: column;
-    }
-
-    .stats-grid {
+    .pokemon-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pokemon-moves-section {
+        grid-template-columns: 1fr;
+    }
+
+    .team-content {
+        padding: 18px 12px;
+    }
+    
+    .section-title {
+        font-size: 1.35rem;
     }
 }
