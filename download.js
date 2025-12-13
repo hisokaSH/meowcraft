@@ -29,7 +29,7 @@ function initGuideTabs() {
 window.downloadLauncher = function(platform) {
     // Download URL from GitHub Releases
     const downloadUrls = {
-        windows: 'https://github.com/hisokaSH/meowcraft_launcher/releases/download/untagged-ca15df915931089c9e54/MeowCraft.Launcher.Setup.3.0.0.exe',
+        windows: 'https://github.com/hisokaSH/meowcraft_launcher/releases/download/v3.5/MeowCraft.Launcher.Setup.3.0.0.exe',
         mac: 'https://github.com/hisokaSH/meowcraft/releases/download/v1/meowcraft.zip',
         linux: 'https://github.com/hisokaSH/meowcraft/releases/download/v1/meowcraft.zip'
     };
